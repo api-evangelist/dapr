@@ -1,0 +1,173 @@
+asyncapi: 2.6.0
+info:
+  title: Dapr Pub/Sub Messaging API
+  version: 1.0.0
+  description: >-
+    The Dapr Pub/Sub AsyncAPI defines the event-driven messaging interfaces
+    for Dapr publish and subscribe operations. Applications publish events
+    to topics and subscribe to receive events using the CloudEvents 1.0
+    specification format. Dapr supports pluggable pub/sub components
+    including Kafka, RabbitMQ, Redis Streams, Azure Service Bus, AWS SNS/SQS,
+    GCP Pub/Sub, and more.
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  externalDocs:
+    description: Dapr Pub/Sub API Reference
+    url: https://docs.dapr.io/reference/api/pubsub_api/
+servers:
+  dapr-sidecar:
+    url: localhost:3500
+    protocol: http
+    description: >-
+      Dapr sidecar HTTP endpoint for publishing events. The sidecar handles
+      routing messages to the configured pub/sub component.
+channels:
+  publish:
+    description: >-
+      Channel for publishing events to a topic on a named pub/sub component.
+      The Dapr sidecar wraps payloads in CloudEvents format unless raw payload
+      mode is enabled.
+    publish:
+      operationId: publishEvent
+      summary: Publish Event
+      description: >-
+        Publishes an event to the specified topic. If content type is not
+        application/cloudevents+json, the payload is automatically wrapped
+        in a CloudEvent envelope by the Dapr sidecar.
+      message:
+        $ref: '#/components/messages/CloudEvent'
+      tags:
+        - name: PubSub
+        - name: Messaging
+  subscribe:
+    description: >-
+      Channel for receiving events from subscribed topics. Dapr delivers
+      events to application endpoints based on programmatic or declarative
+      subscription configurations.
+    subscribe:
+      operationId: receiveEvent
+      summary: Receive Event
+      description: >-
+        Receives an event from a subscribed topic. Events are delivered in
+        CloudEvents format to the application endpoint registered for the
+        topic subscription.
+      message:
+        $ref: '#/components/messages/CloudEvent'
+      tags:
+        - name: PubSub
+        - name: Messaging
+  bulk-publish:
+    description: >-
+      Channel for publishing multiple events to a topic in a single request.
+      Supports partial failure reporting for individual entries.
+    publish:
+      operationId: bulkPublishEvents
+      summary: Bulk Publish Events
+      description: >-
+        Publishes multiple events to the specified topic in a single
+        operation. Each entry includes an entryId, event data, and optional
+        content type and metadata.
+      message:
+        $ref: '#/components/messages/BulkPublishEntry'
+      tags:
+        - name: PubSub
+        - name: Messaging
+        - name: Bulk
+components:
+  messages:
+    CloudEvent:
+      name: CloudEvent
+      title: CloudEvent Message
+      summary: >-
+        A message conforming to the CloudEvents 1.0 specification used
+        for all Dapr pub/sub event payloads.
+      contentType: application/cloudevents+json
+      payload:
+        $ref: '#/components/schemas/CloudEvent'
+    BulkPublishEntry:
+      name: BulkPublishEntry
+      title: Bulk Publish Entry
+      summary: >-
+        A single entry in a bulk publish request containing the event data
+        and metadata.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BulkPublishEntry'
+  schemas:
+    CloudEvent:
+      type: object
+      description: >-
+        CloudEvents 1.0 specification envelope used by Dapr for pub/sub
+        messaging. All published events are wrapped in this format unless
+        raw payload mode is enabled.
+      required:
+        - specversion
+        - type
+        - source
+        - id
+      properties:
+        specversion:
+          type: string
+          description: The version of the CloudEvents specification (1.0).
+          enum:
+            - '1.0'
+        type:
+          type: string
+          description: The type of the event.
+        source:
+          type: string
+          description: The source of the event.
+        id:
+          type: string
+          description: Unique identifier for the event.
+        subject:
+          type: string
+          description: The subject of the event in context of the producer.
+        time:
+          type: string
+          format: date-time
+          description: Timestamp of when the event occurred.
+        datacontenttype:
+          type: string
+          description: Content type of the data attribute.
+        data:
+          description: The event payload data.
+        topic:
+          type: string
+          description: The topic the event is published to.
+        pubsubname:
+          type: string
+          description: The name of the pub/sub component.
+        traceid:
+          type: string
+          description: The distributed tracing identifier.
+        traceparent:
+          type: string
+          description: The W3C trace context traceparent header value.
+        tracestate:
+          type: string
+          description: The W3C trace context tracestate header value.
+    BulkPublishEntry:
+      type: object
+      description: A single entry in a bulk publish request.
+      required:
+        - entryId
+        - event
+      properties:
+        entryId:
+          type: string
+          description: Unique identifier for the entry.
+        event:
+          description: The event data payload.
+        contentType:
+          type: string
+          description: Content type of the event data.
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+          description: Additional metadata for the entry.

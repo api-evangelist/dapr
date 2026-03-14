@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/dapr/blob/main/json-schema/metadata.json",
+  "title": "Dapr Metadata",
+  "description": "Represents the metadata response from the Dapr sidecar, including application connection details, registered components, active subscriptions, HTTP endpoints, and custom extended attributes.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The application ID."
+    },
+    "runtimeVersion": {
+      "type": "string",
+      "description": "The Dapr runtime version."
+    },
+    "enabledFeatures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of enabled Dapr features."
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The registered actor type name."
+          },
+          "count": {
+            "type": "integer",
+            "description": "The number of active instances of this actor type."
+          }
+        }
+      },
+      "description": "Registered actor types and their active instance counts."
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The component name."
+          },
+          "type": {
+            "type": "string",
+            "description": "The component type (e.g., state.redis, pubsub.kafka)."
+          },
+          "version": {
+            "type": "string",
+            "description": "The component version."
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Capabilities supported by this component."
+          }
+        }
+      },
+      "description": "Registered Dapr components."
+    },
+    "subscriptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pubsubname": {
+            "type": "string",
+            "description": "The pub/sub component name."
+          },
+          "topic": {
+            "type": "string",
+            "description": "The subscribed topic."
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Subscription routing rules."
+          },
+          "deadLetterTopic": {
+            "type": "string",
+            "description": "The dead letter topic for failed messages."
+          }
+        }
+      },
+      "description": "Active pub/sub subscriptions."
+    },
+    "httpEndpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The HTTP endpoint name."
+          }
+        }
+      },
+      "description": "Registered HTTP endpoints."
+    },
+    "appConnectionProperties": {
+      "type": "object",
+      "description": "Application connection properties.",
+      "properties": {
+        "port": {
+          "type": "integer",
+          "description": "The application port."
+        },
+        "protocol": {
+          "type": "string",
+          "description": "The application protocol (http or grpc)."
+        },
+        "channelAddress": {
+          "type": "string",
+          "description": "The application channel address."
+        },
+        "maxConcurrency": {
+          "type": "integer",
+          "description": "Maximum concurrency level for the application."
+        },
+        "health": {
+          "type": "object",
+          "properties": {
+            "healthCheckPath": {
+              "type": "string",
+              "description": "The health check endpoint path."
+            },
+            "healthProbeInterval": {
+              "type": "string",
+              "description": "Interval between health probes."
+            },
+            "healthProbeTimeout": {
+              "type": "string",
+              "description": "Timeout for health probes."
+            },
+            "healthThreshold": {
+              "type": "integer",
+              "description": "Number of consecutive failures before unhealthy."
+            }
+          },
+          "description": "Application health check configuration."
+        }
+      }
+    },
+    "extended": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Custom extended metadata attributes."
+    }
+  }
+}

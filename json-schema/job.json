@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/dapr/blob/main/json-schema/job.json",
+  "title": "Dapr Job",
+  "description": "Represents a Dapr scheduled job, including its schedule expression, due time, repeat count, time-to-live, and data payload for triggered execution.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the job."
+    },
+    "schedule": {
+      "type": "string",
+      "description": "The schedule for the job using a cron expression or duration (e.g., @every 5s)."
+    },
+    "dueTime": {
+      "type": "string",
+      "description": "The time at which the job should be triggered (RFC 3339 or duration format)."
+    },
+    "repeats": {
+      "type": "integer",
+      "description": "The number of times the job should be triggered."
+    },
+    "ttl": {
+      "type": "string",
+      "description": "Time-to-live for the job."
+    },
+    "data": {
+      "description": "The data payload to include with the job trigger."
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/dapr/blob/main/json-schema/actor.json",
+  "title": "Dapr Actor",
+  "description": "Represents a Dapr virtual actor instance, including its type, identifier, and associated timer and reminder configurations.",
+  "type": "object",
+  "required": [
+    "actorType",
+    "actorId"
+  ],
+  "properties": {
+    "actorType": {
+      "type": "string",
+      "description": "The type of the actor."
+    },
+    "actorId": {
+      "type": "string",
+      "description": "The unique identifier of the actor instance."
+    },
+    "timer": {
+      "type": "object",
+      "description": "Timer configuration for the actor.",
+      "properties": {
+        "dueTime": {
+          "type": "string",
+          "description": "Time after which the timer fires for the first time (ISO 8601 duration or time)."
+        },
+        "period": {
+          "type": "string",
+          "description": "Time interval between timer fires (ISO 8601 duration)."
+        },
+        "callback": {
+          "type": "string",
+          "description": "The name of the callback method to invoke."
+        },
+        "data": {
+          "description": "Data to pass to the callback method."
+        }
+      }
+    },
+    "reminder": {
+      "type": "object",
+      "description": "Persistent reminder configuration for the actor. Reminders survive actor deactivations and failovers.",
+      "properties": {
+        "dueTime": {
+          "type": "string",
+          "description": "Time after which the reminder fires for the first time."
+        },
+        "period": {
+          "type": "string",
+          "description": "Time interval between reminder fires."
+        },
+        "data": {
+          "description": "Data to pass to the reminder callback."
+        },
+        "ttl": {
+          "type": "string",
+          "description": "Time-to-live for the reminder."
+        }
+      }
+    }
+  }
+}

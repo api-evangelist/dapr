@@ -12,6 +12,8 @@ apis:
         type: Documentation
       - url: openapi/dapr-state-management-openapi.yml
         type: OpenAPI
+      - url: json-schema/state-item.json
+        type: JSONSchema
     description: >-
       The Dapr State Management API provides key/value-based state management
       capabilities for distributed applications. It supports saving, retrieving,
@@ -29,6 +31,10 @@ apis:
         type: Documentation
       - url: openapi/dapr-pubsub-openapi.yml
         type: OpenAPI
+      - url: asyncapi/dapr-pubsub-asyncapi.yml
+        type: AsyncAPI
+      - url: json-schema/cloud-event.json
+        type: JSONSchema
     description: >-
       The Dapr Pub/Sub API enables publish and subscribe messaging between
       applications. It supports publishing events to topics, bulk publishing,
@@ -60,6 +66,8 @@ apis:
         type: Documentation
       - url: openapi/dapr-bindings-openapi.yml
         type: OpenAPI
+      - url: json-schema/binding.json
+        type: JSONSchema
     description: >-
       The Dapr Bindings API enables applications to trigger and invoke external
       resources through output bindings, and receive events from external
@@ -76,6 +84,8 @@ apis:
         type: Documentation
       - url: openapi/dapr-secrets-openapi.yml
         type: OpenAPI
+      - url: json-schema/secret.json
+        type: JSONSchema
     description: >-
       The Dapr Secrets API provides a consistent way to retrieve application
       secrets from various secret stores, including Hashicorp Vault, AWS
@@ -92,6 +102,8 @@ apis:
         type: Documentation
       - url: openapi/dapr-actors-openapi.yml
         type: OpenAPI
+      - url: json-schema/actor.json
+        type: JSONSchema
     description: >-
       The Dapr Actors API provides virtual actor capabilities for distributed
       applications, including actor method invocation, state management, timers,
@@ -107,6 +119,8 @@ apis:
         type: Documentation
       - url: openapi/dapr-workflow-openapi.yml
         type: OpenAPI
+      - url: json-schema/workflow.json
+        type: JSONSchema
     description: >-
       The Dapr Workflow API provides the ability to manage workflow instances,
       including starting, getting status, pausing, resuming, terminating,
@@ -121,6 +135,8 @@ apis:
         type: Documentation
       - url: openapi/dapr-configuration-openapi.yml
         type: OpenAPI
+      - url: json-schema/configuration-item.json
+        type: JSONSchema
     description: >-
       The Dapr Configuration API enables applications to retrieve and subscribe
       to configuration items from supported configuration stores, allowing
@@ -168,6 +184,8 @@ apis:
         type: Documentation
       - url: openapi/dapr-jobs-openapi.yml
         type: OpenAPI
+      - url: json-schema/job.json
+        type: JSONSchema
     description: >-
       The Dapr Jobs API enables applications to schedule, retrieve, and delete
       jobs for future execution at specific times or intervals using cron
@@ -198,6 +216,8 @@ apis:
         type: Documentation
       - url: openapi/dapr-metadata-openapi.yml
         type: OpenAPI
+      - url: json-schema/metadata.json
+        type: JSONSchema
     description: >-
       The Dapr Metadata API provides information about the Dapr sidecar,
       including application connection details, registered components, active
@@ -214,6 +234,23 @@ tags:
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
+common:
+  - url: https://docs.dapr.io/
+    name: Documentation
+    type: Documentation
+    description: 'null'
+  - url: https://blog.dapr.io/
+    name: Blog
+    type: Blog
+    description: 'null'
+  - url: https://github.com/dapr/dapr
+    name: GitHub
+    type: GitHubOrg
+    description: 'null'
+  - url: json-ld/dapr-context.jsonld
+    name: JSON-LD Context
+    type: JSONLDContext
+    description: 'null'
 created: '2025-01-08'
 modified: '2026-03-14'
 position: Consumer

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/dapr/blob/main/json-schema/cloud-event.json",
+  "title": "Dapr CloudEvent",
+  "description": "A CloudEvents 1.0 specification envelope used by Dapr for pub/sub messaging. All published events are wrapped in this format unless raw payload mode is enabled.",
+  "type": "object",
+  "required": [
+    "specversion",
+    "type",
+    "source",
+    "id"
+  ],
+  "properties": {
+    "specversion": {
+      "type": "string",
+      "description": "The version of the CloudEvents specification.",
+      "enum": [
+        "1.0"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the event."
+    },
+    "source": {
+      "type": "string",
+      "description": "The source of the event, typically the app ID of the publisher."
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the event."
+    },
+    "subject": {
+      "type": "string",
+      "description": "The subject of the event in context of the event producer."
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of when the event occurred (RFC 3339)."
+    },
+    "datacontenttype": {
+      "type": "string",
+      "description": "Content type of the data attribute (e.g., application/json)."
+    },
+    "data": {
+      "description": "The event payload data."
+    },
+    "topic": {
+      "type": "string",
+      "description": "The topic the event was published to (Dapr extension)."
+    },
+    "pubsubname": {
+      "type": "string",
+      "description": "The name of the pub/sub component (Dapr extension)."
+    },
+    "traceid": {
+      "type": "string",
+      "description": "The distributed tracing identifier (Dapr extension)."
+    },
+    "traceparent": {
+      "type": "string",
+      "description": "The W3C trace context traceparent header value (Dapr extension)."
+    },
+    "tracestate": {
+      "type": "string",
+      "description": "The W3C trace context tracestate header value (Dapr extension)."
+    }
+  }
+}

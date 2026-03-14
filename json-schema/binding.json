@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/dapr/blob/main/json-schema/binding.json",
+  "title": "Dapr Binding",
+  "description": "Represents a Dapr binding request used to invoke output bindings or receive events from input bindings. Bindings enable integration with external resources such as Kafka, RabbitMQ, Azure Event Hubs, AWS SQS, and GCP Storage.",
+  "type": "object",
+  "required": [
+    "operation"
+  ],
+  "properties": {
+    "data": {
+      "description": "The data to send to the output binding."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Additional metadata for the binding invocation."
+    },
+    "operation": {
+      "type": "string",
+      "description": "The operation to perform on the binding (e.g., create, get, delete, list)."
+    }
+  }
+}

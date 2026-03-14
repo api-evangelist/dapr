@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/dapr/blob/main/json-schema/state-item.json",
+  "title": "Dapr StateItem",
+  "description": "Represents a state key/value pair used in Dapr state management operations, including optional concurrency control via ETags and metadata.",
+  "type": "object",
+  "required": [
+    "key",
+    "value"
+  ],
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "The state key identifier."
+    },
+    "value": {
+      "description": "The state value. Can be any JSON-serializable value."
+    },
+    "etag": {
+      "type": "string",
+      "description": "ETag for optimistic concurrency control."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Additional key/value metadata for the state operation."
+    },
+    "options": {
+      "type": "object",
+      "description": "Options for concurrency and consistency behavior.",
+      "properties": {
+        "concurrency": {
+          "type": "string",
+          "enum": [
+            "first-write",
+            "last-write"
+          ],
+          "description": "Concurrency mode for the state operation."
+        },
+        "consistency": {
+          "type": "string",
+          "enum": [
+            "eventual",
+            "strong"
+          ],
+          "description": "Consistency level for the state operation."
+        }
+      }
+    }
+  }
+}

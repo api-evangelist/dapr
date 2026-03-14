@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/dapr/blob/main/json-schema/configuration-item.json",
+  "title": "Dapr ConfigurationItem",
+  "description": "Represents a configuration item retrieved from a Dapr configuration store. Configuration items include a value, version, and optional metadata, and can be subscribed to for real-time change notifications.",
+  "type": "object",
+  "required": [
+    "value"
+  ],
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "The configuration item key."
+    },
+    "value": {
+      "type": "string",
+      "description": "The configuration item value."
+    },
+    "version": {
+      "type": "string",
+      "description": "The version of the configuration item."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Additional metadata associated with the configuration item."
+    }
+  }
+}

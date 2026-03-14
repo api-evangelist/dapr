@@ -1,0 +1,105 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dapr": "https://docs.dapr.io/reference/api/",
+    "StateItem": {
+      "@id": "dapr:state_api",
+      "@context": {
+        "key": "https://schema.org/identifier",
+        "value": "https://schema.org/value",
+        "etag": "https://schema.org/version",
+        "metadata": "https://schema.org/additionalProperty",
+        "options": "https://schema.org/actionOption"
+      }
+    },
+    "CloudEvent": {
+      "@id": "https://cloudevents.io/",
+      "@context": {
+        "specversion": "https://schema.org/schemaVersion",
+        "type": "https://schema.org/additionalType",
+        "source": "https://schema.org/sourceOrganization",
+        "id": "https://schema.org/identifier",
+        "subject": "https://schema.org/about",
+        "time": "https://schema.org/dateCreated",
+        "datacontenttype": "https://schema.org/encodingFormat",
+        "data": "https://schema.org/value",
+        "topic": "https://schema.org/about",
+        "pubsubname": "https://schema.org/name",
+        "traceid": "https://schema.org/identifier",
+        "traceparent": "https://schema.org/identifier",
+        "tracestate": "https://schema.org/identifier"
+      }
+    },
+    "Actor": {
+      "@id": "dapr:actors_api",
+      "@context": {
+        "actorType": "https://schema.org/additionalType",
+        "actorId": "https://schema.org/identifier",
+        "timer": "https://schema.org/scheduledTime",
+        "reminder": "https://schema.org/scheduledTime"
+      }
+    },
+    "Binding": {
+      "@id": "dapr:bindings_api",
+      "@context": {
+        "data": "https://schema.org/value",
+        "metadata": "https://schema.org/additionalProperty",
+        "operation": "https://schema.org/actionOption"
+      }
+    },
+    "Secret": {
+      "@id": "dapr:secrets_api",
+      "@context": {
+        "name": "https://schema.org/name",
+        "store": "https://schema.org/provider",
+        "values": "https://schema.org/value",
+        "metadata": "https://schema.org/additionalProperty"
+      }
+    },
+    "ConfigurationItem": {
+      "@id": "dapr:configuration_api",
+      "@context": {
+        "key": "https://schema.org/identifier",
+        "value": "https://schema.org/value",
+        "version": "https://schema.org/version",
+        "metadata": "https://schema.org/additionalProperty"
+      }
+    },
+    "Workflow": {
+      "@id": "dapr:workflow_api",
+      "@context": {
+        "instanceID": "https://schema.org/identifier",
+        "workflowName": "https://schema.org/name",
+        "createdAt": "https://schema.org/dateCreated",
+        "lastUpdatedAt": "https://schema.org/dateModified",
+        "runtimeStatus": "https://schema.org/status",
+        "properties": "https://schema.org/additionalProperty"
+      }
+    },
+    "Job": {
+      "@id": "dapr:jobs_api",
+      "@context": {
+        "name": "https://schema.org/name",
+        "schedule": "https://schema.org/repeatFrequency",
+        "dueTime": "https://schema.org/scheduledTime",
+        "repeats": "https://schema.org/repeatCount",
+        "ttl": "https://schema.org/duration",
+        "data": "https://schema.org/value"
+      }
+    },
+    "Metadata": {
+      "@id": "dapr:metadata_api",
+      "@context": {
+        "id": "https://schema.org/identifier",
+        "runtimeVersion": "https://schema.org/softwareVersion",
+        "enabledFeatures": "https://schema.org/featureList",
+        "actors": "https://schema.org/hasPart",
+        "components": "https://schema.org/hasPart",
+        "subscriptions": "https://schema.org/hasPart",
+        "httpEndpoints": "https://schema.org/hasPart",
+        "appConnectionProperties": "https://schema.org/connectionType",
+        "extended": "https://schema.org/additionalProperty"
+      }
+    }
+  }
+}

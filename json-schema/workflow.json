@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/dapr/blob/main/json-schema/workflow.json",
+  "title": "Dapr Workflow",
+  "description": "Represents the status and details of a Dapr workflow instance, including its runtime status, creation time, and associated properties.",
+  "type": "object",
+  "properties": {
+    "instanceID": {
+      "type": "string",
+      "description": "The unique identifier of the workflow instance."
+    },
+    "workflowName": {
+      "type": "string",
+      "description": "The name of the workflow definition."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of when the workflow instance was created."
+    },
+    "lastUpdatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of when the workflow instance was last updated."
+    },
+    "runtimeStatus": {
+      "type": "string",
+      "enum": [
+        "RUNNING",
+        "COMPLETED",
+        "FAILED",
+        "TERMINATED",
+        "PENDING",
+        "SUSPENDED"
+      ],
+      "description": "The current runtime status of the workflow instance."
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Additional workflow properties as key/value pairs."
+    }
+  }
+}
