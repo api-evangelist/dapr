@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Dapr Distributed Lock API
+  description: >-
+    The Dapr Distributed Lock API enables applications to acquire and release
+    locks on shared resources, ensuring mutual exclusion across multiple
+    application instances. Locks use a lease-based mechanism and are
+    automatically released after expiry if not explicitly unlocked.
+  version: 1.0.0
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: Dapr Distributed Lock API Reference
+  url: https://docs.dapr.io/reference/api/distributed_lock_api/
+servers:
+  - url: http://localhost:3500
+    description: Dapr Sidecar
+paths:
+  /v1.0-alpha1/lock/{storename}:
+    post:
+      summary: Try Lock
+      description: >-
+        Attempts to acquire a lock on a resource. The lock is held for the
+        specified expiry period and automatically released if not explicitly
+        unlocked.
+      operationId: tryLock
+      tags:
+        - DistributedLock
+      parameters:
+        - name: storename
+          in: path
+          required: true
+          description: The name of the lock store component.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - resourceId
+                - lockOwner
+                - expiryInSeconds
+              properties:
+                resourceId:
+                  type: string
+                  description: The ID of the resource to lock.
+                lockOwner:
+                  type: string
+                  description: The owner identifier for the lock.
+                expiryInSeconds:
+                  type: integer
+                  description: The time in seconds before the lock expires.
+      responses:
+        '200':
+          description: Lock attempt completed.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Whether the lock was successfully acquired.
+        '400':
+          description: Lock store not found or misconfigured.
+        '500':
+          description: Failed to acquire lock.
+  /v1.0-alpha1/unlock/{storename}:
+    post:
+      summary: Unlock
+      description: Releases a previously acquired lock on a resource.
+      operationId: unlock
+      tags:
+        - DistributedLock
+      parameters:
+        - name: storename
+          in: path
+          required: true
+          description: The name of the lock store component.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - resourceId
+                - lockOwner
+              properties:
+                resourceId:
+                  type: string
+                  description: The ID of the resource to unlock.
+                lockOwner:
+                  type: string
+                  description: The owner identifier for the lock.
+      responses:
+        '200':
+          description: Unlock completed.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: >-
+                      Unlock status code (0=success, 1=lock does not exist,
+                      2=lock belongs to another owner, 3=internal error).
+        '400':
+          description: Lock store not found or misconfigured.
+        '500':
+          description: Failed to unlock.
+tags:
+  - name: DistributedLock
+    description: Distributed locking operations.

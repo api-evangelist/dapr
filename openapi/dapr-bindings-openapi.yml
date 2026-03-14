@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: Dapr Bindings API
+  description: >-
+    The Dapr Bindings API enables applications to trigger and invoke external
+    resources through output bindings, and receive events from external
+    resources through input bindings. Supported bindings include Kafka,
+    RabbitMQ, Azure Event Hubs, AWS SQS, GCP Storage, and many more.
+  version: 1.0.0
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: Dapr Bindings API Reference
+  url: https://docs.dapr.io/reference/api/bindings_api/
+servers:
+  - url: http://localhost:3500
+    description: Dapr Sidecar
+paths:
+  /v1.0/bindings/{name}:
+    post:
+      summary: Invoke Output Binding
+      description: >-
+        Invokes an output binding with the specified operation, data, and
+        metadata. The operation field tells the binding what action to take.
+      operationId: invokeOutputBinding
+      tags:
+        - Bindings
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the output binding to invoke.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BindingRequest'
+      responses:
+        '200':
+          description: Binding invoked successfully with response data.
+          content:
+            application/json:
+              schema: {}
+        '204':
+          description: Binding invoked successfully with no response.
+        '400':
+          description: Binding not found or misconfigured.
+        '500':
+          description: Failed to invoke binding.
+components:
+  schemas:
+    BindingRequest:
+      type: object
+      required:
+        - operation
+      properties:
+        data:
+          description: The data to send to the output binding.
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+          description: Additional metadata for the binding invocation.
+        operation:
+          type: string
+          description: >-
+            The operation to perform on the binding (e.g., create, get,
+            delete, list).
+tags:
+  - name: Bindings
+    description: Input and output binding operations.

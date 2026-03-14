@@ -1,0 +1,144 @@
+openapi: 3.1.0
+info:
+  title: Dapr Pub/Sub API
+  description: >-
+    The Dapr Pub/Sub API enables publish and subscribe messaging between
+    applications. It supports publishing events to topics, bulk publishing,
+    and discovering topic subscriptions. Messages use the CloudEvents 1.0
+    specification format.
+  version: 1.0.0
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: Dapr Pub/Sub API Reference
+  url: https://docs.dapr.io/reference/api/pubsub_api/
+servers:
+  - url: http://localhost:3500
+    description: Dapr Sidecar
+paths:
+  /v1.0/publish/{pubsubname}/{topic}:
+    post:
+      summary: Publish Event
+      description: >-
+        Publishes an event to the specified topic on the given pub/sub
+        component. If content type is not application/cloudevents+json,
+        the payload is automatically wrapped in a CloudEvent envelope.
+      operationId: publishEvent
+      tags:
+        - PubSub
+      parameters:
+        - name: pubsubname
+          in: path
+          required: true
+          description: The name of the pub/sub component.
+          schema:
+            type: string
+        - name: topic
+          in: path
+          required: true
+          description: The name of the topic.
+          schema:
+            type: string
+        - name: metadata.rawPayload
+          in: query
+          description: Set to true to disable CloudEvent wrapping of the payload.
+          schema:
+            type: string
+        - name: metadata.ttlInSeconds
+          in: query
+          description: Time-to-live for the message in seconds.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+          application/cloudevents+json:
+            schema: {}
+      responses:
+        '204':
+          description: Event published successfully.
+        '403':
+          description: Event forbidden by access controls.
+        '404':
+          description: Pub/sub component not found.
+        '500':
+          description: Failed to publish event.
+  /v1.0/publish/bulk/{pubsubname}/{topic}:
+    post:
+      summary: Bulk Publish Events
+      description: Publishes multiple events to the specified topic in a single request.
+      operationId: bulkPublishEvents
+      tags:
+        - PubSub
+      parameters:
+        - name: pubsubname
+          in: path
+          required: true
+          description: The name of the pub/sub component.
+          schema:
+            type: string
+        - name: topic
+          in: path
+          required: true
+          description: The name of the topic.
+          schema:
+            type: string
+        - name: metadata.rawPayload
+          in: query
+          description: Set to true to disable CloudEvent wrapping.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                  - entryId
+                  - event
+                properties:
+                  entryId:
+                    type: string
+                    description: Unique identifier for the entry.
+                  event:
+                    description: The event data.
+                  contentType:
+                    type: string
+                    description: Content type of the event.
+                  metadata:
+                    type: object
+                    additionalProperties:
+                      type: string
+      responses:
+        '200':
+          description: Bulk publish completed (may include partial failures).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  failedEntries:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        entryId:
+                          type: string
+                        error:
+                          type: string
+        '404':
+          description: Pub/sub component not found.
+        '500':
+          description: Failed to publish events.
+tags:
+  - name: PubSub
+    description: Publish and subscribe messaging operations.

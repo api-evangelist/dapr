@@ -1,0 +1,342 @@
+openapi: 3.1.0
+info:
+  title: Dapr State Management API
+  description: >-
+    The Dapr State Management API provides key/value-based state management
+    capabilities for distributed applications. It supports saving, retrieving,
+    deleting, and performing bulk and transactional operations on application
+    state using pluggable state stores.
+  version: 1.0.0
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: Dapr State Management API Reference
+  url: https://docs.dapr.io/reference/api/state_api/
+servers:
+  - url: http://localhost:3500
+    description: Dapr Sidecar
+paths:
+  /v1.0/state/{storename}:
+    post:
+      summary: Save State
+      description: Saves an array of state objects to the specified state store.
+      operationId: saveState
+      tags:
+        - State
+      parameters:
+        - name: storename
+          in: path
+          required: true
+          description: The name of the state store.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/StateItem'
+      responses:
+        '204':
+          description: State saved successfully.
+        '400':
+          description: State store is missing or misconfigured.
+        '500':
+          description: Failed to save state.
+  /v1.0/state/{storename}/{key}:
+    get:
+      summary: Get State
+      description: Retrieves the state for a specific key from the state store.
+      operationId: getState
+      tags:
+        - State
+      parameters:
+        - name: storename
+          in: path
+          required: true
+          description: The name of the state store.
+          schema:
+            type: string
+        - name: key
+          in: path
+          required: true
+          description: The key of the desired state.
+          schema:
+            type: string
+        - name: consistency
+          in: query
+          description: Read consistency level (eventual or strong).
+          schema:
+            type: string
+            enum:
+              - eventual
+              - strong
+      responses:
+        '200':
+          description: State retrieved successfully.
+          headers:
+            ETag:
+              description: ETag of the state value.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema: {}
+        '204':
+          description: Key is not found.
+        '400':
+          description: State store is missing or misconfigured.
+        '500':
+          description: Failed to get state.
+    delete:
+      summary: Delete State
+      description: Deletes the state for a specific key from the state store.
+      operationId: deleteState
+      tags:
+        - State
+      parameters:
+        - name: storename
+          in: path
+          required: true
+          description: The name of the state store.
+          schema:
+            type: string
+        - name: key
+          in: path
+          required: true
+          description: The key of the state to delete.
+          schema:
+            type: string
+        - name: concurrency
+          in: query
+          description: Concurrency mode (first-write or last-write).
+          schema:
+            type: string
+            enum:
+              - first-write
+              - last-write
+        - name: consistency
+          in: query
+          description: Consistency level (eventual or strong).
+          schema:
+            type: string
+            enum:
+              - eventual
+              - strong
+      responses:
+        '204':
+          description: State deleted successfully.
+        '400':
+          description: State store is missing or misconfigured.
+        '500':
+          description: Failed to delete state.
+  /v1.0/state/{storename}/bulk:
+    post:
+      summary: Get Bulk State
+      description: Retrieves multiple state values from the state store in a single request.
+      operationId: getBulkState
+      tags:
+        - State
+      parameters:
+        - name: storename
+          in: path
+          required: true
+          description: The name of the state store.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                keys:
+                  type: array
+                  items:
+                    type: string
+                  description: List of keys to retrieve.
+                parallelism:
+                  type: integer
+                  description: Number of parallel operations for retrieving state.
+      responses:
+        '200':
+          description: Bulk state retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BulkStateItem'
+        '400':
+          description: State store is missing or misconfigured.
+        '500':
+          description: Failed to get bulk state.
+  /v1.0/state/{storename}/transaction:
+    post:
+      summary: Execute State Transaction
+      description: >-
+        Executes a multi-item transactional operation on the state store.
+        Supports upsert and delete operations within a single transaction.
+      operationId: executeStateTransaction
+      tags:
+        - State
+      parameters:
+        - name: storename
+          in: path
+          required: true
+          description: The name of the state store.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                operations:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/TransactionalStateOperation'
+                metadata:
+                  type: object
+                  additionalProperties:
+                    type: string
+      responses:
+        '204':
+          description: Transaction executed successfully.
+        '400':
+          description: State store is missing or misconfigured.
+        '500':
+          description: Failed to execute transaction.
+  /v1.0/state/{storename}/query:
+    post:
+      summary: Query State
+      description: Queries the state store using a query expression.
+      operationId: queryState
+      tags:
+        - State
+      parameters:
+        - name: storename
+          in: path
+          required: true
+          description: The name of the state store.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: object
+                  description: Query filter expression.
+                sort:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      order:
+                        type: string
+                        enum:
+                          - ASC
+                          - DESC
+                page:
+                  type: object
+                  properties:
+                    limit:
+                      type: integer
+                    token:
+                      type: string
+      responses:
+        '200':
+          description: Query executed successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        key:
+                          type: string
+                        data: {}
+                        etag:
+                          type: string
+                  token:
+                    type: string
+        '400':
+          description: Bad request.
+        '500':
+          description: Failed to query state.
+components:
+  schemas:
+    StateItem:
+      type: object
+      required:
+        - key
+        - value
+      properties:
+        key:
+          type: string
+          description: State key.
+        value:
+          description: State value (any JSON serializable value).
+        etag:
+          type: string
+          description: ETag for optimistic concurrency.
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+          description: Additional key/value metadata.
+        options:
+          type: object
+          properties:
+            concurrency:
+              type: string
+              enum:
+                - first-write
+                - last-write
+            consistency:
+              type: string
+              enum:
+                - eventual
+                - strong
+    BulkStateItem:
+      type: object
+      properties:
+        key:
+          type: string
+        data: {}
+        etag:
+          type: string
+        error:
+          type: string
+    TransactionalStateOperation:
+      type: object
+      properties:
+        operation:
+          type: string
+          enum:
+            - upsert
+            - delete
+        request:
+          $ref: '#/components/schemas/StateItem'
+tags:
+  - name: State
+    description: State management operations.

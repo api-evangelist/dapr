@@ -1,0 +1,116 @@
+openapi: 3.1.0
+info:
+  title: Dapr Cryptography API
+  description: >-
+    The Dapr Cryptography API enables applications to perform cryptographic
+    operations such as encrypting and decrypting data using configured
+    cryptography components, without exposing cryptographic keys to the
+    application. Supports high-level encrypt/decrypt and low-level subtle
+    crypto operations.
+  version: 1.0.0
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: Dapr Cryptography API Reference
+  url: https://docs.dapr.io/reference/api/cryptography_api/
+servers:
+  - url: http://localhost:3500
+    description: Dapr Sidecar
+paths:
+  /v1.0-alpha1/crypto/{crypto-store-name}/encrypt:
+    put:
+      summary: Encrypt
+      description: >-
+        Encrypts data using the specified cryptography component and key.
+        The HTTP API is intended for development and testing; for production,
+        use the gRPC API via SDKs.
+      operationId: encrypt
+      tags:
+        - Cryptography
+      parameters:
+        - name: crypto-store-name
+          in: path
+          required: true
+          description: The name of the cryptography component.
+          schema:
+            type: string
+        - name: dapr-key-name
+          in: header
+          required: true
+          description: The name of the key to use for encryption.
+          schema:
+            type: string
+        - name: dapr-key-wrap-algorithm
+          in: header
+          required: true
+          description: The key wrap algorithm to use (e.g., A256KW, A128CBC, RSA-OAEP-256).
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Data encrypted successfully.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Bad request or missing parameters.
+        '500':
+          description: Failed to encrypt data.
+  /v1.0-alpha1/crypto/{crypto-store-name}/decrypt:
+    put:
+      summary: Decrypt
+      description: >-
+        Decrypts data using the specified cryptography component and key.
+        The HTTP API is intended for development and testing; for production,
+        use the gRPC API via SDKs.
+      operationId: decrypt
+      tags:
+        - Cryptography
+      parameters:
+        - name: crypto-store-name
+          in: path
+          required: true
+          description: The name of the cryptography component.
+          schema:
+            type: string
+        - name: dapr-key-name
+          in: header
+          required: true
+          description: The name of the key to use for decryption.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Data decrypted successfully.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Bad request or missing parameters.
+        '500':
+          description: Failed to decrypt data.
+tags:
+  - name: Cryptography
+    description: Cryptographic operations.

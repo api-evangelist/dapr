@@ -1,0 +1,183 @@
+openapi: 3.1.0
+info:
+  title: Dapr Service Invocation API
+  description: >-
+    The Dapr Service Invocation API enables applications to communicate with
+    each other through well-known endpoints using HTTP methods. Dapr acts as
+    a reverse proxy with built-in service discovery, distributed tracing,
+    and error handling.
+  version: 1.0.0
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: Dapr Service Invocation API Reference
+  url: https://docs.dapr.io/reference/api/service_invocation_api/
+servers:
+  - url: http://localhost:3500
+    description: Dapr Sidecar
+paths:
+  /v1.0/invoke/{appId}/method/{method-name}:
+    get:
+      summary: Invoke Method (GET)
+      description: Invokes a method on a remote Dapr app using GET.
+      operationId: invokeMethodGet
+      tags:
+        - ServiceInvocation
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          description: The App ID of the remote application.
+          schema:
+            type: string
+        - name: method-name
+          in: path
+          required: true
+          description: The name of the method to invoke.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Method invoked successfully.
+          content:
+            application/json:
+              schema: {}
+        '403':
+          description: Invocation forbidden by access controls.
+        '500':
+          description: Failed to invoke method.
+    post:
+      summary: Invoke Method (POST)
+      description: Invokes a method on a remote Dapr app using POST.
+      operationId: invokeMethodPost
+      tags:
+        - ServiceInvocation
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          description: The App ID of the remote application.
+          schema:
+            type: string
+        - name: method-name
+          in: path
+          required: true
+          description: The name of the method to invoke.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        '200':
+          description: Method invoked successfully.
+          content:
+            application/json:
+              schema: {}
+        '403':
+          description: Invocation forbidden by access controls.
+        '500':
+          description: Failed to invoke method.
+    put:
+      summary: Invoke Method (PUT)
+      description: Invokes a method on a remote Dapr app using PUT.
+      operationId: invokeMethodPut
+      tags:
+        - ServiceInvocation
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          description: The App ID of the remote application.
+          schema:
+            type: string
+        - name: method-name
+          in: path
+          required: true
+          description: The name of the method to invoke.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        '200':
+          description: Method invoked successfully.
+          content:
+            application/json:
+              schema: {}
+        '403':
+          description: Invocation forbidden by access controls.
+        '500':
+          description: Failed to invoke method.
+    delete:
+      summary: Invoke Method (DELETE)
+      description: Invokes a method on a remote Dapr app using DELETE.
+      operationId: invokeMethodDelete
+      tags:
+        - ServiceInvocation
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          description: The App ID of the remote application.
+          schema:
+            type: string
+        - name: method-name
+          in: path
+          required: true
+          description: The name of the method to invoke.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Method invoked successfully.
+          content:
+            application/json:
+              schema: {}
+        '403':
+          description: Invocation forbidden by access controls.
+        '500':
+          description: Failed to invoke method.
+    patch:
+      summary: Invoke Method (PATCH)
+      description: Invokes a method on a remote Dapr app using PATCH.
+      operationId: invokeMethodPatch
+      tags:
+        - ServiceInvocation
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          description: The App ID of the remote application.
+          schema:
+            type: string
+        - name: method-name
+          in: path
+          required: true
+          description: The name of the method to invoke.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        '200':
+          description: Method invoked successfully.
+          content:
+            application/json:
+              schema: {}
+        '403':
+          description: Invocation forbidden by access controls.
+        '500':
+          description: Failed to invoke method.
+tags:
+  - name: ServiceInvocation
+    description: Service-to-service invocation operations.

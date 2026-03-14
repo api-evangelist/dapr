@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: Dapr Configuration API
+  description: >-
+    The Dapr Configuration API enables applications to retrieve and subscribe
+    to configuration items from supported configuration stores. Applications
+    can retrieve specific configuration items at startup or subscribe to
+    receive updates when configuration changes occur.
+  version: 1.0.0
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: Dapr Configuration API Reference
+  url: https://docs.dapr.io/reference/api/configuration_api/
+servers:
+  - url: http://localhost:3500
+    description: Dapr Sidecar
+paths:
+  /v1.0/configuration/{storename}:
+    get:
+      summary: Get Configuration
+      description: >-
+        Retrieves configuration items from the specified configuration
+        store. If no keys are specified, all configuration items are returned.
+      operationId: getConfiguration
+      tags:
+        - Configuration
+      parameters:
+        - name: storename
+          in: path
+          required: true
+          description: The name of the configuration store.
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: >-
+            The key(s) of the configuration items to retrieve. Can be
+            specified multiple times.
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+      responses:
+        '200':
+          description: Configuration items retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+                  properties:
+                    value:
+                      type: string
+                    version:
+                      type: string
+                    metadata:
+                      type: object
+                      additionalProperties:
+                        type: string
+        '400':
+          description: Configuration store not found or misconfigured.
+        '500':
+          description: Failed to get configuration.
+  /v1.0/configuration/{storename}/subscribe:
+    get:
+      summary: Subscribe to Configuration
+      description: >-
+        Subscribes to configuration changes from the specified store. Returns
+        a subscription ID that can be used to unsubscribe later.
+      operationId: subscribeConfiguration
+      tags:
+        - Configuration
+      parameters:
+        - name: storename
+          in: path
+          required: true
+          description: The name of the configuration store.
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: The key(s) to subscribe to. If empty, subscribes to all keys.
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+      responses:
+        '200':
+          description: Subscription created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The subscription ID.
+        '400':
+          description: Configuration store not found.
+        '500':
+          description: Failed to subscribe.
+  /v1.0/configuration/{storename}/{subscriptionId}/unsubscribe:
+    get:
+      summary: Unsubscribe from Configuration
+      description: Unsubscribes from configuration changes using a subscription ID.
+      operationId: unsubscribeConfiguration
+      tags:
+        - Configuration
+      parameters:
+        - name: storename
+          in: path
+          required: true
+          description: The name of the configuration store.
+          schema:
+            type: string
+        - name: subscriptionId
+          in: path
+          required: true
+          description: The subscription ID to unsubscribe.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Unsubscribed successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+        '400':
+          description: Subscription not found.
+        '500':
+          description: Failed to unsubscribe.
+tags:
+  - name: Configuration
+    description: Configuration management operations.

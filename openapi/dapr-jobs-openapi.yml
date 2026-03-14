@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Dapr Jobs API
+  description: >-
+    The Dapr Jobs API enables applications to schedule, retrieve, and delete
+    jobs for future execution. Jobs can be scheduled at specific times or
+    intervals using cron expressions or duration specifications.
+  version: 1.0.0
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: Dapr Jobs API Reference
+  url: https://docs.dapr.io/reference/api/jobs_api/
+servers:
+  - url: http://localhost:3500
+    description: Dapr Sidecar
+paths:
+  /v1.0-alpha1/jobs/{name}:
+    post:
+      summary: Schedule Job
+      description: >-
+        Schedules a new job with the specified name, schedule, and data.
+        At least one of schedule or dueTime must be provided.
+      operationId: scheduleJob
+      tags:
+        - Jobs
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the job.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobRequest'
+      responses:
+        '204':
+          description: Job scheduled successfully.
+        '400':
+          description: Bad request.
+        '500':
+          description: Failed to schedule job.
+    get:
+      summary: Get Job
+      description: Retrieves the details of a scheduled job by name.
+      operationId: getJob
+      tags:
+        - Jobs
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the job to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Job details retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '404':
+          description: Job not found.
+        '500':
+          description: Failed to get job.
+    delete:
+      summary: Delete Job
+      description: Deletes a scheduled job by name.
+      operationId: deleteJob
+      tags:
+        - Jobs
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the job to delete.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Job deleted successfully.
+        '404':
+          description: Job not found.
+        '500':
+          description: Failed to delete job.
+components:
+  schemas:
+    JobRequest:
+      type: object
+      properties:
+        schedule:
+          type: string
+          description: >-
+            The schedule for the job using a cron expression or duration
+            (e.g., @every 5s).
+        dueTime:
+          type: string
+          description: The time at which the job should be triggered (RFC3339 or duration).
+        repeats:
+          type: integer
+          description: The number of times the job should be triggered.
+        ttl:
+          type: string
+          description: Time-to-live for the job.
+        data:
+          description: The data payload to include with the job trigger.
+    JobResponse:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the job.
+        schedule:
+          type: string
+          description: The job schedule.
+        dueTime:
+          type: string
+          description: The due time for the job.
+        repeats:
+          type: integer
+          description: Number of repeats.
+        data:
+          description: The job data payload.
+tags:
+  - name: Jobs
+    description: Job scheduling operations.

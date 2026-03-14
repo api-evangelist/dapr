@@ -1,0 +1,373 @@
+openapi: 3.1.0
+info:
+  title: Dapr Actors API
+  description: >-
+    The Dapr Actors API provides virtual actor capabilities for distributed
+    applications, including actor method invocation, state management, timers,
+    and reminders. Actors provide a single-threaded programming model with
+    guaranteed message ordering.
+  version: 1.0.0
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: Dapr Actors API Reference
+  url: https://docs.dapr.io/reference/api/actors_api/
+servers:
+  - url: http://localhost:3500
+    description: Dapr Sidecar
+paths:
+  /v1.0/actors/{actorType}/{actorId}/method/{method}:
+    post:
+      summary: Invoke Actor Method
+      description: Invokes a method on the specified actor instance.
+      operationId: invokeActorMethod
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+        - name: method
+          in: path
+          required: true
+          description: The name of the method to invoke.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        '200':
+          description: Method invoked successfully.
+          content:
+            application/json:
+              schema: {}
+        '500':
+          description: Failed to invoke method.
+    put:
+      summary: Invoke Actor Method (PUT)
+      description: Invokes a method on the specified actor instance using PUT.
+      operationId: invokeActorMethodPut
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+        - name: method
+          in: path
+          required: true
+          description: The name of the method to invoke.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        '200':
+          description: Method invoked successfully.
+          content:
+            application/json:
+              schema: {}
+        '500':
+          description: Failed to invoke method.
+    get:
+      summary: Invoke Actor Method (GET)
+      description: Invokes a method on the specified actor instance using GET.
+      operationId: invokeActorMethodGet
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+        - name: method
+          in: path
+          required: true
+          description: The name of the method to invoke.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Method invoked successfully.
+          content:
+            application/json:
+              schema: {}
+        '500':
+          description: Failed to invoke method.
+    delete:
+      summary: Invoke Actor Method (DELETE)
+      description: Invokes a method on the specified actor instance using DELETE.
+      operationId: invokeActorMethodDelete
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+        - name: method
+          in: path
+          required: true
+          description: The name of the method to invoke.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Method invoked successfully.
+          content:
+            application/json:
+              schema: {}
+        '500':
+          description: Failed to invoke method.
+  /v1.0/actors/{actorType}/{actorId}/state:
+    get:
+      summary: Get Actor State
+      description: Retrieves all saved state for the specified actor.
+      operationId: getActorState
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+      responses:
+        '200':
+          description: Actor state retrieved successfully.
+          content:
+            application/json:
+              schema: {}
+        '500':
+          description: Failed to get actor state.
+    post:
+      summary: Save Actor State (Transactional)
+      description: >-
+        Performs a transactional save of actor state, supporting multiple
+        upsert and delete operations in a single transaction.
+      operationId: saveActorStateTransactional
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  operation:
+                    type: string
+                    enum:
+                      - upsert
+                      - delete
+                  request:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      value: {}
+      responses:
+        '204':
+          description: Actor state saved successfully.
+        '400':
+          description: Actor not found.
+        '500':
+          description: Failed to save actor state.
+  /v1.0/actors/{actorType}/{actorId}/state/{key}:
+    get:
+      summary: Get Actor State by Key
+      description: Retrieves a specific state key for the specified actor.
+      operationId: getActorStateByKey
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+        - name: key
+          in: path
+          required: true
+          description: The state key to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: State value retrieved successfully.
+          content:
+            application/json:
+              schema: {}
+        '204':
+          description: Key not found.
+        '500':
+          description: Failed to get actor state.
+  /v1.0/actors/{actorType}/{actorId}/timers/{name}:
+    post:
+      summary: Create Actor Timer
+      description: Creates a timer for the specified actor.
+      operationId: createActorTimer
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+        - name: name
+          in: path
+          required: true
+          description: The name of the timer.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActorTimer'
+      responses:
+        '204':
+          description: Timer created successfully.
+        '500':
+          description: Failed to create timer.
+    delete:
+      summary: Delete Actor Timer
+      description: Deletes a timer for the specified actor.
+      operationId: deleteActorTimer
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+        - name: name
+          in: path
+          required: true
+          description: The name of the timer to delete.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Timer deleted successfully.
+        '500':
+          description: Failed to delete timer.
+  /v1.0/actors/{actorType}/{actorId}/reminders/{name}:
+    post:
+      summary: Create Actor Reminder
+      description: >-
+        Creates a persistent reminder for the specified actor. Reminders
+        survive actor deactivations and failovers.
+      operationId: createActorReminder
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+        - name: name
+          in: path
+          required: true
+          description: The name of the reminder.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActorReminder'
+      responses:
+        '204':
+          description: Reminder created successfully.
+        '500':
+          description: Failed to create reminder.
+    get:
+      summary: Get Actor Reminder
+      description: Retrieves a specific reminder for the specified actor.
+      operationId: getActorReminder
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+        - name: name
+          in: path
+          required: true
+          description: The name of the reminder.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Reminder retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActorReminder'
+        '500':
+          description: Failed to get reminder.
+    delete:
+      summary: Delete Actor Reminder
+      description: Deletes a reminder for the specified actor.
+      operationId: deleteActorReminder
+      tags:
+        - Actors
+      parameters:
+        - $ref: '#/components/parameters/actorType'
+        - $ref: '#/components/parameters/actorId'
+        - name: name
+          in: path
+          required: true
+          description: The name of the reminder to delete.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Reminder deleted successfully.
+        '500':
+          description: Failed to delete reminder.
+components:
+  parameters:
+    actorType:
+      name: actorType
+      in: path
+      required: true
+      description: The type of the actor.
+      schema:
+        type: string
+    actorId:
+      name: actorId
+      in: path
+      required: true
+      description: The ID of the actor instance.
+      schema:
+        type: string
+  schemas:
+    ActorTimer:
+      type: object
+      properties:
+        dueTime:
+          type: string
+          description: Time after which the timer fires for the first time (ISO 8601 duration or time).
+        period:
+          type: string
+          description: Time interval between timer fires (ISO 8601 duration).
+        callback:
+          type: string
+          description: The name of the callback method to invoke.
+        data:
+          description: Data to pass to the callback method.
+    ActorReminder:
+      type: object
+      properties:
+        dueTime:
+          type: string
+          description: Time after which the reminder fires for the first time.
+        period:
+          type: string
+          description: Time interval between reminder fires.
+        data:
+          description: Data to pass to the reminder callback.
+        ttl:
+          type: string
+          description: Time-to-live for the reminder.
+tags:
+  - name: Actors
+    description: Virtual actor operations including state, timers, and reminders.

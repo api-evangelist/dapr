@@ -1,0 +1,285 @@
+openapi: 3.1.0
+info:
+  title: Dapr Workflow API
+  description: >-
+    The Dapr Workflow API provides the ability to manage workflow instances,
+    including starting, getting status, pausing, resuming, terminating,
+    purging, and raising events to workflows.
+  version: 1.0.0
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: Dapr Workflow API Reference
+  url: https://docs.dapr.io/reference/api/workflow_api/
+servers:
+  - url: http://localhost:3500
+    description: Dapr Sidecar
+paths:
+  /v1.0/workflows/{workflowComponentName}/{workflowName}/start:
+    post:
+      summary: Start Workflow
+      description: Starts a new workflow instance with the specified workflow name.
+      operationId: startWorkflow
+      tags:
+        - Workflow
+      parameters:
+        - name: workflowComponentName
+          in: path
+          required: true
+          description: The workflow component name (e.g., dapr).
+          schema:
+            type: string
+        - name: workflowName
+          in: path
+          required: true
+          description: The name of the workflow to start.
+          schema:
+            type: string
+        - name: instanceID
+          in: query
+          description: >-
+            Optional instance ID for the workflow. If not provided, a
+            random ID is generated.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: Input data for the workflow.
+      responses:
+        '200':
+          description: Workflow started successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instanceID:
+                    type: string
+                    description: The unique ID of the workflow instance.
+        '400':
+          description: Bad request.
+        '500':
+          description: Failed to start workflow.
+  /v1.0/workflows/{workflowComponentName}/{instanceId}:
+    get:
+      summary: Get Workflow
+      description: Retrieves the status and details of a workflow instance.
+      operationId: getWorkflow
+      tags:
+        - Workflow
+      parameters:
+        - name: workflowComponentName
+          in: path
+          required: true
+          description: The workflow component name.
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          description: The workflow instance ID.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Workflow details retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowStatus'
+        '404':
+          description: Workflow instance not found.
+        '500':
+          description: Failed to get workflow.
+  /v1.0/workflows/{workflowComponentName}/{instanceId}/terminate:
+    post:
+      summary: Terminate Workflow
+      description: Terminates a running workflow instance.
+      operationId: terminateWorkflow
+      tags:
+        - Workflow
+      parameters:
+        - name: workflowComponentName
+          in: path
+          required: true
+          description: The workflow component name.
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          description: The workflow instance ID.
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Workflow termination accepted.
+        '404':
+          description: Workflow instance not found.
+        '500':
+          description: Failed to terminate workflow.
+  /v1.0/workflows/{workflowComponentName}/{instanceId}/raiseEvent/{eventName}:
+    post:
+      summary: Raise Workflow Event
+      description: Raises an event to a running workflow instance.
+      operationId: raiseWorkflowEvent
+      tags:
+        - Workflow
+      parameters:
+        - name: workflowComponentName
+          in: path
+          required: true
+          description: The workflow component name.
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          description: The workflow instance ID.
+          schema:
+            type: string
+        - name: eventName
+          in: path
+          required: true
+          description: The name of the event to raise.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: Event data payload.
+      responses:
+        '202':
+          description: Event raised successfully.
+        '404':
+          description: Workflow instance not found.
+        '500':
+          description: Failed to raise event.
+  /v1.0/workflows/{workflowComponentName}/{instanceId}/pause:
+    post:
+      summary: Pause Workflow
+      description: Pauses a running workflow instance.
+      operationId: pauseWorkflow
+      tags:
+        - Workflow
+      parameters:
+        - name: workflowComponentName
+          in: path
+          required: true
+          description: The workflow component name.
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          description: The workflow instance ID.
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Workflow paused successfully.
+        '404':
+          description: Workflow instance not found.
+        '500':
+          description: Failed to pause workflow.
+  /v1.0/workflows/{workflowComponentName}/{instanceId}/resume:
+    post:
+      summary: Resume Workflow
+      description: Resumes a paused workflow instance.
+      operationId: resumeWorkflow
+      tags:
+        - Workflow
+      parameters:
+        - name: workflowComponentName
+          in: path
+          required: true
+          description: The workflow component name.
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          description: The workflow instance ID.
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Workflow resumed successfully.
+        '404':
+          description: Workflow instance not found.
+        '500':
+          description: Failed to resume workflow.
+  /v1.0/workflows/{workflowComponentName}/{instanceId}/purge:
+    post:
+      summary: Purge Workflow
+      description: >-
+        Permanently deletes workflow metadata from the state store, including
+        stored inputs, outputs, and history. Only COMPLETED, FAILED, or
+        TERMINATED workflows can be purged.
+      operationId: purgeWorkflow
+      tags:
+        - Workflow
+      parameters:
+        - name: workflowComponentName
+          in: path
+          required: true
+          description: The workflow component name.
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          description: The workflow instance ID.
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Workflow purged successfully.
+        '404':
+          description: Workflow instance not found.
+        '500':
+          description: Failed to purge workflow.
+components:
+  schemas:
+    WorkflowStatus:
+      type: object
+      properties:
+        instanceID:
+          type: string
+          description: The workflow instance ID.
+        workflowName:
+          type: string
+          description: The name of the workflow.
+        createdAt:
+          type: string
+          format: date-time
+          description: When the workflow was created.
+        lastUpdatedAt:
+          type: string
+          format: date-time
+          description: When the workflow was last updated.
+        runtimeStatus:
+          type: string
+          enum:
+            - RUNNING
+            - COMPLETED
+            - FAILED
+            - TERMINATED
+            - PENDING
+            - SUSPENDED
+          description: The runtime status of the workflow.
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+          description: Additional workflow properties.
+tags:
+  - name: Workflow
+    description: Workflow orchestration operations.
