@@ -252,7 +252,7 @@ common:
     type: JSONLDContext
     description: 'null'
 created: '2025-01-08'
-modified: '2026-03-14'
+modified: '2026-03-16'
 position: Consumer
 description: >-
   Dapr (Distributed Application Runtime) is a portable, event-driven runtime
@@ -263,5 +263,5 @@ description: >-
   jobs scheduling, health checks, and metadata.
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
 specificationVersion: '0.19'
