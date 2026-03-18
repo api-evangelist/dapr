@@ -6,6 +6,7 @@ apis:
     tags:
       - State Management
       - Key Value
+      - Distributed Systems
     humanURL: https://docs.dapr.io/reference/api/state_api/
     properties:
       - url: https://docs.dapr.io/reference/api/state_api/
@@ -14,6 +15,10 @@ apis:
         type: OpenAPI
       - url: json-schema/state-item.json
         type: JSONSchema
+      - url: https://docs.dapr.io/developing-applications/building-blocks/state-management/
+        type: Reference
+      - url: https://docs.dapr.io/sdks/
+        type: Client Libraries
     description: >-
       The Dapr State Management API provides key/value-based state management
       capabilities for distributed applications. It supports saving, retrieving,
@@ -25,6 +30,7 @@ apis:
       - Pub/Sub
       - Messaging
       - Events
+      - CloudEvents
     humanURL: https://docs.dapr.io/reference/api/pubsub_api/
     properties:
       - url: https://docs.dapr.io/reference/api/pubsub_api/
@@ -35,6 +41,10 @@ apis:
         type: AsyncAPI
       - url: json-schema/cloud-event.json
         type: JSONSchema
+      - url: https://docs.dapr.io/developing-applications/building-blocks/pubsub/
+        type: Reference
+      - url: https://docs.dapr.io/sdks/
+        type: Client Libraries
     description: >-
       The Dapr Pub/Sub API enables publish and subscribe messaging between
       applications. It supports publishing events to topics, bulk publishing,
@@ -44,12 +54,17 @@ apis:
     tags:
       - Service Invocation
       - Microservices
+      - Service Discovery
     humanURL: https://docs.dapr.io/reference/api/service_invocation_api/
     properties:
       - url: https://docs.dapr.io/reference/api/service_invocation_api/
         type: Documentation
       - url: openapi/dapr-service-invocation-openapi.yml
         type: OpenAPI
+      - url: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/
+        type: Reference
+      - url: https://docs.dapr.io/sdks/
+        type: Client Libraries
     description: >-
       The Dapr Service Invocation API enables applications to communicate with
       each other through well-known endpoints using HTTP methods. Dapr acts as
@@ -60,6 +75,7 @@ apis:
     tags:
       - Bindings
       - Integrations
+      - Event-Driven
     humanURL: https://docs.dapr.io/reference/api/bindings_api/
     properties:
       - url: https://docs.dapr.io/reference/api/bindings_api/
@@ -68,6 +84,10 @@ apis:
         type: OpenAPI
       - url: json-schema/binding.json
         type: JSONSchema
+      - url: https://docs.dapr.io/developing-applications/building-blocks/bindings/
+        type: Reference
+      - url: https://docs.dapr.io/sdks/
+        type: Client Libraries
     description: >-
       The Dapr Bindings API enables applications to trigger and invoke external
       resources through output bindings, and receive events from external
@@ -78,6 +98,7 @@ apis:
     tags:
       - Secrets
       - Security
+      - Key Management
     humanURL: https://docs.dapr.io/reference/api/secrets_api/
     properties:
       - url: https://docs.dapr.io/reference/api/secrets_api/
@@ -86,6 +107,10 @@ apis:
         type: OpenAPI
       - url: json-schema/secret.json
         type: JSONSchema
+      - url: https://docs.dapr.io/developing-applications/building-blocks/secrets/
+        type: Reference
+      - url: https://docs.dapr.io/sdks/
+        type: Client Libraries
     description: >-
       The Dapr Secrets API provides a consistent way to retrieve application
       secrets from various secret stores, including Hashicorp Vault, AWS
@@ -96,6 +121,7 @@ apis:
     tags:
       - Actors
       - Virtual Actors
+      - Distributed Systems
     humanURL: https://docs.dapr.io/reference/api/actors_api/
     properties:
       - url: https://docs.dapr.io/reference/api/actors_api/
@@ -104,6 +130,10 @@ apis:
         type: OpenAPI
       - url: json-schema/actor.json
         type: JSONSchema
+      - url: https://docs.dapr.io/developing-applications/building-blocks/actors/
+        type: Reference
+      - url: https://docs.dapr.io/sdks/
+        type: Client Libraries
     description: >-
       The Dapr Actors API provides virtual actor capabilities for distributed
       applications, including actor method invocation, state management, timers,
@@ -113,6 +143,7 @@ apis:
     tags:
       - Workflows
       - Orchestration
+      - Distributed Systems
     humanURL: https://docs.dapr.io/reference/api/workflow_api/
     properties:
       - url: https://docs.dapr.io/reference/api/workflow_api/
@@ -121,6 +152,10 @@ apis:
         type: OpenAPI
       - url: json-schema/workflow.json
         type: JSONSchema
+      - url: https://docs.dapr.io/developing-applications/building-blocks/workflow/
+        type: Reference
+      - url: https://docs.dapr.io/sdks/
+        type: Client Libraries
     description: >-
       The Dapr Workflow API provides the ability to manage workflow instances,
       including starting, getting status, pausing, resuming, terminating,
@@ -129,6 +164,8 @@ apis:
     name: Dapr Configuration API
     tags:
       - Configuration
+      - Subscriptions
+      - Distributed Systems
     humanURL: https://docs.dapr.io/reference/api/configuration_api/
     properties:
       - url: https://docs.dapr.io/reference/api/configuration_api/
@@ -137,6 +174,10 @@ apis:
         type: OpenAPI
       - url: json-schema/configuration-item.json
         type: JSONSchema
+      - url: https://docs.dapr.io/developing-applications/building-blocks/configuration/
+        type: Reference
+      - url: https://docs.dapr.io/sdks/
+        type: Client Libraries
     description: >-
       The Dapr Configuration API enables applications to retrieve and subscribe
       to configuration items from supported configuration stores, allowing
@@ -146,12 +187,17 @@ apis:
     tags:
       - Distributed Lock
       - Concurrency
+      - Coordination
     humanURL: https://docs.dapr.io/reference/api/distributed_lock_api/
     properties:
       - url: https://docs.dapr.io/reference/api/distributed_lock_api/
         type: Documentation
       - url: openapi/dapr-distributed-lock-openapi.yml
         type: OpenAPI
+      - url: https://docs.dapr.io/developing-applications/building-blocks/distributed-lock/
+        type: Reference
+      - url: https://docs.dapr.io/sdks/
+        type: Client Libraries
     description: >-
       The Dapr Distributed Lock API enables applications to acquire and release
       locks on shared resources, ensuring mutual exclusion across multiple
@@ -168,6 +214,10 @@ apis:
         type: Documentation
       - url: openapi/dapr-cryptography-openapi.yml
         type: OpenAPI
+      - url: https://docs.dapr.io/developing-applications/building-blocks/cryptography/
+        type: Reference
+      - url: https://docs.dapr.io/sdks/
+        type: Client Libraries
     description: >-
       The Dapr Cryptography API enables applications to perform cryptographic
       operations such as encrypting and decrypting data using configured
@@ -178,6 +228,7 @@ apis:
     tags:
       - Jobs
       - Scheduling
+      - Cron
     humanURL: https://docs.dapr.io/reference/api/jobs_api/
     properties:
       - url: https://docs.dapr.io/reference/api/jobs_api/
@@ -186,6 +237,10 @@ apis:
         type: OpenAPI
       - url: json-schema/job.json
         type: JSONSchema
+      - url: https://docs.dapr.io/developing-applications/building-blocks/jobs/
+        type: Reference
+      - url: https://docs.dapr.io/sdks/
+        type: Client Libraries
     description: >-
       The Dapr Jobs API enables applications to schedule, retrieve, and delete
       jobs for future execution at specific times or intervals using cron
@@ -195,12 +250,15 @@ apis:
     tags:
       - Health
       - Monitoring
+      - Kubernetes
     humanURL: https://docs.dapr.io/reference/api/health_api/
     properties:
       - url: https://docs.dapr.io/reference/api/health_api/
         type: Documentation
       - url: openapi/dapr-health-openapi.yml
         type: OpenAPI
+      - url: https://docs.dapr.io/operations/observability/healthchecks/
+        type: Reference
     description: >-
       The Dapr Health API provides health check endpoints for the Dapr sidecar,
       usable with container orchestrators like Kubernetes for readiness and
@@ -210,6 +268,7 @@ apis:
     tags:
       - Metadata
       - Runtime
+      - Observability
     humanURL: https://docs.dapr.io/reference/api/metadata_api/
     properties:
       - url: https://docs.dapr.io/reference/api/metadata_api/
@@ -218,6 +277,8 @@ apis:
         type: OpenAPI
       - url: json-schema/metadata.json
         type: JSONSchema
+      - url: https://docs.dapr.io/operations/observability/
+        type: Reference
     description: >-
       The Dapr Metadata API provides information about the Dapr sidecar,
       including application connection details, registered components, active
@@ -235,24 +296,56 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+  - url: https://dapr.io/
+    name: Website
+    type: Website
+    description: Official Dapr project website.
   - url: https://docs.dapr.io/
     name: Documentation
     type: Documentation
-    description: 'null'
+    description: Official Dapr documentation covering all building blocks, operations, and SDKs.
+  - url: https://docs.dapr.io/getting-started/
+    name: Getting Started
+    type: Getting Started
+    description: Guides for getting started with Dapr including installation and quickstarts.
   - url: https://blog.dapr.io/
     name: Blog
     type: Blog
-    description: 'null'
+    description: Dapr project blog with release announcements and technical articles.
+  - url: https://github.com/dapr
+    name: GitHub Organization
+    type: GitHub Organization
+    description: Dapr GitHub organization containing all project repositories.
   - url: https://github.com/dapr/dapr
-    name: GitHub
-    type: GitHubOrg
-    description: 'null'
+    name: GitHub Repository
+    type: GitHubRepository
+    description: Main Dapr runtime source code repository.
+  - url: https://docs.dapr.io/sdks/
+    name: SDKs
+    type: SDKs
+    description: Dapr SDK implementations for Go, Python, Java, .NET, JavaScript, PHP, and Rust.
+  - url: https://discord.gg/ptHhX6jc34
+    name: Discord
+    type: Community
+    description: Dapr community Discord server for discussions, support, and announcements.
+  - url: https://github.com/dapr/dapr/blob/master/CHANGELOG.md
+    name: Change Log
+    type: Change Log
+    description: Release notes and version history for the Dapr runtime.
+  - url: https://github.com/dapr/dapr/security/policy
+    name: Security
+    type: Security
+    description: Security disclosure policy for the Dapr project.
+  - url: https://stackoverflow.com/questions/tagged/dapr
+    name: Stack Overflow
+    type: Stack Overflow
+    description: Dapr-tagged questions and answers on Stack Overflow.
   - url: json-ld/dapr-context.jsonld
     name: JSON-LD Context
-    type: JSONLDContext
-    description: 'null'
+    type: JSON-LD
+    description: JSON-LD context file for Dapr API data models.
 created: '2025-01-08'
-modified: '2026-03-16'
+modified: '2026-03-18'
 position: Consumer
 description: >-
   Dapr (Distributed Application Runtime) is a portable, event-driven runtime
