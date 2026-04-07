@@ -22,7 +22,7 @@ servers:
 paths:
   /v1.0/publish/{pubsubname}/{topic}:
     post:
-      summary: Publish Event
+      summary: Dapr Publish Event
       description: >-
         Publishes an event to the specified topic on the given pub/sub
         component. If content type is not application/cloudevents+json,
@@ -71,7 +71,7 @@ paths:
           description: Failed to publish event.
   /v1.0/publish/bulk/{pubsubname}/{topic}:
     post:
-      summary: Bulk Publish Events
+      summary: Dapr Bulk Publish Events
       description: Publishes multiple events to the specified topic in a single request.
       operationId: bulkPublishEvents
       tags:

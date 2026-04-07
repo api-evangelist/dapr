@@ -21,7 +21,7 @@ servers:
 paths:
   /v1.0-alpha1/jobs/{name}:
     post:
-      summary: Schedule Job
+      summary: Dapr Schedule Job
       description: >-
         Schedules a new job with the specified name, schedule, and data.
         At least one of schedule or dueTime must be provided.
@@ -49,7 +49,7 @@ paths:
         '500':
           description: Failed to schedule job.
     get:
-      summary: Get Job
+      summary: Dapr Get Job
       description: Retrieves the details of a scheduled job by name.
       operationId: getJob
       tags:
@@ -73,7 +73,7 @@ paths:
         '500':
           description: Failed to get job.
     delete:
-      summary: Delete Job
+      summary: Dapr Delete Job
       description: Deletes a scheduled job by name.
       operationId: deleteJob
       tags:

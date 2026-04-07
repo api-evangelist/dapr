@@ -22,7 +22,7 @@ servers:
 paths:
   /v1.0/state/{storename}:
     post:
-      summary: Save State
+      summary: Dapr Save State
       description: Saves an array of state objects to the specified state store.
       operationId: saveState
       tags:
@@ -51,7 +51,7 @@ paths:
           description: Failed to save state.
   /v1.0/state/{storename}/{key}:
     get:
-      summary: Get State
+      summary: Dapr Get State
       description: Retrieves the state for a specific key from the state store.
       operationId: getState
       tags:
@@ -95,7 +95,7 @@ paths:
         '500':
           description: Failed to get state.
     delete:
-      summary: Delete State
+      summary: Dapr Delete State
       description: Deletes the state for a specific key from the state store.
       operationId: deleteState
       tags:
@@ -138,7 +138,7 @@ paths:
           description: Failed to delete state.
   /v1.0/state/{storename}/bulk:
     post:
-      summary: Get Bulk State
+      summary: Dapr Get Bulk State
       description: Retrieves multiple state values from the state store in a single request.
       operationId: getBulkState
       tags:
@@ -180,7 +180,7 @@ paths:
           description: Failed to get bulk state.
   /v1.0/state/{storename}/transaction:
     post:
-      summary: Execute State Transaction
+      summary: Dapr Execute State Transaction
       description: >-
         Executes a multi-item transactional operation on the state store.
         Supports upsert and delete operations within a single transaction.
@@ -218,7 +218,7 @@ paths:
           description: Failed to execute transaction.
   /v1.0/state/{storename}/query:
     post:
-      summary: Query State
+      summary: Dapr Query State
       description: Queries the state store using a query expression.
       operationId: queryState
       tags:

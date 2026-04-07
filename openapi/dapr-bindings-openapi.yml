@@ -22,7 +22,7 @@ servers:
 paths:
   /v1.0/bindings/{name}:
     post:
-      summary: Invoke Output Binding
+      summary: Dapr Invoke Output Binding
       description: >-
         Invokes an output binding with the specified operation, data, and
         metadata. The operation field tells the binding what action to take.

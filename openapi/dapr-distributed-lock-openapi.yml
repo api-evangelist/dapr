@@ -22,7 +22,7 @@ servers:
 paths:
   /v1.0-alpha1/lock/{storename}:
     post:
-      summary: Try Lock
+      summary: Dapr Try Lock
       description: >-
         Attempts to acquire a lock on a resource. The lock is held for the
         specified expiry period and automatically released if not explicitly
@@ -74,7 +74,7 @@ paths:
           description: Failed to acquire lock.
   /v1.0-alpha1/unlock/{storename}:
     post:
-      summary: Unlock
+      summary: Dapr Unlock
       description: Releases a previously acquired lock on a resource.
       operationId: unlock
       tags:

@@ -22,7 +22,7 @@ servers:
 paths:
   /v1.0/metadata:
     get:
-      summary: Get Metadata
+      summary: Dapr Get Metadata
       description: >-
         Returns information about the Dapr sidecar, including app
         connection details, registered components, subscriptions,
@@ -131,7 +131,7 @@ paths:
           description: Failed to get metadata.
   /v1.0/metadata/{key}:
     put:
-      summary: Set Metadata
+      summary: Dapr Set Metadata
       description: Sets a custom metadata attribute on the Dapr sidecar.
       operationId: setMetadata
       tags:

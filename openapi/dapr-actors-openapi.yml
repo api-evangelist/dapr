@@ -22,7 +22,7 @@ servers:
 paths:
   /v1.0/actors/{actorType}/{actorId}/method/{method}:
     post:
-      summary: Invoke Actor Method
+      summary: Dapr Invoke Actor Method
       description: Invokes a method on the specified actor instance.
       operationId: invokeActorMethod
       tags:
@@ -49,7 +49,7 @@ paths:
         '500':
           description: Failed to invoke method.
     put:
-      summary: Invoke Actor Method (PUT)
+      summary: Dapr Invoke Actor Method (PUT)
       description: Invokes a method on the specified actor instance using PUT.
       operationId: invokeActorMethodPut
       tags:
@@ -76,7 +76,7 @@ paths:
         '500':
           description: Failed to invoke method.
     get:
-      summary: Invoke Actor Method (GET)
+      summary: Dapr Invoke Actor Method (GET)
       description: Invokes a method on the specified actor instance using GET.
       operationId: invokeActorMethodGet
       tags:
@@ -99,7 +99,7 @@ paths:
         '500':
           description: Failed to invoke method.
     delete:
-      summary: Invoke Actor Method (DELETE)
+      summary: Dapr Invoke Actor Method (DELETE)
       description: Invokes a method on the specified actor instance using DELETE.
       operationId: invokeActorMethodDelete
       tags:
@@ -123,7 +123,7 @@ paths:
           description: Failed to invoke method.
   /v1.0/actors/{actorType}/{actorId}/state:
     get:
-      summary: Get Actor State
+      summary: Dapr Get Actor State
       description: Retrieves all saved state for the specified actor.
       operationId: getActorState
       tags:
@@ -140,7 +140,7 @@ paths:
         '500':
           description: Failed to get actor state.
     post:
-      summary: Save Actor State (Transactional)
+      summary: Dapr Save Actor State (Transactional)
       description: >-
         Performs a transactional save of actor state, supporting multiple
         upsert and delete operations in a single transaction.
@@ -179,7 +179,7 @@ paths:
           description: Failed to save actor state.
   /v1.0/actors/{actorType}/{actorId}/state/{key}:
     get:
-      summary: Get Actor State by Key
+      summary: Dapr Get Actor State by Key
       description: Retrieves a specific state key for the specified actor.
       operationId: getActorStateByKey
       tags:
@@ -205,7 +205,7 @@ paths:
           description: Failed to get actor state.
   /v1.0/actors/{actorType}/{actorId}/timers/{name}:
     post:
-      summary: Create Actor Timer
+      summary: Dapr Create Actor Timer
       description: Creates a timer for the specified actor.
       operationId: createActorTimer
       tags:
@@ -231,7 +231,7 @@ paths:
         '500':
           description: Failed to create timer.
     delete:
-      summary: Delete Actor Timer
+      summary: Dapr Delete Actor Timer
       description: Deletes a timer for the specified actor.
       operationId: deleteActorTimer
       tags:
@@ -252,7 +252,7 @@ paths:
           description: Failed to delete timer.
   /v1.0/actors/{actorType}/{actorId}/reminders/{name}:
     post:
-      summary: Create Actor Reminder
+      summary: Dapr Create Actor Reminder
       description: >-
         Creates a persistent reminder for the specified actor. Reminders
         survive actor deactivations and failovers.
@@ -280,7 +280,7 @@ paths:
         '500':
           description: Failed to create reminder.
     get:
-      summary: Get Actor Reminder
+      summary: Dapr Get Actor Reminder
       description: Retrieves a specific reminder for the specified actor.
       operationId: getActorReminder
       tags:
@@ -304,7 +304,7 @@ paths:
         '500':
           description: Failed to get reminder.
     delete:
-      summary: Delete Actor Reminder
+      summary: Dapr Delete Actor Reminder
       description: Deletes a reminder for the specified actor.
       operationId: deleteActorReminder
       tags:

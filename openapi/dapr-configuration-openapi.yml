@@ -22,7 +22,7 @@ servers:
 paths:
   /v1.0/configuration/{storename}:
     get:
-      summary: Get Configuration
+      summary: Dapr Get Configuration
       description: >-
         Retrieves configuration items from the specified configuration
         store. If no keys are specified, all configuration items are returned.
@@ -71,7 +71,7 @@ paths:
           description: Failed to get configuration.
   /v1.0/configuration/{storename}/subscribe:
     get:
-      summary: Subscribe to Configuration
+      summary: Dapr Subscribe to Configuration
       description: >-
         Subscribes to configuration changes from the specified store. Returns
         a subscription ID that can be used to unsubscribe later.
@@ -111,7 +111,7 @@ paths:
           description: Failed to subscribe.
   /v1.0/configuration/{storename}/{subscriptionId}/unsubscribe:
     get:
-      summary: Unsubscribe from Configuration
+      summary: Dapr Unsubscribe from Configuration
       description: Unsubscribes from configuration changes using a subscription ID.
       operationId: unsubscribeConfiguration
       tags:

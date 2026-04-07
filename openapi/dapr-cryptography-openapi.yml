@@ -23,7 +23,7 @@ servers:
 paths:
   /v1.0-alpha1/crypto/{crypto-store-name}/encrypt:
     put:
-      summary: Encrypt
+      summary: Dapr Encrypt
       description: >-
         Encrypts data using the specified cryptography component and key.
         The HTTP API is intended for development and testing; for production,
@@ -71,7 +71,7 @@ paths:
           description: Failed to encrypt data.
   /v1.0-alpha1/crypto/{crypto-store-name}/decrypt:
     put:
-      summary: Decrypt
+      summary: Dapr Decrypt
       description: >-
         Decrypts data using the specified cryptography component and key.
         The HTTP API is intended for development and testing; for production,

@@ -22,7 +22,7 @@ servers:
 paths:
   /v1.0/invoke/{appId}/method/{method-name}:
     get:
-      summary: Invoke Method (GET)
+      summary: Dapr Invoke Method (GET)
       description: Invokes a method on a remote Dapr app using GET.
       operationId: invokeMethodGet
       tags:
@@ -51,7 +51,7 @@ paths:
         '500':
           description: Failed to invoke method.
     post:
-      summary: Invoke Method (POST)
+      summary: Dapr Invoke Method (POST)
       description: Invokes a method on a remote Dapr app using POST.
       operationId: invokeMethodPost
       tags:
@@ -84,7 +84,7 @@ paths:
         '500':
           description: Failed to invoke method.
     put:
-      summary: Invoke Method (PUT)
+      summary: Dapr Invoke Method (PUT)
       description: Invokes a method on a remote Dapr app using PUT.
       operationId: invokeMethodPut
       tags:
@@ -117,7 +117,7 @@ paths:
         '500':
           description: Failed to invoke method.
     delete:
-      summary: Invoke Method (DELETE)
+      summary: Dapr Invoke Method (DELETE)
       description: Invokes a method on a remote Dapr app using DELETE.
       operationId: invokeMethodDelete
       tags:
@@ -146,7 +146,7 @@ paths:
         '500':
           description: Failed to invoke method.
     patch:
-      summary: Invoke Method (PATCH)
+      summary: Dapr Invoke Method (PATCH)
       description: Invokes a method on a remote Dapr app using PATCH.
       operationId: invokeMethodPatch
       tags:

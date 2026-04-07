@@ -21,7 +21,7 @@ servers:
 paths:
   /v1.0/workflows/{workflowComponentName}/{workflowName}/start:
     post:
-      summary: Start Workflow
+      summary: Dapr Start Workflow
       description: Starts a new workflow instance with the specified workflow name.
       operationId: startWorkflow
       tags:
@@ -68,7 +68,7 @@ paths:
           description: Failed to start workflow.
   /v1.0/workflows/{workflowComponentName}/{instanceId}:
     get:
-      summary: Get Workflow
+      summary: Dapr Get Workflow
       description: Retrieves the status and details of a workflow instance.
       operationId: getWorkflow
       tags:
@@ -99,7 +99,7 @@ paths:
           description: Failed to get workflow.
   /v1.0/workflows/{workflowComponentName}/{instanceId}/terminate:
     post:
-      summary: Terminate Workflow
+      summary: Dapr Terminate Workflow
       description: Terminates a running workflow instance.
       operationId: terminateWorkflow
       tags:
@@ -126,7 +126,7 @@ paths:
           description: Failed to terminate workflow.
   /v1.0/workflows/{workflowComponentName}/{instanceId}/raiseEvent/{eventName}:
     post:
-      summary: Raise Workflow Event
+      summary: Dapr Raise Workflow Event
       description: Raises an event to a running workflow instance.
       operationId: raiseWorkflowEvent
       tags:
@@ -164,7 +164,7 @@ paths:
           description: Failed to raise event.
   /v1.0/workflows/{workflowComponentName}/{instanceId}/pause:
     post:
-      summary: Pause Workflow
+      summary: Dapr Pause Workflow
       description: Pauses a running workflow instance.
       operationId: pauseWorkflow
       tags:
@@ -191,7 +191,7 @@ paths:
           description: Failed to pause workflow.
   /v1.0/workflows/{workflowComponentName}/{instanceId}/resume:
     post:
-      summary: Resume Workflow
+      summary: Dapr Resume Workflow
       description: Resumes a paused workflow instance.
       operationId: resumeWorkflow
       tags:
@@ -218,7 +218,7 @@ paths:
           description: Failed to resume workflow.
   /v1.0/workflows/{workflowComponentName}/{instanceId}/purge:
     post:
-      summary: Purge Workflow
+      summary: Dapr Purge Workflow
       description: >-
         Permanently deletes workflow metadata from the state store, including
         stored inputs, outputs, and history. Only COMPLETED, FAILED, or
