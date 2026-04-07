@@ -4,9 +4,9 @@ apis:
   - aid: dapr:state-management
     name: Dapr State Management API
     tags:
-      - State Management
-      - Key Value
       - Distributed Systems
+      - Key Value
+      - State Management
     humanURL: https://docs.dapr.io/reference/api/state_api/
     properties:
       - url: https://docs.dapr.io/reference/api/state_api/
@@ -27,10 +27,10 @@ apis:
   - aid: dapr:pubsub
     name: Dapr Pub/Sub API
     tags:
-      - Pub/Sub
-      - Messaging
-      - Events
       - CloudEvents
+      - Events
+      - Messaging
+      - Pub/Sub
     humanURL: https://docs.dapr.io/reference/api/pubsub_api/
     properties:
       - url: https://docs.dapr.io/reference/api/pubsub_api/
@@ -52,9 +52,9 @@ apis:
   - aid: dapr:service-invocation
     name: Dapr Service Invocation API
     tags:
-      - Service Invocation
       - Microservices
       - Service Discovery
+      - Service Invocation
     humanURL: https://docs.dapr.io/reference/api/service_invocation_api/
     properties:
       - url: https://docs.dapr.io/reference/api/service_invocation_api/
@@ -74,8 +74,8 @@ apis:
     name: Dapr Bindings API
     tags:
       - Bindings
-      - Integrations
       - Event-Driven
+      - Integrations
     humanURL: https://docs.dapr.io/reference/api/bindings_api/
     properties:
       - url: https://docs.dapr.io/reference/api/bindings_api/
@@ -96,9 +96,9 @@ apis:
   - aid: dapr:secrets
     name: Dapr Secrets API
     tags:
+      - Key Management
       - Secrets
       - Security
-      - Key Management
     humanURL: https://docs.dapr.io/reference/api/secrets_api/
     properties:
       - url: https://docs.dapr.io/reference/api/secrets_api/
@@ -120,8 +120,8 @@ apis:
     name: Dapr Actors API
     tags:
       - Actors
-      - Virtual Actors
       - Distributed Systems
+      - Virtual Actors
     humanURL: https://docs.dapr.io/reference/api/actors_api/
     properties:
       - url: https://docs.dapr.io/reference/api/actors_api/
@@ -141,9 +141,9 @@ apis:
   - aid: dapr:workflow
     name: Dapr Workflow API
     tags:
-      - Workflows
-      - Orchestration
       - Distributed Systems
+      - Orchestration
+      - Workflows
     humanURL: https://docs.dapr.io/reference/api/workflow_api/
     properties:
       - url: https://docs.dapr.io/reference/api/workflow_api/
@@ -164,8 +164,8 @@ apis:
     name: Dapr Configuration API
     tags:
       - Configuration
-      - Subscriptions
       - Distributed Systems
+      - Subscriptions
     humanURL: https://docs.dapr.io/reference/api/configuration_api/
     properties:
       - url: https://docs.dapr.io/reference/api/configuration_api/
@@ -185,9 +185,9 @@ apis:
   - aid: dapr:distributed-lock
     name: Dapr Distributed Lock API
     tags:
-      - Distributed Lock
       - Concurrency
       - Coordination
+      - Distributed Lock
     humanURL: https://docs.dapr.io/reference/api/distributed_lock_api/
     properties:
       - url: https://docs.dapr.io/reference/api/distributed_lock_api/
@@ -206,8 +206,8 @@ apis:
     name: Dapr Cryptography API
     tags:
       - Cryptography
-      - Security
       - Encryption
+      - Security
     humanURL: https://docs.dapr.io/reference/api/cryptography_api/
     properties:
       - url: https://docs.dapr.io/reference/api/cryptography_api/
@@ -226,9 +226,9 @@ apis:
   - aid: dapr:jobs
     name: Dapr Jobs API
     tags:
+      - Cron
       - Jobs
       - Scheduling
-      - Cron
     humanURL: https://docs.dapr.io/reference/api/jobs_api/
     properties:
       - url: https://docs.dapr.io/reference/api/jobs_api/
@@ -249,8 +249,8 @@ apis:
     name: Dapr Health API
     tags:
       - Health
-      - Monitoring
       - Kubernetes
+      - Monitoring
     humanURL: https://docs.dapr.io/reference/api/health_api/
     properties:
       - url: https://docs.dapr.io/reference/api/health_api/
@@ -267,8 +267,8 @@ apis:
     name: Dapr Metadata API
     tags:
       - Metadata
-      - Runtime
       - Observability
+      - Runtime
     humanURL: https://docs.dapr.io/reference/api/metadata_api/
     properties:
       - url: https://docs.dapr.io/reference/api/metadata_api/
@@ -286,12 +286,12 @@ apis:
       attributes.
 name: Dapr
 tags:
-  - Workflows
-  - State Management
-  - Pub/Sub
-  - Microservices
   - Distributed Systems
+  - Microservices
   - Platform
+  - Pub/Sub
+  - State Management
+  - Workflows
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
