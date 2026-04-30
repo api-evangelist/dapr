@@ -344,8 +344,21 @@ common:
     name: JSON-LD Context
     type: JSON-LD
     description: JSON-LD context file for Dapr API data models.
+  - url: vocabulary/dapr-vocabulary.yml
+    name: Vocabulary
+    type: Vocabulary
+    description: Shared vocabulary across Dapr building blocks.
+  - url: rules/dapr-rules.yml
+    name: Rules
+    type: Rules
+    description: Spectral rules for validating Dapr OpenAPI definitions.
+  - url: capabilities/dapr-capabilities.yml
+    name: Capabilities
+    type: Capabilities
+    description: Capability summary across Dapr building block APIs.
 created: '2025-01-08'
-modified: '2026-03-18'
+modified: '2026-04-28'
+xType: opensource
 position: Consumer
 description: >-
   Dapr (Distributed Application Runtime) is a portable, event-driven runtime

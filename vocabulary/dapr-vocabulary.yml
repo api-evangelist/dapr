@@ -1,0 +1,68 @@
+name: Dapr Vocabulary
+description: >-
+  Shared vocabulary of terms used across Dapr building block APIs covering
+  state, pub/sub, service invocation, bindings, secrets, actors, workflows,
+  configuration, distributed locks, cryptography, jobs, health, and metadata.
+terms:
+  - term: Building Block
+    definition: >-
+      A pluggable Dapr API such as state management, pub/sub, or workflow that
+      provides a portable abstraction over backing components.
+  - term: Component
+    definition: >-
+      A YAML-defined implementation of a building block that binds it to a
+      concrete provider such as Redis, Kafka, or AWS S3.
+  - term: Sidecar
+    definition: >-
+      The Dapr runtime process co-located with an application that exposes
+      Dapr APIs locally over HTTP and gRPC.
+  - term: State Item
+    definition: >-
+      A key/value record managed through the Dapr state management API.
+  - term: CloudEvent
+    definition: >-
+      The CloudEvents 1.0 envelope used by Dapr pub/sub for messages.
+  - term: Topic
+    definition: >-
+      A named channel through which Dapr publishes and subscribes to events.
+  - term: Subscription
+    definition: >-
+      A declarative or programmatic registration that routes topic events to a
+      consumer endpoint.
+  - term: Binding
+    definition: >-
+      An input or output integration that lets applications receive events
+      from or send events to external systems.
+  - term: Service Invocation
+    definition: >-
+      Direct, named, mTLS-secured request/response calls between Dapr-enabled
+      services.
+  - term: Actor
+    definition: >-
+      A virtual actor with single-threaded execution, durable state, timers,
+      and reminders, addressed by type and id.
+  - term: Workflow
+    definition: >-
+      A long-running orchestration of activities and child workflows managed
+      by the Dapr workflow engine.
+  - term: Secret Store
+    definition: >-
+      A configured component that backs the Dapr secrets API with providers
+      such as Vault, AWS Secrets Manager, or Azure Key Vault.
+  - term: Configuration Item
+    definition: >-
+      A versioned configuration value that applications can read and watch.
+  - term: Distributed Lock
+    definition: >-
+      A lease-based lock used to coordinate exclusive access to a shared
+      resource across application instances.
+  - term: Job
+    definition: >-
+      A scheduled task triggered by cron expression or duration.
+  - term: Health Check
+    definition: >-
+      Readiness and liveness endpoints exposed by the Dapr sidecar.
+  - term: Metadata
+    definition: >-
+      Runtime information about the sidecar, components, subscriptions, and
+      endpoints.

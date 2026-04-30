@@ -6,8 +6,9 @@ Dapr (Distributed Application Runtime) is a portable, event-driven runtime that 
 ## Scope
 
 - **Type:** Index 
-- **Position:** Consuming 
+- **Position:** Consumer 
 - **Access:** 3rd-Party 
+- **xType:** opensource
 
 ## Tags:
 
@@ -16,7 +17,7 @@ Dapr (Distributed Application Runtime) is a portable, event-driven runtime that 
 ## Timestamps
 
 - **Created:** 2025-01-08 
-- **Modified:** 2026-03-18 
+- **Modified:** 2026-04-28 
 
 ## APIs
 
@@ -263,6 +264,9 @@ The Dapr Metadata API provides information about the Dapr sidecar, including app
 - [Security](https://github.com/dapr/dapr/security/policy)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/dapr)
 - [JSON-LD](json-ld/dapr-context.jsonld)
+- [Vocabulary](vocabulary/dapr-vocabulary.yml)
+- [Rules](rules/dapr-rules.yml)
+- [Capabilities](capabilities/dapr-capabilities.yml)
 
 ## Maintainers
 

@@ -1,0 +1,55 @@
+name: Dapr Capabilities
+description: >-
+  Capabilities exposed across Dapr's building block APIs for distributed
+  applications.
+capabilities:
+  - name: State Management
+    description: Save, retrieve, delete, bulk and transactional operations on application state.
+    api: dapr:state-management
+  - name: Pub/Sub Messaging
+    description: Publish events to topics and discover subscriptions using CloudEvents.
+    api: dapr:pubsub
+  - name: Service Invocation
+    description: Direct service-to-service calls with discovery and mTLS via the Dapr sidecar.
+    api: dapr:service-invocation
+  - name: Bindings
+    description: Trigger external resources with output bindings and react to input bindings.
+    api: dapr:bindings
+  - name: Secrets Management
+    description: Retrieve secrets from configured secret stores without exposing keys to the app.
+    api: dapr:secrets
+  - name: Virtual Actors
+    description: Method invocation, state, timers, and reminders for durable actor instances.
+    api: dapr:actors
+  - name: Workflow Orchestration
+    description: Start, get, pause, resume, terminate, purge, and raise events to workflows.
+    api: dapr:workflow
+  - name: Configuration
+    description: Retrieve and subscribe to configuration items from configured stores.
+    api: dapr:configuration
+  - name: Distributed Lock
+    description: Acquire and release lease-based locks across application instances.
+    api: dapr:distributed-lock
+  - name: Cryptography
+    description: Encrypt and decrypt data without exposing cryptographic keys to the app.
+    api: dapr:cryptography
+  - name: Jobs Scheduling
+    description: Schedule, retrieve, and delete jobs by cron expression or duration.
+    api: dapr:jobs
+  - name: Health Checks
+    description: Readiness and liveness endpoints for orchestrators such as Kubernetes.
+    api: dapr:health
+  - name: Runtime Metadata
+    description: Inspect components, subscriptions, endpoints, and set custom attributes.
+    api: dapr:metadata
+use_cases:
+  - name: Cloud-portable microservices
+    description: Build microservices that run unchanged across cloud providers using Dapr building blocks.
+  - name: Event-driven architectures
+    description: Use pub/sub and bindings to wire event-driven systems on top of pluggable brokers.
+  - name: Stateful workflows
+    description: Coordinate long-running business processes with the workflow building block.
+  - name: Secret-free deployments
+    description: Centralise secret access through Dapr without baking credentials into apps.
+  - name: Multi-language actor systems
+    description: Use virtual actors to model entities with state and behaviour across languages.

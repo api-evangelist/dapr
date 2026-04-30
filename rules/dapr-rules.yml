@@ -1,0 +1,39 @@
+extends:
+  - spectral:oas
+rules:
+  dapr-info-contact:
+    description: API info should provide a contact for the Dapr project.
+    given: $.info
+    severity: warn
+    then:
+      field: contact
+      function: truthy
+  dapr-server-prefix:
+    description: Servers should use the /v1.0 path prefix used by Dapr building blocks.
+    given: $.servers[*].url
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "/v1\\.0"
+  dapr-store-name-path-param:
+    description: State, secrets, and configuration paths must be parameterised by storeName.
+    given: $.paths
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "\\{storeName\\}|\\{secretStoreName\\}|\\{pubsubname\\}|\\{name\\}"
+  dapr-operation-tags:
+    description: Every operation must be tagged with its building block.
+    given: $.paths[*][*]
+    severity: error
+    then:
+      field: tags
+      function: truthy
+  dapr-cloudevent-content-type:
+    description: Pub/sub publish endpoints should accept application/cloudevents+json.
+    given: $.paths[*].post.requestBody.content
+    severity: warn
+    then:
+      function: truthy
