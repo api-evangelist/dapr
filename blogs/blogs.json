@@ -1,0 +1,13 @@
+{
+  "repo": "dapr",
+  "feeds": [
+    {
+      "source": "https://blog.dapr.io/",
+      "feed_url": "https://blog.dapr.io/index.xml",
+      "saved": 10,
+      "title": "Dapr Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:26:48Z"
+}
