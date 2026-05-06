@@ -4,147 +4,53 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Dapr
 providerId: dapr
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Distributed Systems
   - Microservices
-  - Platform
-  - Pub/Sub
-  - State Management
-  - Workflows
+  - Open Source
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Dapr API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: Dapr is a self-hosted runtime; there is no provider-imposed rate limit on the Dapr APIs.
+  Throughput is bounded by the operator's own sidecar resource limits, the underlying state store /
+  message broker, and any Dapr Resiliency or Configuration policies the operator configures (rate
+  limit middleware, circuit breakers, timeouts, retries). Dapr does ship a rate-limit HTTP middleware
+  component that operators can attach to any building-block invocation, but the numeric limits are
+  always operator-defined.
+sources:
+  - https://docs.dapr.io/operations/components/middleware/
+  - https://docs.dapr.io/operations/resiliency/policies/
+notes: Dapr does not impose vendor rate limits. All quotas are operator-configured via middleware
+  or Resiliency policies. Reconciled remains false because there are no published vendor numbers
+  to verify against.
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Dapr State Management API
-      - Dapr Pub/Sub API
-      - Dapr Service Invocation API
-      - Dapr Bindings API
-      - Dapr Secrets API
-      - Dapr Actors API
-      - Dapr Workflow API
-      - Dapr Configuration API
-      - Dapr Distributed Lock API
-      - Dapr Cryptography API
-      - Dapr Jobs API
-      - Dapr Health API
-      - Dapr Metadata API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Dapr State Management API
-      - Dapr Pub/Sub API
-      - Dapr Service Invocation API
-      - Dapr Bindings API
-      - Dapr Secrets API
-      - Dapr Actors API
-      - Dapr Workflow API
-      - Dapr Configuration API
-      - Dapr Distributed Lock API
-      - Dapr Cryptography API
-      - Dapr Jobs API
-      - Dapr Health API
-      - Dapr Metadata API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Dapr State Management API
-      - Dapr Pub/Sub API
-      - Dapr Service Invocation API
-      - Dapr Bindings API
-      - Dapr Secrets API
-      - Dapr Actors API
-      - Dapr Workflow API
-      - Dapr Configuration API
-      - Dapr Distributed Lock API
-      - Dapr Cryptography API
-      - Dapr Jobs API
-      - Dapr Health API
-      - Dapr Metadata API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Dapr State Management API
-      - Dapr Pub/Sub API
-      - Dapr Service Invocation API
-      - Dapr Bindings API
-      - Dapr Secrets API
-      - Dapr Actors API
-      - Dapr Workflow API
-      - Dapr Configuration API
-      - Dapr Distributed Lock API
-      - Dapr Cryptography API
-      - Dapr Jobs API
-      - Dapr Health API
-      - Dapr Metadata API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Dapr State Management API
-      - Dapr Pub/Sub API
-      - Dapr Service Invocation API
-      - Dapr Bindings API
-      - Dapr Secrets API
-      - Dapr Actors API
-      - Dapr Workflow API
-      - Dapr Configuration API
-      - Dapr Distributed Lock API
-      - Dapr Cryptography API
-      - Dapr Jobs API
-      - Dapr Health API
-      - Dapr Metadata API
+  - name: Operator-configured rate limit middleware
+    scope: per-component
+    metric: requests_per_second
+    limit: operator-defined via ratelimit middleware component
+    notes: Configured in the rate-limit middleware spec (`maxRequestsPerSecond`) and bound to a
+      pipeline. No default; not applied unless the middleware is attached.
+  - name: Operator-configured Resiliency policy
+    scope: per-component or per-app
+    metric: varies
+    limit: operator-defined via Resiliency CRDs (timeouts, retries, circuit breakers)
+    notes: Resiliency policies bound circuit-breaker thresholds, retry budgets, and timeouts; they
+      are not vendor rate limits.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Self-Hosted Throttling
+    description: Because Dapr runs in the operator's own infrastructure, all throughput limits are
+      under operator control. Tune sidecar CPU/memory, state-store throughput, and broker
+      partitions to set effective limits.
+  - name: Middleware Pattern
+    description: Use the rate-limit HTTP middleware to enforce a per-app requests-per-second cap;
+      attach it to specific building blocks via component pipelines.
+  - name: Resiliency First
+    description: Combine timeouts, retries with backoff, and circuit breakers via Resiliency CRDs
+      rather than relying on a single rate-limit number. Dapr's Resiliency framework is the
+      canonical place to encode these.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
