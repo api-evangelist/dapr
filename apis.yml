@@ -306,7 +306,7 @@ common:
     description: Official Dapr documentation covering all building blocks, operations, and SDKs.
   - url: https://docs.dapr.io/getting-started/
     name: Getting Started
-    type: Getting Started
+    type: GettingStarted
     description: Guides for getting started with Dapr including installation and quickstarts.
   - url: https://blog.dapr.io/
     name: Blog
@@ -314,7 +314,7 @@ common:
     description: Dapr project blog with release announcements and technical articles.
   - url: https://github.com/dapr
     name: GitHub Organization
-    type: GitHub Organization
+    type: GitHubOrganization
     description: Dapr GitHub organization containing all project repositories.
   - url: https://github.com/dapr/dapr
     name: GitHub Repository
@@ -330,7 +330,7 @@ common:
     description: Dapr community Discord server for discussions, support, and announcements.
   - url: https://github.com/dapr/dapr/blob/master/CHANGELOG.md
     name: Change Log
-    type: Change Log
+    type: ChangeLog
     description: Release notes and version history for the Dapr runtime.
   - url: https://github.com/dapr/dapr/security/policy
     name: Security
@@ -338,11 +338,11 @@ common:
     description: Security disclosure policy for the Dapr project.
   - url: https://stackoverflow.com/questions/tagged/dapr
     name: Stack Overflow
-    type: Stack Overflow
+    type: StackOverflow
     description: Dapr-tagged questions and answers on Stack Overflow.
   - url: json-ld/dapr-context.jsonld
     name: JSON-LD Context
-    type: JSON-LD
+    type: JSONLD
     description: JSON-LD context file for Dapr API data models.
   - url: vocabulary/dapr-vocabulary.yml
     name: Vocabulary
@@ -358,7 +358,7 @@ common:
     description: Capability summary across Dapr building block APIs.
 created: '2025-01-08'
 modified: '2026-04-28'
-xType: opensource
+kind: opensource
 position: Consumer
 description: >-
   Dapr (Distributed Application Runtime) is a portable, event-driven runtime
