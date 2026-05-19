@@ -1,0 +1,154 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dapr Cryptography API — Cryptography
+  description: 'Dapr Cryptography API — Cryptography. 2 operations. Lead operation: Dapr Decrypt. Self-contained Naftiko capability
+    covering one Dapr business surface.'
+  tags:
+  - Dapr
+  - Cryptography
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DAPR_API_KEY: DAPR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cryptography-cryptography
+    baseUri: http://localhost:3500
+    description: Dapr Cryptography API — Cryptography business capability. Self-contained, no shared references.
+    resources:
+    - name: v1.0-alpha1-crypto-crypto-store-name-decrypt
+      path: /v1.0-alpha1/crypto/{crypto-store-name}/decrypt
+      operations:
+      - name: decrypt
+        method: PUT
+        description: Dapr Decrypt
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: crypto-store-name
+          in: path
+          type: string
+          description: The name of the cryptography component.
+          required: true
+        - name: dapr-key-name
+          in: header
+          type: string
+          description: The name of the key to use for decryption.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1.0-alpha1-crypto-crypto-store-name-encrypt
+      path: /v1.0-alpha1/crypto/{crypto-store-name}/encrypt
+      operations:
+      - name: encrypt
+        method: PUT
+        description: Dapr Encrypt
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: crypto-store-name
+          in: path
+          type: string
+          description: The name of the cryptography component.
+          required: true
+        - name: dapr-key-name
+          in: header
+          type: string
+          description: The name of the key to use for encryption.
+          required: true
+        - name: dapr-key-wrap-algorithm
+          in: header
+          type: string
+          description: The key wrap algorithm to use (e.g., A256KW, A128CBC, RSA-OAEP-256).
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: cryptography-cryptography-rest
+    port: 8080
+    description: REST adapter for Dapr Cryptography API — Cryptography. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1-0-alpha1/crypto/{crypto-store-name}/decrypt
+      name: v1-0-alpha1-crypto-crypto-store-name-decrypt
+      description: REST surface for v1.0-alpha1-crypto-crypto-store-name-decrypt.
+      operations:
+      - method: PUT
+        name: decrypt
+        description: Dapr Decrypt
+        call: cryptography-cryptography.decrypt
+        with:
+          crypto-store-name: rest.crypto-store-name
+          dapr-key-name: rest.dapr-key-name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1-0-alpha1/crypto/{crypto-store-name}/encrypt
+      name: v1-0-alpha1-crypto-crypto-store-name-encrypt
+      description: REST surface for v1.0-alpha1-crypto-crypto-store-name-encrypt.
+      operations:
+      - method: PUT
+        name: encrypt
+        description: Dapr Encrypt
+        call: cryptography-cryptography.encrypt
+        with:
+          crypto-store-name: rest.crypto-store-name
+          dapr-key-name: rest.dapr-key-name
+          dapr-key-wrap-algorithm: rest.dapr-key-wrap-algorithm
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cryptography-cryptography-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dapr Cryptography API — Cryptography. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: dapr-decrypt
+      description: Dapr Decrypt
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cryptography-cryptography.decrypt
+      with:
+        crypto-store-name: tools.crypto-store-name
+        dapr-key-name: tools.dapr-key-name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: dapr-encrypt
+      description: Dapr Encrypt
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cryptography-cryptography.encrypt
+      with:
+        crypto-store-name: tools.crypto-store-name
+        dapr-key-name: tools.dapr-key-name
+        dapr-key-wrap-algorithm: tools.dapr-key-wrap-algorithm
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
