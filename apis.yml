@@ -354,6 +354,8 @@ common:
   name: Capabilities
   type: Capabilities
   description: Capability summary across Dapr building block APIs.
+- type: LLMsTxt
+  url: https://dapr.io/llms.txt
 created: '2025-01-08'
 modified: '2026-05-19'
 kind: opensource
