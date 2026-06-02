@@ -2,12 +2,20 @@
   "repo": "dapr",
   "feeds": [
     {
+      "source": "https://blog.dapr.io/index.xml",
+      "feed_url": "https://blog.dapr.io/index.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://blog.dapr.io/",
       "feed_url": "https://blog.dapr.io/index.xml",
-      "title": "Dapr Blog",
-      "saved": 46
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
     }
   ],
   "post_count": 56,
-  "fetched": "2026-05-17T20:20:35Z"
+  "fetched": "2026-06-01T23:35:02Z"
 }
