@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dapr Pub/Sub API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PubSub",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dapr Publish Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/publish/:pubsubname/:topic",
+            "params": [
+              {
+                "name": "pubsubname",
+                "value": "",
+                "type": "path",
+                "description": "The name of the pub/sub component."
+              },
+              {
+                "name": "topic",
+                "value": "",
+                "type": "path",
+                "description": "The name of the topic."
+              },
+              {
+                "name": "metadata.rawPayload",
+                "value": "",
+                "type": "query",
+                "description": "Set to true to disable CloudEvent wrapping of the payload."
+              },
+              {
+                "name": "metadata.ttlInSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Time-to-live for the message in seconds."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Publishes an event to the specified topic on the given pub/sub component. If content type is not application/cloudevents+json, the payload is automatically wrapped in a CloudEvent envelope."
+        },
+        {
+          "info": {
+            "name": "Dapr Bulk Publish Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/publish/bulk/:pubsubname/:topic",
+            "params": [
+              {
+                "name": "pubsubname",
+                "value": "",
+                "type": "path",
+                "description": "The name of the pub/sub component."
+              },
+              {
+                "name": "topic",
+                "value": "",
+                "type": "path",
+                "description": "The name of the topic."
+              },
+              {
+                "name": "metadata.rawPayload",
+                "value": "",
+                "type": "query",
+                "description": "Set to true to disable CloudEvent wrapping."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Publishes multiple events to the specified topic in a single request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

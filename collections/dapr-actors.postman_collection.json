@@ -1,0 +1,2347 @@
+{
+  "item": [
+    {
+      "id": "2cc90f06-faee-4724-98ac-9b8e662d4f63",
+      "name": "Actors",
+      "description": {
+        "content": "Virtual actor operations including state, timers, and reminders.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ed49db85-44bd-48cb-bd6a-342a6999abe8",
+          "name": "Dapr Invoke Actor Method",
+          "request": {
+            "name": "Dapr Invoke Actor Method",
+            "description": {
+              "content": "Invokes a method on the specified actor instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "method",
+                ":method"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "method",
+                  "description": "(Required) The name of the method to invoke."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d2c83d6-9a4c-4bf2-a79c-7f97944ffde2",
+              "name": "Method invoked successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "method",
+                    ":method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "method",
+                      "description": "(Required) The name of the method to invoke."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2bc155e1-c769-466a-a618-707df5864ea2",
+              "name": "Failed to invoke method.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "method",
+                    ":method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "method",
+                      "description": "(Required) The name of the method to invoke."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfd538cf-17fc-46d7-9a19-95ea1c907464",
+          "name": "Dapr Invoke Actor Method (PUT)",
+          "request": {
+            "name": "Dapr Invoke Actor Method (PUT)",
+            "description": {
+              "content": "Invokes a method on the specified actor instance using PUT.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "method",
+                ":method"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "method",
+                  "description": "(Required) The name of the method to invoke."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e54faf8f-b26e-4bc1-ac3b-ff3d7f1a01ce",
+              "name": "Method invoked successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "method",
+                    ":method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "method",
+                      "description": "(Required) The name of the method to invoke."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6a93322-8b1b-4e66-a9db-ba97a4c0cc01",
+              "name": "Failed to invoke method.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "method",
+                    ":method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "method",
+                      "description": "(Required) The name of the method to invoke."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02fafaf0-73b1-4fdd-a7af-47c9c9d44a8e",
+          "name": "Dapr Invoke Actor Method (GET)",
+          "request": {
+            "name": "Dapr Invoke Actor Method (GET)",
+            "description": {
+              "content": "Invokes a method on the specified actor instance using GET.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "method",
+                ":method"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "method",
+                  "description": "(Required) The name of the method to invoke."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19aa749e-df44-466e-bc52-bbfbefd5ca6d",
+              "name": "Method invoked successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "method",
+                    ":method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "method",
+                      "description": "(Required) The name of the method to invoke."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4c5105e-d7fb-4a01-a402-f96e35d7f37c",
+              "name": "Failed to invoke method.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "method",
+                    ":method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "method",
+                      "description": "(Required) The name of the method to invoke."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eece2517-3d70-44a4-a6f7-f9699bb63ce5",
+          "name": "Dapr Invoke Actor Method (DELETE)",
+          "request": {
+            "name": "Dapr Invoke Actor Method (DELETE)",
+            "description": {
+              "content": "Invokes a method on the specified actor instance using DELETE.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "method",
+                ":method"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "method",
+                  "description": "(Required) The name of the method to invoke."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d96d2933-59f9-4027-9e88-c6bde75bd1c7",
+              "name": "Method invoked successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "method",
+                    ":method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "method",
+                      "description": "(Required) The name of the method to invoke."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fcb22ac-c680-417c-99c0-48b8e113e593",
+              "name": "Failed to invoke method.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "method",
+                    ":method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "method",
+                      "description": "(Required) The name of the method to invoke."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6c9f1b2-decf-476e-bdfd-e74fe7f909c6",
+          "name": "Dapr Get Actor State",
+          "request": {
+            "name": "Dapr Get Actor State",
+            "description": {
+              "content": "Retrieves all saved state for the specified actor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "state"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc7ccba3-23b5-48a7-a5f5-3510a6b0a48d",
+              "name": "Actor state retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fbc3bfd-8346-4bf2-b18a-bb442d7f2e61",
+              "name": "Failed to get actor state.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "688602db-f28a-4af5-bf02-e18cb94c226d",
+          "name": "Dapr Save Actor State (Transactional)",
+          "request": {
+            "name": "Dapr Save Actor State (Transactional)",
+            "description": {
+              "content": "Performs a transactional save of actor state, supporting multiple upsert and delete operations in a single transaction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "state"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"operation\": \"<string>\",\n    \"request\": {\n      \"key\": \"<string>\",\n      \"value\": \"\"\n    }\n  },\n  {\n    \"operation\": \"<string>\",\n    \"request\": {\n      \"key\": \"<string>\",\n      \"value\": \"\"\n    }\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80bab579-1f7b-414b-b103-7253b62013b2",
+              "name": "Actor state saved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"operation\": \"<string>\",\n    \"request\": {\n      \"key\": \"<string>\",\n      \"value\": \"\"\n    }\n  },\n  {\n    \"operation\": \"<string>\",\n    \"request\": {\n      \"key\": \"<string>\",\n      \"value\": \"\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "def848e7-1bf5-42c7-8cf3-56c4c48997ea",
+              "name": "Actor not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"operation\": \"<string>\",\n    \"request\": {\n      \"key\": \"<string>\",\n      \"value\": \"\"\n    }\n  },\n  {\n    \"operation\": \"<string>\",\n    \"request\": {\n      \"key\": \"<string>\",\n      \"value\": \"\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0b5b55ce-c2f3-4d3a-88d2-c0826d028438",
+              "name": "Failed to save actor state.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"operation\": \"<string>\",\n    \"request\": {\n      \"key\": \"<string>\",\n      \"value\": \"\"\n    }\n  },\n  {\n    \"operation\": \"<string>\",\n    \"request\": {\n      \"key\": \"<string>\",\n      \"value\": \"\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca8094b8-1db3-49b2-937f-b0819688b17c",
+          "name": "Dapr Get Actor State by Key",
+          "request": {
+            "name": "Dapr Get Actor State by Key",
+            "description": {
+              "content": "Retrieves a specific state key for the specified actor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "state",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) The state key to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1dade66-1ef9-43c9-bac6-737653fd02e0",
+              "name": "State value retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "state",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The state key to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b22d986f-c1f5-4181-aecb-c996e1767cc1",
+              "name": "Key not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "state",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The state key to retrieve."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "95c692a8-c081-4984-94db-fe99e027153d",
+              "name": "Failed to get actor state.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "state",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The state key to retrieve."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "208ebc16-cdf1-401d-b6be-07e96aa6de31",
+          "name": "Dapr Create Actor Timer",
+          "request": {
+            "name": "Dapr Create Actor Timer",
+            "description": {
+              "content": "Creates a timer for the specified actor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "timers",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the timer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dueTime\": \"<string>\",\n  \"period\": \"<string>\",\n  \"callback\": \"<string>\",\n  \"data\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "96f91be1-8bc5-459a-8a08-9976a2643543",
+              "name": "Timer created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "timers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the timer."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dueTime\": \"<string>\",\n  \"period\": \"<string>\",\n  \"callback\": \"<string>\",\n  \"data\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7401adba-6f67-4d10-ab5c-6f44dbe93215",
+              "name": "Failed to create timer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "timers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the timer."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dueTime\": \"<string>\",\n  \"period\": \"<string>\",\n  \"callback\": \"<string>\",\n  \"data\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70d40ecd-e077-428f-b904-c669aadc128a",
+          "name": "Dapr Delete Actor Timer",
+          "request": {
+            "name": "Dapr Delete Actor Timer",
+            "description": {
+              "content": "Deletes a timer for the specified actor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "timers",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the timer to delete."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3fd99dd-0621-4158-8ff9-6b71ebfc19e5",
+              "name": "Timer deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "timers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the timer to delete."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "373e1af3-9ab6-40f6-83ba-5189a8b31ff4",
+              "name": "Failed to delete timer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "timers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the timer to delete."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8692fea2-e40b-43d4-8135-9d5e81a25b06",
+          "name": "Dapr Create Actor Reminder",
+          "request": {
+            "name": "Dapr Create Actor Reminder",
+            "description": {
+              "content": "Creates a persistent reminder for the specified actor. Reminders survive actor deactivations and failovers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "reminders",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the reminder."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dueTime\": \"<string>\",\n  \"period\": \"<string>\",\n  \"data\": {},\n  \"ttl\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fbc90366-b5a6-4e27-b0e6-6a79cfbeccf1",
+              "name": "Reminder created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "reminders",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the reminder."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dueTime\": \"<string>\",\n  \"period\": \"<string>\",\n  \"data\": {},\n  \"ttl\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "628eb4fa-810e-49ef-b70c-2eb5117a1088",
+              "name": "Failed to create reminder.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "reminders",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the reminder."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dueTime\": \"<string>\",\n  \"period\": \"<string>\",\n  \"data\": {},\n  \"ttl\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf8a7363-a307-4204-bba7-6734c1fbca70",
+          "name": "Dapr Get Actor Reminder",
+          "request": {
+            "name": "Dapr Get Actor Reminder",
+            "description": {
+              "content": "Retrieves a specific reminder for the specified actor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "reminders",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the reminder."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7203dab2-03e4-463e-8e62-bef7a3c6b5e5",
+              "name": "Reminder retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "reminders",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the reminder."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dueTime\": \"string\",\n  \"period\": \"string\",\n  \"data\": {},\n  \"ttl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "740b5535-450d-4f64-a131-5b2448ffe645",
+              "name": "Failed to get reminder.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "reminders",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the reminder."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a70df11-eeaf-4163-a0e2-9d94b6e1f18d",
+          "name": "Dapr Delete Actor Reminder",
+          "request": {
+            "name": "Dapr Delete Actor Reminder",
+            "description": {
+              "content": "Deletes a reminder for the specified actor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "actors",
+                ":actorType",
+                ":actorId",
+                "reminders",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorType",
+                  "description": "(Required) The type of the actor."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "actorId",
+                  "description": "(Required) The ID of the actor instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the reminder to delete."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85e3994f-616d-420d-8531-fe6872a42905",
+              "name": "Reminder deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "reminders",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the reminder to delete."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dec60246-93cc-40fc-bf56-44c9bc3ea100",
+              "name": "Failed to delete reminder.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "actors",
+                    ":actorType",
+                    ":actorId",
+                    "reminders",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorType",
+                      "description": "(Required) The type of the actor."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "actorId",
+                      "description": "(Required) The ID of the actor instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the reminder to delete."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3500",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1d3997cc-d826-4ab5-81f8-2dda01ef53da",
+    "name": "Dapr Actors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.\n\nContact Support:\n Name: Dapr",
+      "type": "text/plain"
+    }
+  }
+}

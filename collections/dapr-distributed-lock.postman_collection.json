@@ -1,0 +1,442 @@
+{
+  "item": [
+    {
+      "id": "6a7fc28b-9181-44cc-99c7-6ff1b116f5e2",
+      "name": "DistributedLock",
+      "description": {
+        "content": "Distributed locking operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "40de5b4d-9b54-45c2-bd22-8bfc2723ffd4",
+          "name": "Dapr Try Lock",
+          "request": {
+            "name": "Dapr Try Lock",
+            "description": {
+              "content": "Attempts to acquire a lock on a resource. The lock is held for the specified expiry period and automatically released if not explicitly unlocked.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0-alpha1",
+                "lock",
+                ":storename"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "storename",
+                  "description": "(Required) The name of the lock store component."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resourceId\": \"<string>\",\n  \"lockOwner\": \"<string>\",\n  \"expiryInSeconds\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d45a02e6-8cd1-4959-8b21-3b530958ab36",
+              "name": "Lock attempt completed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "lock",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the lock store component."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceId\": \"<string>\",\n  \"lockOwner\": \"<string>\",\n  \"expiryInSeconds\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef40f191-3cca-4654-9db8-50772028061d",
+              "name": "Lock store not found or misconfigured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "lock",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the lock store component."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceId\": \"<string>\",\n  \"lockOwner\": \"<string>\",\n  \"expiryInSeconds\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "305b0830-4c7f-400a-bf76-a78e916c9ed7",
+              "name": "Failed to acquire lock.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "lock",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the lock store component."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceId\": \"<string>\",\n  \"lockOwner\": \"<string>\",\n  \"expiryInSeconds\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a71ead2-a1f2-4818-b590-d6dc63c9fc40",
+          "name": "Dapr Unlock",
+          "request": {
+            "name": "Dapr Unlock",
+            "description": {
+              "content": "Releases a previously acquired lock on a resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0-alpha1",
+                "unlock",
+                ":storename"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "storename",
+                  "description": "(Required) The name of the lock store component."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resourceId\": \"<string>\",\n  \"lockOwner\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d924d97-dec3-489d-8d84-f46986e497d6",
+              "name": "Unlock completed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "unlock",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the lock store component."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceId\": \"<string>\",\n  \"lockOwner\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7899\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41cef428-e699-476f-bafb-b43a878e9fbb",
+              "name": "Lock store not found or misconfigured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "unlock",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the lock store component."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceId\": \"<string>\",\n  \"lockOwner\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a56c3348-7e6c-4e76-9298-f87c63772aac",
+              "name": "Failed to unlock.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "unlock",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the lock store component."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceId\": \"<string>\",\n  \"lockOwner\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3500",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7ec3e3f7-c990-40c2-86c9-2dc22c96791d",
+    "name": "Dapr Distributed Lock API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Dapr Distributed Lock API enables applications to acquire and release locks on shared resources, ensuring mutual exclusion across multiple application instances. Locks use a lease-based mechanism and are automatically released after expiry if not explicitly unlocked.\n\nContact Support:\n Name: Dapr",
+      "type": "text/plain"
+    }
+  }
+}

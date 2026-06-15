@@ -1,0 +1,656 @@
+{
+  "item": [
+    {
+      "id": "6be3d0bc-8b02-4819-9884-3a4b6702c3fc",
+      "name": "Configuration",
+      "description": {
+        "content": "Configuration management operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de31296a-9ed5-4692-87e0-2c8efae86197",
+          "name": "Dapr Get Configuration",
+          "request": {
+            "name": "Dapr Get Configuration",
+            "description": {
+              "content": "Retrieves configuration items from the specified configuration store. If no keys are specified, all configuration items are returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "configuration",
+                ":storename"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "The key(s) of the configuration items to retrieve. Can be specified multiple times."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "The key(s) of the configuration items to retrieve. Can be specified multiple times."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "storename",
+                  "description": "(Required) The name of the configuration store."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92c97e40-76f7-4b5f-aa3d-6bc426d3ed78",
+              "name": "Configuration items retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "configuration",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the configuration store."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {\n    \"value\": \"string\",\n    \"version\": \"string\",\n    \"metadata\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e1d8226-d29a-48b0-a9b0-9b1bb893d6b4",
+              "name": "Configuration store not found or misconfigured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "configuration",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the configuration store."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f19cb9d6-e2ab-4f18-b4f5-c32384e84388",
+              "name": "Failed to get configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "configuration",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the configuration store."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9833d5e2-2204-417b-9609-fed7a8bda8a5",
+          "name": "Dapr Subscribe to Configuration",
+          "request": {
+            "name": "Dapr Subscribe to Configuration",
+            "description": {
+              "content": "Subscribes to configuration changes from the specified store. Returns a subscription ID that can be used to unsubscribe later.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "configuration",
+                ":storename",
+                "subscribe"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "The key(s) to subscribe to. If empty, subscribes to all keys."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "The key(s) to subscribe to. If empty, subscribes to all keys."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "storename",
+                  "description": "(Required) The name of the configuration store."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3581b7a1-e333-48bc-8cdc-24eb81343b14",
+              "name": "Subscription created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "configuration",
+                    ":storename",
+                    "subscribe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the configuration store."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "adffeb81-1433-43be-9acd-afa205f0fccc",
+              "name": "Configuration store not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "configuration",
+                    ":storename",
+                    "subscribe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the configuration store."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fe093de3-74dd-4b2c-9b0a-8846cd61ca56",
+              "name": "Failed to subscribe.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "configuration",
+                    ":storename",
+                    "subscribe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the configuration store."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d0436d7-95d4-4132-95fa-55eb53df074a",
+          "name": "Dapr Unsubscribe from Configuration",
+          "request": {
+            "name": "Dapr Unsubscribe from Configuration",
+            "description": {
+              "content": "Unsubscribes from configuration changes using a subscription ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "configuration",
+                ":storename",
+                ":subscriptionId",
+                "unsubscribe"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "storename",
+                  "description": "(Required) The name of the configuration store."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID to unsubscribe."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78dcb437-6ae6-4063-9e78-0e08456ad2b3",
+              "name": "Unsubscribed successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "configuration",
+                    ":storename",
+                    ":subscriptionId",
+                    "unsubscribe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the configuration store."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID to unsubscribe."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6809def2-86b8-4c52-a5c0-ee4c6b354c70",
+              "name": "Subscription not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "configuration",
+                    ":storename",
+                    ":subscriptionId",
+                    "unsubscribe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the configuration store."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID to unsubscribe."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6b77a7f-6e0b-4e5a-a2ad-7d27c641ef8b",
+              "name": "Failed to unsubscribe.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "configuration",
+                    ":storename",
+                    ":subscriptionId",
+                    "unsubscribe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the configuration store."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID to unsubscribe."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3500",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ffa1d6ce-9d8b-499e-8ae4-e5a7f7931478",
+    "name": "Dapr Configuration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Dapr Configuration API enables applications to retrieve and subscribe to configuration items from supported configuration stores. Applications can retrieve specific configuration items at startup or subscribe to receive updates when configuration changes occur.\n\nContact Support:\n Name: Dapr",
+      "type": "text/plain"
+    }
+  }
+}

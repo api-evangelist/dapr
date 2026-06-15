@@ -1,0 +1,626 @@
+{
+  "item": [
+    {
+      "id": "2bdb737d-fe18-4d11-b1b7-8b3d38aeaeb9",
+      "name": "PubSub",
+      "description": {
+        "content": "Publish and subscribe messaging operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "17a53995-3866-42cf-83df-af8b896222d4",
+          "name": "Dapr Publish Event",
+          "request": {
+            "name": "Dapr Publish Event",
+            "description": {
+              "content": "Publishes an event to the specified topic on the given pub/sub component. If content type is not application/cloudevents+json, the payload is automatically wrapped in a CloudEvent envelope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "publish",
+                ":pubsubname",
+                ":topic"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "metadata.rawPayload",
+                  "value": "<string>",
+                  "description": "Set to true to disable CloudEvent wrapping of the payload."
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata.ttlInSeconds",
+                  "value": "<string>",
+                  "description": "Time-to-live for the message in seconds."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pubsubname",
+                  "description": "(Required) The name of the pub/sub component."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "topic",
+                  "description": "(Required) The name of the topic."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d12edfff-985c-4181-bae5-6a7fbc3bd270",
+              "name": "Event published successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "publish",
+                    ":pubsubname",
+                    ":topic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metadata.rawPayload",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadata.ttlInSeconds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsubname",
+                      "description": "(Required) The name of the pub/sub component."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "topic",
+                      "description": "(Required) The name of the topic."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dad464aa-4d16-4dc3-93fd-94a2bc232270",
+              "name": "Event forbidden by access controls.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "publish",
+                    ":pubsubname",
+                    ":topic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metadata.rawPayload",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadata.ttlInSeconds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsubname",
+                      "description": "(Required) The name of the pub/sub component."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "topic",
+                      "description": "(Required) The name of the topic."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb650ebb-3dca-47e5-8435-da1172cb29d1",
+              "name": "Pub/sub component not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "publish",
+                    ":pubsubname",
+                    ":topic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metadata.rawPayload",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadata.ttlInSeconds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsubname",
+                      "description": "(Required) The name of the pub/sub component."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "topic",
+                      "description": "(Required) The name of the topic."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eeeede65-25af-428a-b53a-5df8d7b01369",
+              "name": "Failed to publish event.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "publish",
+                    ":pubsubname",
+                    ":topic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metadata.rawPayload",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadata.ttlInSeconds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsubname",
+                      "description": "(Required) The name of the pub/sub component."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "topic",
+                      "description": "(Required) The name of the topic."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "041d1dfe-60ff-4502-966d-c4793c506df0",
+          "name": "Dapr Bulk Publish Events",
+          "request": {
+            "name": "Dapr Bulk Publish Events",
+            "description": {
+              "content": "Publishes multiple events to the specified topic in a single request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "publish",
+                "bulk",
+                ":pubsubname",
+                ":topic"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "metadata.rawPayload",
+                  "value": "<string>",
+                  "description": "Set to true to disable CloudEvent wrapping."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pubsubname",
+                  "description": "(Required) The name of the pub/sub component."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "topic",
+                  "description": "(Required) The name of the topic."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"entryId\": \"<string>\",\n    \"event\": {},\n    \"contentType\": \"<string>\",\n    \"metadata\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    }\n  },\n  {\n    \"entryId\": \"<string>\",\n    \"event\": {},\n    \"contentType\": \"<string>\",\n    \"metadata\": {\n      \"key_0\": \"<string>\"\n    }\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "164b4488-330e-42e4-a7f8-3168a6c53179",
+              "name": "Bulk publish completed (may include partial failures).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "publish",
+                    "bulk",
+                    ":pubsubname",
+                    ":topic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metadata.rawPayload",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsubname",
+                      "description": "(Required) The name of the pub/sub component."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "topic",
+                      "description": "(Required) The name of the topic."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"entryId\": \"<string>\",\n    \"event\": {},\n    \"contentType\": \"<string>\",\n    \"metadata\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  },\n  {\n    \"entryId\": \"<string>\",\n    \"event\": {},\n    \"contentType\": \"<string>\",\n    \"metadata\": {\n      \"key_0\": \"<string>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"failedEntries\": [\n    {\n      \"entryId\": \"string\",\n      \"error\": \"string\"\n    },\n    {\n      \"entryId\": \"string\",\n      \"error\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc1dd3eb-35dc-4f05-b382-c1fd32ff6a56",
+              "name": "Pub/sub component not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "publish",
+                    "bulk",
+                    ":pubsubname",
+                    ":topic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metadata.rawPayload",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsubname",
+                      "description": "(Required) The name of the pub/sub component."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "topic",
+                      "description": "(Required) The name of the topic."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"entryId\": \"<string>\",\n    \"event\": {},\n    \"contentType\": \"<string>\",\n    \"metadata\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  },\n  {\n    \"entryId\": \"<string>\",\n    \"event\": {},\n    \"contentType\": \"<string>\",\n    \"metadata\": {\n      \"key_0\": \"<string>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac2dec79-d020-4caa-b154-961e505e1dd7",
+              "name": "Failed to publish events.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "publish",
+                    "bulk",
+                    ":pubsubname",
+                    ":topic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metadata.rawPayload",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsubname",
+                      "description": "(Required) The name of the pub/sub component."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "topic",
+                      "description": "(Required) The name of the topic."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"entryId\": \"<string>\",\n    \"event\": {},\n    \"contentType\": \"<string>\",\n    \"metadata\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  },\n  {\n    \"entryId\": \"<string>\",\n    \"event\": {},\n    \"contentType\": \"<string>\",\n    \"metadata\": {\n      \"key_0\": \"<string>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3500",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "49cab294-9390-48f0-963f-15c3afebe501",
+    "name": "Dapr Pub/Sub API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Dapr Pub/Sub API enables publish and subscribe messaging between applications. It supports publishing events to topics, bulk publishing, and discovering topic subscriptions. Messages use the CloudEvents 1.0 specification format.\n\nContact Support:\n Name: Dapr",
+      "type": "text/plain"
+    }
+  }
+}

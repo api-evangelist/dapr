@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dapr Cryptography API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cryptography",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dapr Encrypt",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:3500/v1.0-alpha1/crypto/:crypto-store-name/encrypt",
+            "headers": [
+              {
+                "name": "dapr-key-name",
+                "value": ""
+              },
+              {
+                "name": "dapr-key-wrap-algorithm",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "crypto-store-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the cryptography component."
+              }
+            ]
+          },
+          "docs": "Encrypts data using the specified cryptography component and key. The HTTP API is intended for development and testing; for production, use the gRPC API via SDKs."
+        },
+        {
+          "info": {
+            "name": "Dapr Decrypt",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:3500/v1.0-alpha1/crypto/:crypto-store-name/decrypt",
+            "headers": [
+              {
+                "name": "dapr-key-name",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "crypto-store-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the cryptography component."
+              }
+            ]
+          },
+          "docs": "Decrypts data using the specified cryptography component and key. The HTTP API is intended for development and testing; for production, use the gRPC API via SDKs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

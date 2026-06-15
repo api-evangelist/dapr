@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dapr Health API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dapr Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/healthz"
+          },
+          "docs": "Returns the health status of the Dapr sidecar. Waits for all components to be initialized, the HTTP port to be available, and the app channel to be ready."
+        },
+        {
+          "info": {
+            "name": "Dapr Outbound Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/healthz/outbound"
+          },
+          "docs": "Returns the health status of the Dapr sidecar for outbound connections. Unlike the standard health check, this does not wait for the app channel to be ready, allowing applications to call Dapr sidecar APIs before the app is fully initialized."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

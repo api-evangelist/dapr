@@ -1,0 +1,398 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dapr Actors API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Actors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dapr Invoke Actor Method (GET)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/method/:method",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              },
+              {
+                "name": "method",
+                "value": "",
+                "type": "path",
+                "description": "The name of the method to invoke."
+              }
+            ]
+          },
+          "docs": "Invokes a method on the specified actor instance using GET."
+        },
+        {
+          "info": {
+            "name": "Dapr Invoke Actor Method",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/method/:method",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              },
+              {
+                "name": "method",
+                "value": "",
+                "type": "path",
+                "description": "The name of the method to invoke."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invokes a method on the specified actor instance."
+        },
+        {
+          "info": {
+            "name": "Dapr Invoke Actor Method (PUT)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/method/:method",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              },
+              {
+                "name": "method",
+                "value": "",
+                "type": "path",
+                "description": "The name of the method to invoke."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invokes a method on the specified actor instance using PUT."
+        },
+        {
+          "info": {
+            "name": "Dapr Invoke Actor Method (DELETE)",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/method/:method",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              },
+              {
+                "name": "method",
+                "value": "",
+                "type": "path",
+                "description": "The name of the method to invoke."
+              }
+            ]
+          },
+          "docs": "Invokes a method on the specified actor instance using DELETE."
+        },
+        {
+          "info": {
+            "name": "Dapr Get Actor State",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/state",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              }
+            ]
+          },
+          "docs": "Retrieves all saved state for the specified actor."
+        },
+        {
+          "info": {
+            "name": "Dapr Save Actor State (Transactional)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/state",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Performs a transactional save of actor state, supporting multiple upsert and delete operations in a single transaction."
+        },
+        {
+          "info": {
+            "name": "Dapr Get Actor State by Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/state/:key",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "The state key to retrieve."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific state key for the specified actor."
+        },
+        {
+          "info": {
+            "name": "Dapr Create Actor Timer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/timers/:name",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the timer."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a timer for the specified actor."
+        },
+        {
+          "info": {
+            "name": "Dapr Delete Actor Timer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/timers/:name",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the timer to delete."
+              }
+            ]
+          },
+          "docs": "Deletes a timer for the specified actor."
+        },
+        {
+          "info": {
+            "name": "Dapr Get Actor Reminder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/reminders/:name",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the reminder."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific reminder for the specified actor."
+        },
+        {
+          "info": {
+            "name": "Dapr Create Actor Reminder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/reminders/:name",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the reminder."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a persistent reminder for the specified actor. Reminders survive actor deactivations and failovers."
+        },
+        {
+          "info": {
+            "name": "Dapr Delete Actor Reminder",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:3500/v1.0/actors/:actorType/:actorId/reminders/:name",
+            "params": [
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path",
+                "description": "The type of the actor."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the actor instance."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the reminder to delete."
+              }
+            ]
+          },
+          "docs": "Deletes a reminder for the specified actor."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dapr Jobs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dapr Get Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0-alpha1/jobs/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the job to retrieve."
+              }
+            ]
+          },
+          "docs": "Retrieves the details of a scheduled job by name."
+        },
+        {
+          "info": {
+            "name": "Dapr Schedule Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0-alpha1/jobs/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the job."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Schedules a new job with the specified name, schedule, and data. At least one of schedule or dueTime must be provided."
+        },
+        {
+          "info": {
+            "name": "Dapr Delete Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:3500/v1.0-alpha1/jobs/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the job to delete."
+              }
+            ]
+          },
+          "docs": "Deletes a scheduled job by name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

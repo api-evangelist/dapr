@@ -1,0 +1,215 @@
+{
+  "item": [
+    {
+      "id": "ca2565db-73d8-4f16-9e10-b465ec3968dc",
+      "name": "Health",
+      "description": {
+        "content": "Health check operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5f7eb3e5-718c-4132-8a17-1342a4c96baf",
+          "name": "Dapr Health Check",
+          "request": {
+            "name": "Dapr Health Check",
+            "description": {
+              "content": "Returns the health status of the Dapr sidecar. Waits for all components to be initialized, the HTTP port to be available, and the app channel to be ready.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "healthz"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de10f180-50c9-4650-abfd-d88601183710",
+              "name": "Sidecar is healthy and ready.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "healthz"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1876144f-f0aa-4061-be76-80fa3ed7509f",
+              "name": "Sidecar is not healthy.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "healthz"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23ac450a-87d6-4ac5-be43-8a02d2c262de",
+          "name": "Dapr Outbound Health Check",
+          "request": {
+            "name": "Dapr Outbound Health Check",
+            "description": {
+              "content": "Returns the health status of the Dapr sidecar for outbound connections. Unlike the standard health check, this does not wait for the app channel to be ready, allowing applications to call Dapr sidecar APIs before the app is fully initialized.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "healthz",
+                "outbound"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87107b36-f6f0-4d70-9e21-1c93e5e8b04f",
+              "name": "Sidecar is healthy for outbound connections.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "healthz",
+                    "outbound"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3d27867d-d8e6-42a3-ad1e-4050a730d171",
+              "name": "Sidecar is not healthy.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "healthz",
+                    "outbound"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3500",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8ebd5c4f-c2d8-4dff-b3e0-7562c0f7ae76",
+    "name": "Dapr Health API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Dapr Health API provides health check endpoints for the Dapr sidecar. These endpoints can be used with container orchestrators like Kubernetes for readiness and liveness probes.\n\nContact Support:\n Name: Dapr",
+      "type": "text/plain"
+    }
+  }
+}

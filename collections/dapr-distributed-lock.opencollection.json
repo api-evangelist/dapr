@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dapr Distributed Lock API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DistributedLock",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dapr Try Lock",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0-alpha1/lock/:storename",
+            "params": [
+              {
+                "name": "storename",
+                "value": "",
+                "type": "path",
+                "description": "The name of the lock store component."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Attempts to acquire a lock on a resource. The lock is held for the specified expiry period and automatically released if not explicitly unlocked."
+        },
+        {
+          "info": {
+            "name": "Dapr Unlock",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0-alpha1/unlock/:storename",
+            "params": [
+              {
+                "name": "storename",
+                "value": "",
+                "type": "path",
+                "description": "The name of the lock store component."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Releases a previously acquired lock on a resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,282 @@
+{
+  "item": [
+    {
+      "id": "997b64f8-4391-41c3-95bc-f76402fc0763",
+      "name": "Metadata",
+      "description": {
+        "content": "Sidecar metadata operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff868244-d6ea-4341-815d-6c03fc6dda80",
+          "name": "Dapr Get Metadata",
+          "request": {
+            "name": "Dapr Get Metadata",
+            "description": {
+              "content": "Returns information about the Dapr sidecar, including app connection details, registered components, subscriptions, and HTTP endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89d1442a-2cd6-41ae-bd19-246fd50012a5",
+              "name": "Metadata retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"runtimeVersion\": \"string\",\n  \"enabledFeatures\": [\n    \"string\",\n    \"string\"\n  ],\n  \"actors\": [\n    {\n      \"type\": \"string\",\n      \"count\": 9801\n    },\n    {\n      \"type\": \"string\",\n      \"count\": 9109\n    }\n  ],\n  \"components\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"version\": \"string\",\n      \"capabilities\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"version\": \"string\",\n      \"capabilities\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"subscriptions\": [\n    {\n      \"pubsubname\": \"string\",\n      \"topic\": \"string\",\n      \"deadLetterTopic\": \"string\"\n    },\n    {\n      \"pubsubname\": \"string\",\n      \"topic\": \"string\",\n      \"deadLetterTopic\": \"string\"\n    }\n  ],\n  \"httpEndpoints\": [\n    {\n      \"name\": \"string\"\n    },\n    {\n      \"name\": \"string\"\n    }\n  ],\n  \"appConnectionProperties\": {\n    \"port\": 988,\n    \"protocol\": \"string\",\n    \"channelAddress\": \"string\",\n    \"maxConcurrency\": 2534,\n    \"health\": {\n      \"healthCheckPath\": \"string\",\n      \"healthProbeInterval\": \"string\",\n      \"healthProbeTimeout\": \"string\",\n      \"healthThreshold\": 361\n    }\n  },\n  \"extended\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc5daeb8-cc11-44ad-b0c3-ad9ee6e843bc",
+              "name": "Failed to get metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "303d3ce1-91d0-4ace-be80-c324b1a993e1",
+          "name": "Dapr Set Metadata",
+          "request": {
+            "name": "Dapr Set Metadata",
+            "description": {
+              "content": "Sets a custom metadata attribute on the Dapr sidecar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "metadata",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) The metadata attribute key to set."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57f80dea-45d5-4be9-8ae4-2a9a1109a6c3",
+              "name": "Metadata set successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "metadata",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The metadata attribute key to set."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0dbf4a4a-5a8a-497f-b4a3-1aff3a2d3b24",
+              "name": "Failed to set metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "metadata",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The metadata attribute key to set."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3500",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d9da3714-10fc-4d3b-a838-784d4e62d16d",
+    "name": "Dapr Metadata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Dapr Metadata API provides information about the Dapr sidecar, including the application connection details, registered components, active subscriptions, and HTTP endpoints. It also allows setting custom metadata attributes.\n\nContact Support:\n Name: Dapr",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dapr Configuration API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dapr Get Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/configuration/:storename",
+            "params": [
+              {
+                "name": "storename",
+                "value": "",
+                "type": "path",
+                "description": "The name of the configuration store."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "The key(s) of the configuration items to retrieve. Can be specified multiple times."
+              }
+            ]
+          },
+          "docs": "Retrieves configuration items from the specified configuration store. If no keys are specified, all configuration items are returned."
+        },
+        {
+          "info": {
+            "name": "Dapr Subscribe to Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/configuration/:storename/subscribe",
+            "params": [
+              {
+                "name": "storename",
+                "value": "",
+                "type": "path",
+                "description": "The name of the configuration store."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "The key(s) to subscribe to. If empty, subscribes to all keys."
+              }
+            ]
+          },
+          "docs": "Subscribes to configuration changes from the specified store. Returns a subscription ID that can be used to unsubscribe later."
+        },
+        {
+          "info": {
+            "name": "Dapr Unsubscribe from Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/configuration/:storename/:subscriptionId/unsubscribe",
+            "params": [
+              {
+                "name": "storename",
+                "value": "",
+                "type": "path",
+                "description": "The name of the configuration store."
+              },
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID to unsubscribe."
+              }
+            ]
+          },
+          "docs": "Unsubscribes from configuration changes using a subscription ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
