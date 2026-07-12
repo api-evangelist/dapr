@@ -1,0 +1,22 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: dapr.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 23 06:23:54 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: docs.dapr.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  1 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 10886400
+domains:
+- domain: dapr.io
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false
