@@ -1,11 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Dapr Metadata API
-  description: >-
-    The Dapr Metadata API provides information about the Dapr sidecar,
-    including the application connection details, registered components,
-    active subscriptions, and HTTP endpoints. It also allows setting
-    custom metadata attributes.
+  title: Dapr Actors Metadata API
+  description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
   version: 1.0.0
   contact:
     name: Dapr
@@ -13,23 +9,20 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-externalDocs:
-  description: Dapr Metadata API Reference
-  url: https://docs.dapr.io/reference/api/metadata_api/
 servers:
-  - url: http://localhost:3500
-    description: Dapr Sidecar
+- url: http://localhost:3500
+  description: Dapr Sidecar
+tags:
+- name: Metadata
+  description: Sidecar metadata operations.
 paths:
   /v1.0/metadata:
     get:
       summary: Dapr Get Metadata
-      description: >-
-        Returns information about the Dapr sidecar, including app
-        connection details, registered components, subscriptions,
-        and HTTP endpoints.
+      description: Returns information about the Dapr sidecar, including app connection details, registered components, subscriptions, and HTTP endpoints.
       operationId: getMetadata
       tags:
-        - Metadata
+      - Metadata
       responses:
         '200':
           description: Metadata retrieved successfully.
@@ -135,14 +128,14 @@ paths:
       description: Sets a custom metadata attribute on the Dapr sidecar.
       operationId: setMetadata
       tags:
-        - Metadata
+      - Metadata
       parameters:
-        - name: key
-          in: path
-          required: true
-          description: The metadata attribute key to set.
-          schema:
-            type: string
+      - name: key
+        in: path
+        required: true
+        description: The metadata attribute key to set.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -155,6 +148,6 @@ paths:
           description: Metadata set successfully.
         '500':
           description: Failed to set metadata.
-tags:
-  - name: Metadata
-    description: Sidecar metadata operations.
+externalDocs:
+  description: Dapr Actors API Reference
+  url: https://docs.dapr.io/reference/api/actors_api/

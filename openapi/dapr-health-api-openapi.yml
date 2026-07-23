@@ -1,0 +1,45 @@
+openapi: 3.1.0
+info:
+  title: Dapr Actors Health API
+  description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
+  version: 1.0.0
+  contact:
+    name: Dapr
+    url: https://dapr.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:3500
+  description: Dapr Sidecar
+tags:
+- name: Health
+  description: Health check operations.
+paths:
+  /v1.0/healthz:
+    get:
+      summary: Dapr Health Check
+      description: Returns the health status of the Dapr sidecar. Waits for all components to be initialized, the HTTP port to be available, and the app channel to be ready.
+      operationId: healthCheck
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Sidecar is healthy and ready.
+        '500':
+          description: Sidecar is not healthy.
+  /v1.0/healthz/outbound:
+    get:
+      summary: Dapr Outbound Health Check
+      description: Returns the health status of the Dapr sidecar for outbound connections. Unlike the standard health check, this does not wait for the app channel to be ready, allowing applications to call Dapr sidecar APIs before the app is fully initialized.
+      operationId: healthCheckOutbound
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Sidecar is healthy for outbound connections.
+        '500':
+          description: Sidecar is not healthy.
+externalDocs:
+  description: Dapr Actors API Reference
+  url: https://docs.dapr.io/reference/api/actors_api/

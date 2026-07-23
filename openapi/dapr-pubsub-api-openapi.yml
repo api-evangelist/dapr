@@ -1,11 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Dapr Pub/Sub API
-  description: >-
-    The Dapr Pub/Sub API enables publish and subscribe messaging between
-    applications. It supports publishing events to topics, bulk publishing,
-    and discovering topic subscriptions. Messages use the CloudEvents 1.0
-    specification format.
+  title: Dapr Actors PubSub API
+  description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
   version: 1.0.0
   contact:
     name: Dapr
@@ -13,46 +9,43 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-externalDocs:
-  description: Dapr Pub/Sub API Reference
-  url: https://docs.dapr.io/reference/api/pubsub_api/
 servers:
-  - url: http://localhost:3500
-    description: Dapr Sidecar
+- url: http://localhost:3500
+  description: Dapr Sidecar
+tags:
+- name: PubSub
+  description: Publish and subscribe messaging operations.
 paths:
   /v1.0/publish/{pubsubname}/{topic}:
     post:
       summary: Dapr Publish Event
-      description: >-
-        Publishes an event to the specified topic on the given pub/sub
-        component. If content type is not application/cloudevents+json,
-        the payload is automatically wrapped in a CloudEvent envelope.
+      description: Publishes an event to the specified topic on the given pub/sub component. If content type is not application/cloudevents+json, the payload is automatically wrapped in a CloudEvent envelope.
       operationId: publishEvent
       tags:
-        - PubSub
+      - PubSub
       parameters:
-        - name: pubsubname
-          in: path
-          required: true
-          description: The name of the pub/sub component.
-          schema:
-            type: string
-        - name: topic
-          in: path
-          required: true
-          description: The name of the topic.
-          schema:
-            type: string
-        - name: metadata.rawPayload
-          in: query
-          description: Set to true to disable CloudEvent wrapping of the payload.
-          schema:
-            type: string
-        - name: metadata.ttlInSeconds
-          in: query
-          description: Time-to-live for the message in seconds.
-          schema:
-            type: string
+      - name: pubsubname
+        in: path
+        required: true
+        description: The name of the pub/sub component.
+        schema:
+          type: string
+      - name: topic
+        in: path
+        required: true
+        description: The name of the topic.
+        schema:
+          type: string
+      - name: metadata.rawPayload
+        in: query
+        description: Set to true to disable CloudEvent wrapping of the payload.
+        schema:
+          type: string
+      - name: metadata.ttlInSeconds
+        in: query
+        description: Time-to-live for the message in seconds.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -75,25 +68,25 @@ paths:
       description: Publishes multiple events to the specified topic in a single request.
       operationId: bulkPublishEvents
       tags:
-        - PubSub
+      - PubSub
       parameters:
-        - name: pubsubname
-          in: path
-          required: true
-          description: The name of the pub/sub component.
-          schema:
-            type: string
-        - name: topic
-          in: path
-          required: true
-          description: The name of the topic.
-          schema:
-            type: string
-        - name: metadata.rawPayload
-          in: query
-          description: Set to true to disable CloudEvent wrapping.
-          schema:
-            type: string
+      - name: pubsubname
+        in: path
+        required: true
+        description: The name of the pub/sub component.
+        schema:
+          type: string
+      - name: topic
+        in: path
+        required: true
+        description: The name of the topic.
+        schema:
+          type: string
+      - name: metadata.rawPayload
+        in: query
+        description: Set to true to disable CloudEvent wrapping.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -103,8 +96,8 @@ paths:
               items:
                 type: object
                 required:
-                  - entryId
-                  - event
+                - entryId
+                - event
                 properties:
                   entryId:
                     type: string
@@ -139,6 +132,6 @@ paths:
           description: Pub/sub component not found.
         '500':
           description: Failed to publish events.
-tags:
-  - name: PubSub
-    description: Publish and subscribe messaging operations.
+externalDocs:
+  description: Dapr Actors API Reference
+  url: https://docs.dapr.io/reference/api/actors_api/

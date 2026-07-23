@@ -1,11 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Dapr Service Invocation API
-  description: >-
-    The Dapr Service Invocation API enables applications to communicate with
-    each other through well-known endpoints using HTTP methods. Dapr acts as
-    a reverse proxy with built-in service discovery, distributed tracing,
-    and error handling.
+  title: Dapr Actors ServiceInvocation API
+  description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
   version: 1.0.0
   contact:
     name: Dapr
@@ -13,12 +9,12 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-externalDocs:
-  description: Dapr Service Invocation API Reference
-  url: https://docs.dapr.io/reference/api/service_invocation_api/
 servers:
-  - url: http://localhost:3500
-    description: Dapr Sidecar
+- url: http://localhost:3500
+  description: Dapr Sidecar
+tags:
+- name: ServiceInvocation
+  description: Service-to-service invocation operations.
 paths:
   /v1.0/invoke/{appId}/method/{method-name}:
     get:
@@ -26,20 +22,20 @@ paths:
       description: Invokes a method on a remote Dapr app using GET.
       operationId: invokeMethodGet
       tags:
-        - ServiceInvocation
+      - ServiceInvocation
       parameters:
-        - name: appId
-          in: path
-          required: true
-          description: The App ID of the remote application.
-          schema:
-            type: string
-        - name: method-name
-          in: path
-          required: true
-          description: The name of the method to invoke.
-          schema:
-            type: string
+      - name: appId
+        in: path
+        required: true
+        description: The App ID of the remote application.
+        schema:
+          type: string
+      - name: method-name
+        in: path
+        required: true
+        description: The name of the method to invoke.
+        schema:
+          type: string
       responses:
         '200':
           description: Method invoked successfully.
@@ -55,20 +51,20 @@ paths:
       description: Invokes a method on a remote Dapr app using POST.
       operationId: invokeMethodPost
       tags:
-        - ServiceInvocation
+      - ServiceInvocation
       parameters:
-        - name: appId
-          in: path
-          required: true
-          description: The App ID of the remote application.
-          schema:
-            type: string
-        - name: method-name
-          in: path
-          required: true
-          description: The name of the method to invoke.
-          schema:
-            type: string
+      - name: appId
+        in: path
+        required: true
+        description: The App ID of the remote application.
+        schema:
+          type: string
+      - name: method-name
+        in: path
+        required: true
+        description: The name of the method to invoke.
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -88,20 +84,20 @@ paths:
       description: Invokes a method on a remote Dapr app using PUT.
       operationId: invokeMethodPut
       tags:
-        - ServiceInvocation
+      - ServiceInvocation
       parameters:
-        - name: appId
-          in: path
-          required: true
-          description: The App ID of the remote application.
-          schema:
-            type: string
-        - name: method-name
-          in: path
-          required: true
-          description: The name of the method to invoke.
-          schema:
-            type: string
+      - name: appId
+        in: path
+        required: true
+        description: The App ID of the remote application.
+        schema:
+          type: string
+      - name: method-name
+        in: path
+        required: true
+        description: The name of the method to invoke.
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -121,20 +117,20 @@ paths:
       description: Invokes a method on a remote Dapr app using DELETE.
       operationId: invokeMethodDelete
       tags:
-        - ServiceInvocation
+      - ServiceInvocation
       parameters:
-        - name: appId
-          in: path
-          required: true
-          description: The App ID of the remote application.
-          schema:
-            type: string
-        - name: method-name
-          in: path
-          required: true
-          description: The name of the method to invoke.
-          schema:
-            type: string
+      - name: appId
+        in: path
+        required: true
+        description: The App ID of the remote application.
+        schema:
+          type: string
+      - name: method-name
+        in: path
+        required: true
+        description: The name of the method to invoke.
+        schema:
+          type: string
       responses:
         '200':
           description: Method invoked successfully.
@@ -150,20 +146,20 @@ paths:
       description: Invokes a method on a remote Dapr app using PATCH.
       operationId: invokeMethodPatch
       tags:
-        - ServiceInvocation
+      - ServiceInvocation
       parameters:
-        - name: appId
-          in: path
-          required: true
-          description: The App ID of the remote application.
-          schema:
-            type: string
-        - name: method-name
-          in: path
-          required: true
-          description: The name of the method to invoke.
-          schema:
-            type: string
+      - name: appId
+        in: path
+        required: true
+        description: The App ID of the remote application.
+        schema:
+          type: string
+      - name: method-name
+        in: path
+        required: true
+        description: The name of the method to invoke.
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -178,6 +174,6 @@ paths:
           description: Invocation forbidden by access controls.
         '500':
           description: Failed to invoke method.
-tags:
-  - name: ServiceInvocation
-    description: Service-to-service invocation operations.
+externalDocs:
+  description: Dapr Actors API Reference
+  url: https://docs.dapr.io/reference/api/actors_api/

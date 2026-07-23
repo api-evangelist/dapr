@@ -1,11 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Dapr State Management API
-  description: >-
-    The Dapr State Management API provides key/value-based state management
-    capabilities for distributed applications. It supports saving, retrieving,
-    deleting, and performing bulk and transactional operations on application
-    state using pluggable state stores.
+  title: Dapr Actors State API
+  description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
   version: 1.0.0
   contact:
     name: Dapr
@@ -13,12 +9,12 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-externalDocs:
-  description: Dapr State Management API Reference
-  url: https://docs.dapr.io/reference/api/state_api/
 servers:
-  - url: http://localhost:3500
-    description: Dapr Sidecar
+- url: http://localhost:3500
+  description: Dapr Sidecar
+tags:
+- name: State
+  description: State management operations.
 paths:
   /v1.0/state/{storename}:
     post:
@@ -26,14 +22,14 @@ paths:
       description: Saves an array of state objects to the specified state store.
       operationId: saveState
       tags:
-        - State
+      - State
       parameters:
-        - name: storename
-          in: path
-          required: true
-          description: The name of the state store.
-          schema:
-            type: string
+      - name: storename
+        in: path
+        required: true
+        description: The name of the state store.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -55,28 +51,28 @@ paths:
       description: Retrieves the state for a specific key from the state store.
       operationId: getState
       tags:
-        - State
+      - State
       parameters:
-        - name: storename
-          in: path
-          required: true
-          description: The name of the state store.
-          schema:
-            type: string
-        - name: key
-          in: path
-          required: true
-          description: The key of the desired state.
-          schema:
-            type: string
-        - name: consistency
-          in: query
-          description: Read consistency level (eventual or strong).
-          schema:
-            type: string
-            enum:
-              - eventual
-              - strong
+      - name: storename
+        in: path
+        required: true
+        description: The name of the state store.
+        schema:
+          type: string
+      - name: key
+        in: path
+        required: true
+        description: The key of the desired state.
+        schema:
+          type: string
+      - name: consistency
+        in: query
+        description: Read consistency level (eventual or strong).
+        schema:
+          type: string
+          enum:
+          - eventual
+          - strong
       responses:
         '200':
           description: State retrieved successfully.
@@ -99,36 +95,36 @@ paths:
       description: Deletes the state for a specific key from the state store.
       operationId: deleteState
       tags:
-        - State
+      - State
       parameters:
-        - name: storename
-          in: path
-          required: true
-          description: The name of the state store.
-          schema:
-            type: string
-        - name: key
-          in: path
-          required: true
-          description: The key of the state to delete.
-          schema:
-            type: string
-        - name: concurrency
-          in: query
-          description: Concurrency mode (first-write or last-write).
-          schema:
-            type: string
-            enum:
-              - first-write
-              - last-write
-        - name: consistency
-          in: query
-          description: Consistency level (eventual or strong).
-          schema:
-            type: string
-            enum:
-              - eventual
-              - strong
+      - name: storename
+        in: path
+        required: true
+        description: The name of the state store.
+        schema:
+          type: string
+      - name: key
+        in: path
+        required: true
+        description: The key of the state to delete.
+        schema:
+          type: string
+      - name: concurrency
+        in: query
+        description: Concurrency mode (first-write or last-write).
+        schema:
+          type: string
+          enum:
+          - first-write
+          - last-write
+      - name: consistency
+        in: query
+        description: Consistency level (eventual or strong).
+        schema:
+          type: string
+          enum:
+          - eventual
+          - strong
       responses:
         '204':
           description: State deleted successfully.
@@ -142,14 +138,14 @@ paths:
       description: Retrieves multiple state values from the state store in a single request.
       operationId: getBulkState
       tags:
-        - State
+      - State
       parameters:
-        - name: storename
-          in: path
-          required: true
-          description: The name of the state store.
-          schema:
-            type: string
+      - name: storename
+        in: path
+        required: true
+        description: The name of the state store.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -181,19 +177,17 @@ paths:
   /v1.0/state/{storename}/transaction:
     post:
       summary: Dapr Execute State Transaction
-      description: >-
-        Executes a multi-item transactional operation on the state store.
-        Supports upsert and delete operations within a single transaction.
+      description: Executes a multi-item transactional operation on the state store. Supports upsert and delete operations within a single transaction.
       operationId: executeStateTransaction
       tags:
-        - State
+      - State
       parameters:
-        - name: storename
-          in: path
-          required: true
-          description: The name of the state store.
-          schema:
-            type: string
+      - name: storename
+        in: path
+        required: true
+        description: The name of the state store.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -222,14 +216,14 @@ paths:
       description: Queries the state store using a query expression.
       operationId: queryState
       tags:
-        - State
+      - State
       parameters:
-        - name: storename
-          in: path
-          required: true
-          description: The name of the state store.
-          schema:
-            type: string
+      - name: storename
+        in: path
+        required: true
+        description: The name of the state store.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -250,8 +244,8 @@ paths:
                       order:
                         type: string
                         enum:
-                          - ASC
-                          - DESC
+                        - ASC
+                        - DESC
                 page:
                   type: object
                   properties:
@@ -285,11 +279,31 @@ paths:
           description: Failed to query state.
 components:
   schemas:
+    TransactionalStateOperation:
+      type: object
+      properties:
+        operation:
+          type: string
+          enum:
+          - upsert
+          - delete
+        request:
+          $ref: '#/components/schemas/StateItem'
+    BulkStateItem:
+      type: object
+      properties:
+        key:
+          type: string
+        data: {}
+        etag:
+          type: string
+        error:
+          type: string
     StateItem:
       type: object
       required:
-        - key
-        - value
+      - key
+      - value
       properties:
         key:
           type: string
@@ -310,33 +324,13 @@ components:
             concurrency:
               type: string
               enum:
-                - first-write
-                - last-write
+              - first-write
+              - last-write
             consistency:
               type: string
               enum:
-                - eventual
-                - strong
-    BulkStateItem:
-      type: object
-      properties:
-        key:
-          type: string
-        data: {}
-        etag:
-          type: string
-        error:
-          type: string
-    TransactionalStateOperation:
-      type: object
-      properties:
-        operation:
-          type: string
-          enum:
-            - upsert
-            - delete
-        request:
-          $ref: '#/components/schemas/StateItem'
-tags:
-  - name: State
-    description: State management operations.
+              - eventual
+              - strong
+externalDocs:
+  description: Dapr Actors API Reference
+  url: https://docs.dapr.io/reference/api/actors_api/

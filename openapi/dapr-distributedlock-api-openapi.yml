@@ -1,11 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Dapr Distributed Lock API
-  description: >-
-    The Dapr Distributed Lock API enables applications to acquire and release
-    locks on shared resources, ensuring mutual exclusion across multiple
-    application instances. Locks use a lease-based mechanism and are
-    automatically released after expiry if not explicitly unlocked.
+  title: Dapr Actors DistributedLock API
+  description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
   version: 1.0.0
   contact:
     name: Dapr
@@ -13,30 +9,27 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-externalDocs:
-  description: Dapr Distributed Lock API Reference
-  url: https://docs.dapr.io/reference/api/distributed_lock_api/
 servers:
-  - url: http://localhost:3500
-    description: Dapr Sidecar
+- url: http://localhost:3500
+  description: Dapr Sidecar
+tags:
+- name: DistributedLock
+  description: Distributed locking operations.
 paths:
   /v1.0-alpha1/lock/{storename}:
     post:
       summary: Dapr Try Lock
-      description: >-
-        Attempts to acquire a lock on a resource. The lock is held for the
-        specified expiry period and automatically released if not explicitly
-        unlocked.
+      description: Attempts to acquire a lock on a resource. The lock is held for the specified expiry period and automatically released if not explicitly unlocked.
       operationId: tryLock
       tags:
-        - DistributedLock
+      - DistributedLock
       parameters:
-        - name: storename
-          in: path
-          required: true
-          description: The name of the lock store component.
-          schema:
-            type: string
+      - name: storename
+        in: path
+        required: true
+        description: The name of the lock store component.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -44,9 +37,9 @@ paths:
             schema:
               type: object
               required:
-                - resourceId
-                - lockOwner
-                - expiryInSeconds
+              - resourceId
+              - lockOwner
+              - expiryInSeconds
               properties:
                 resourceId:
                   type: string
@@ -78,14 +71,14 @@ paths:
       description: Releases a previously acquired lock on a resource.
       operationId: unlock
       tags:
-        - DistributedLock
+      - DistributedLock
       parameters:
-        - name: storename
-          in: path
-          required: true
-          description: The name of the lock store component.
-          schema:
-            type: string
+      - name: storename
+        in: path
+        required: true
+        description: The name of the lock store component.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -93,8 +86,8 @@ paths:
             schema:
               type: object
               required:
-                - resourceId
-                - lockOwner
+              - resourceId
+              - lockOwner
               properties:
                 resourceId:
                   type: string
@@ -112,13 +105,11 @@ paths:
                 properties:
                   status:
                     type: integer
-                    description: >-
-                      Unlock status code (0=success, 1=lock does not exist,
-                      2=lock belongs to another owner, 3=internal error).
+                    description: Unlock status code (0=success, 1=lock does not exist, 2=lock belongs to another owner, 3=internal error).
         '400':
           description: Lock store not found or misconfigured.
         '500':
           description: Failed to unlock.
-tags:
-  - name: DistributedLock
-    description: Distributed locking operations.
+externalDocs:
+  description: Dapr Actors API Reference
+  url: https://docs.dapr.io/reference/api/actors_api/

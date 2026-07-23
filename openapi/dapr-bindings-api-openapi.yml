@@ -1,11 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Dapr Bindings API
-  description: >-
-    The Dapr Bindings API enables applications to trigger and invoke external
-    resources through output bindings, and receive events from external
-    resources through input bindings. Supported bindings include Kafka,
-    RabbitMQ, Azure Event Hubs, AWS SQS, GCP Storage, and many more.
+  title: Dapr Actors Bindings API
+  description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
   version: 1.0.0
   contact:
     name: Dapr
@@ -13,29 +9,27 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-externalDocs:
-  description: Dapr Bindings API Reference
-  url: https://docs.dapr.io/reference/api/bindings_api/
 servers:
-  - url: http://localhost:3500
-    description: Dapr Sidecar
+- url: http://localhost:3500
+  description: Dapr Sidecar
+tags:
+- name: Bindings
+  description: Input and output binding operations.
 paths:
   /v1.0/bindings/{name}:
     post:
       summary: Dapr Invoke Output Binding
-      description: >-
-        Invokes an output binding with the specified operation, data, and
-        metadata. The operation field tells the binding what action to take.
+      description: Invokes an output binding with the specified operation, data, and metadata. The operation field tells the binding what action to take.
       operationId: invokeOutputBinding
       tags:
-        - Bindings
+      - Bindings
       parameters:
-        - name: name
-          in: path
-          required: true
-          description: The name of the output binding to invoke.
-          schema:
-            type: string
+      - name: name
+        in: path
+        required: true
+        description: The name of the output binding to invoke.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -59,7 +53,7 @@ components:
     BindingRequest:
       type: object
       required:
-        - operation
+      - operation
       properties:
         data:
           description: The data to send to the output binding.
@@ -70,9 +64,7 @@ components:
           description: Additional metadata for the binding invocation.
         operation:
           type: string
-          description: >-
-            The operation to perform on the binding (e.g., create, get,
-            delete, list).
-tags:
-  - name: Bindings
-    description: Input and output binding operations.
+          description: The operation to perform on the binding (e.g., create, get, delete, list).
+externalDocs:
+  description: Dapr Actors API Reference
+  url: https://docs.dapr.io/reference/api/actors_api/

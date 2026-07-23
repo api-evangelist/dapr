@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Dapr Workflow API
-  description: >-
-    The Dapr Workflow API provides the ability to manage workflow instances,
-    including starting, getting status, pausing, resuming, terminating,
-    purging, and raising events to workflows.
+  title: Dapr Actors Workflow API
+  description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
   version: 1.0.0
   contact:
     name: Dapr
@@ -12,12 +9,12 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-externalDocs:
-  description: Dapr Workflow API Reference
-  url: https://docs.dapr.io/reference/api/workflow_api/
 servers:
-  - url: http://localhost:3500
-    description: Dapr Sidecar
+- url: http://localhost:3500
+  description: Dapr Sidecar
+tags:
+- name: Workflow
+  description: Workflow orchestration operations.
 paths:
   /v1.0/workflows/{workflowComponentName}/{workflowName}/start:
     post:
@@ -25,27 +22,25 @@ paths:
       description: Starts a new workflow instance with the specified workflow name.
       operationId: startWorkflow
       tags:
-        - Workflow
+      - Workflow
       parameters:
-        - name: workflowComponentName
-          in: path
-          required: true
-          description: The workflow component name (e.g., dapr).
-          schema:
-            type: string
-        - name: workflowName
-          in: path
-          required: true
-          description: The name of the workflow to start.
-          schema:
-            type: string
-        - name: instanceID
-          in: query
-          description: >-
-            Optional instance ID for the workflow. If not provided, a
-            random ID is generated.
-          schema:
-            type: string
+      - name: workflowComponentName
+        in: path
+        required: true
+        description: The workflow component name (e.g., dapr).
+        schema:
+          type: string
+      - name: workflowName
+        in: path
+        required: true
+        description: The name of the workflow to start.
+        schema:
+          type: string
+      - name: instanceID
+        in: query
+        description: Optional instance ID for the workflow. If not provided, a random ID is generated.
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -72,20 +67,20 @@ paths:
       description: Retrieves the status and details of a workflow instance.
       operationId: getWorkflow
       tags:
-        - Workflow
+      - Workflow
       parameters:
-        - name: workflowComponentName
-          in: path
-          required: true
-          description: The workflow component name.
-          schema:
-            type: string
-        - name: instanceId
-          in: path
-          required: true
-          description: The workflow instance ID.
-          schema:
-            type: string
+      - name: workflowComponentName
+        in: path
+        required: true
+        description: The workflow component name.
+        schema:
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        description: The workflow instance ID.
+        schema:
+          type: string
       responses:
         '200':
           description: Workflow details retrieved successfully.
@@ -103,20 +98,20 @@ paths:
       description: Terminates a running workflow instance.
       operationId: terminateWorkflow
       tags:
-        - Workflow
+      - Workflow
       parameters:
-        - name: workflowComponentName
-          in: path
-          required: true
-          description: The workflow component name.
-          schema:
-            type: string
-        - name: instanceId
-          in: path
-          required: true
-          description: The workflow instance ID.
-          schema:
-            type: string
+      - name: workflowComponentName
+        in: path
+        required: true
+        description: The workflow component name.
+        schema:
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        description: The workflow instance ID.
+        schema:
+          type: string
       responses:
         '202':
           description: Workflow termination accepted.
@@ -130,26 +125,26 @@ paths:
       description: Raises an event to a running workflow instance.
       operationId: raiseWorkflowEvent
       tags:
-        - Workflow
+      - Workflow
       parameters:
-        - name: workflowComponentName
-          in: path
-          required: true
-          description: The workflow component name.
-          schema:
-            type: string
-        - name: instanceId
-          in: path
-          required: true
-          description: The workflow instance ID.
-          schema:
-            type: string
-        - name: eventName
-          in: path
-          required: true
-          description: The name of the event to raise.
-          schema:
-            type: string
+      - name: workflowComponentName
+        in: path
+        required: true
+        description: The workflow component name.
+        schema:
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        description: The workflow instance ID.
+        schema:
+          type: string
+      - name: eventName
+        in: path
+        required: true
+        description: The name of the event to raise.
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -168,20 +163,20 @@ paths:
       description: Pauses a running workflow instance.
       operationId: pauseWorkflow
       tags:
-        - Workflow
+      - Workflow
       parameters:
-        - name: workflowComponentName
-          in: path
-          required: true
-          description: The workflow component name.
-          schema:
-            type: string
-        - name: instanceId
-          in: path
-          required: true
-          description: The workflow instance ID.
-          schema:
-            type: string
+      - name: workflowComponentName
+        in: path
+        required: true
+        description: The workflow component name.
+        schema:
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        description: The workflow instance ID.
+        schema:
+          type: string
       responses:
         '202':
           description: Workflow paused successfully.
@@ -195,20 +190,20 @@ paths:
       description: Resumes a paused workflow instance.
       operationId: resumeWorkflow
       tags:
-        - Workflow
+      - Workflow
       parameters:
-        - name: workflowComponentName
-          in: path
-          required: true
-          description: The workflow component name.
-          schema:
-            type: string
-        - name: instanceId
-          in: path
-          required: true
-          description: The workflow instance ID.
-          schema:
-            type: string
+      - name: workflowComponentName
+        in: path
+        required: true
+        description: The workflow component name.
+        schema:
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        description: The workflow instance ID.
+        schema:
+          type: string
       responses:
         '202':
           description: Workflow resumed successfully.
@@ -219,26 +214,23 @@ paths:
   /v1.0/workflows/{workflowComponentName}/{instanceId}/purge:
     post:
       summary: Dapr Purge Workflow
-      description: >-
-        Permanently deletes workflow metadata from the state store, including
-        stored inputs, outputs, and history. Only COMPLETED, FAILED, or
-        TERMINATED workflows can be purged.
+      description: Permanently deletes workflow metadata from the state store, including stored inputs, outputs, and history. Only COMPLETED, FAILED, or TERMINATED workflows can be purged.
       operationId: purgeWorkflow
       tags:
-        - Workflow
+      - Workflow
       parameters:
-        - name: workflowComponentName
-          in: path
-          required: true
-          description: The workflow component name.
-          schema:
-            type: string
-        - name: instanceId
-          in: path
-          required: true
-          description: The workflow instance ID.
-          schema:
-            type: string
+      - name: workflowComponentName
+        in: path
+        required: true
+        description: The workflow component name.
+        schema:
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        description: The workflow instance ID.
+        schema:
+          type: string
       responses:
         '202':
           description: Workflow purged successfully.
@@ -268,18 +260,18 @@ components:
         runtimeStatus:
           type: string
           enum:
-            - RUNNING
-            - COMPLETED
-            - FAILED
-            - TERMINATED
-            - PENDING
-            - SUSPENDED
+          - RUNNING
+          - COMPLETED
+          - FAILED
+          - TERMINATED
+          - PENDING
+          - SUSPENDED
           description: The runtime status of the workflow.
         properties:
           type: object
           additionalProperties:
             type: string
           description: Additional workflow properties.
-tags:
-  - name: Workflow
-    description: Workflow orchestration operations.
+externalDocs:
+  description: Dapr Actors API Reference
+  url: https://docs.dapr.io/reference/api/actors_api/

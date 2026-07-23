@@ -1,11 +1,7 @@
 openapi: 3.1.0
 info:
   title: Dapr Actors API
-  description: >-
-    The Dapr Actors API provides virtual actor capabilities for distributed
-    applications, including actor method invocation, state management, timers,
-    and reminders. Actors provide a single-threaded programming model with
-    guaranteed message ordering.
+  description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
   version: 1.0.0
   contact:
     name: Dapr
@@ -13,12 +9,12 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-externalDocs:
-  description: Dapr Actors API Reference
-  url: https://docs.dapr.io/reference/api/actors_api/
 servers:
-  - url: http://localhost:3500
-    description: Dapr Sidecar
+- url: http://localhost:3500
+  description: Dapr Sidecar
+tags:
+- name: Actors
+  description: Virtual actor operations including state, timers, and reminders.
 paths:
   /v1.0/actors/{actorType}/{actorId}/method/{method}:
     post:
@@ -26,16 +22,16 @@ paths:
       description: Invokes a method on the specified actor instance.
       operationId: invokeActorMethod
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
-        - name: method
-          in: path
-          required: true
-          description: The name of the method to invoke.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
+      - name: method
+        in: path
+        required: true
+        description: The name of the method to invoke.
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -53,16 +49,16 @@ paths:
       description: Invokes a method on the specified actor instance using PUT.
       operationId: invokeActorMethodPut
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
-        - name: method
-          in: path
-          required: true
-          description: The name of the method to invoke.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
+      - name: method
+        in: path
+        required: true
+        description: The name of the method to invoke.
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -80,16 +76,16 @@ paths:
       description: Invokes a method on the specified actor instance using GET.
       operationId: invokeActorMethodGet
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
-        - name: method
-          in: path
-          required: true
-          description: The name of the method to invoke.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
+      - name: method
+        in: path
+        required: true
+        description: The name of the method to invoke.
+        schema:
+          type: string
       responses:
         '200':
           description: Method invoked successfully.
@@ -103,16 +99,16 @@ paths:
       description: Invokes a method on the specified actor instance using DELETE.
       operationId: invokeActorMethodDelete
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
-        - name: method
-          in: path
-          required: true
-          description: The name of the method to invoke.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
+      - name: method
+        in: path
+        required: true
+        description: The name of the method to invoke.
+        schema:
+          type: string
       responses:
         '200':
           description: Method invoked successfully.
@@ -127,10 +123,10 @@ paths:
       description: Retrieves all saved state for the specified actor.
       operationId: getActorState
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
       responses:
         '200':
           description: Actor state retrieved successfully.
@@ -141,15 +137,13 @@ paths:
           description: Failed to get actor state.
     post:
       summary: Dapr Save Actor State (Transactional)
-      description: >-
-        Performs a transactional save of actor state, supporting multiple
-        upsert and delete operations in a single transaction.
+      description: Performs a transactional save of actor state, supporting multiple upsert and delete operations in a single transaction.
       operationId: saveActorStateTransactional
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
       requestBody:
         required: true
         content:
@@ -162,8 +156,8 @@ paths:
                   operation:
                     type: string
                     enum:
-                      - upsert
-                      - delete
+                    - upsert
+                    - delete
                   request:
                     type: object
                     properties:
@@ -183,16 +177,16 @@ paths:
       description: Retrieves a specific state key for the specified actor.
       operationId: getActorStateByKey
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
-        - name: key
-          in: path
-          required: true
-          description: The state key to retrieve.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
+      - name: key
+        in: path
+        required: true
+        description: The state key to retrieve.
+        schema:
+          type: string
       responses:
         '200':
           description: State value retrieved successfully.
@@ -209,16 +203,16 @@ paths:
       description: Creates a timer for the specified actor.
       operationId: createActorTimer
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
-        - name: name
-          in: path
-          required: true
-          description: The name of the timer.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
+      - name: name
+        in: path
+        required: true
+        description: The name of the timer.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -235,16 +229,16 @@ paths:
       description: Deletes a timer for the specified actor.
       operationId: deleteActorTimer
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
-        - name: name
-          in: path
-          required: true
-          description: The name of the timer to delete.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
+      - name: name
+        in: path
+        required: true
+        description: The name of the timer to delete.
+        schema:
+          type: string
       responses:
         '204':
           description: Timer deleted successfully.
@@ -253,21 +247,19 @@ paths:
   /v1.0/actors/{actorType}/{actorId}/reminders/{name}:
     post:
       summary: Dapr Create Actor Reminder
-      description: >-
-        Creates a persistent reminder for the specified actor. Reminders
-        survive actor deactivations and failovers.
+      description: Creates a persistent reminder for the specified actor. Reminders survive actor deactivations and failovers.
       operationId: createActorReminder
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
-        - name: name
-          in: path
-          required: true
-          description: The name of the reminder.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
+      - name: name
+        in: path
+        required: true
+        description: The name of the reminder.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -284,16 +276,16 @@ paths:
       description: Retrieves a specific reminder for the specified actor.
       operationId: getActorReminder
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
-        - name: name
-          in: path
-          required: true
-          description: The name of the reminder.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
+      - name: name
+        in: path
+        required: true
+        description: The name of the reminder.
+        schema:
+          type: string
       responses:
         '200':
           description: Reminder retrieved successfully.
@@ -308,16 +300,16 @@ paths:
       description: Deletes a reminder for the specified actor.
       operationId: deleteActorReminder
       tags:
-        - Actors
+      - Actors
       parameters:
-        - $ref: '#/components/parameters/actorType'
-        - $ref: '#/components/parameters/actorId'
-        - name: name
-          in: path
-          required: true
-          description: The name of the reminder to delete.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/actorType'
+      - $ref: '#/components/parameters/actorId'
+      - name: name
+        in: path
+        required: true
+        description: The name of the reminder to delete.
+        schema:
+          type: string
       responses:
         '204':
           description: Reminder deleted successfully.
@@ -368,6 +360,6 @@ components:
         ttl:
           type: string
           description: Time-to-live for the reminder.
-tags:
-  - name: Actors
-    description: Virtual actor operations including state, timers, and reminders.
+externalDocs:
+  description: Dapr Actors API Reference
+  url: https://docs.dapr.io/reference/api/actors_api/
