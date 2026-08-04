@@ -1,0 +1,38 @@
+{
+  "provider": "dapr",
+  "sources": [
+    "dapr-actors-api-openapi.yml",
+    "dapr-bindings-api-openapi.yml",
+    "dapr-configuration-api-openapi.yml",
+    "dapr-cryptography-api-openapi.yml",
+    "dapr-distributedlock-api-openapi.yml",
+    "dapr-health-api-openapi.yml",
+    "dapr-jobs-api-openapi.yml",
+    "dapr-metadata-api-openapi.yml",
+    "dapr-pubsub-api-openapi.yml",
+    "dapr-secrets-api-openapi.yml",
+    "dapr-serviceinvocation-api-openapi.yml",
+    "dapr-state-api-openapi.yml",
+    "dapr-workflow-api-openapi.yml"
+  ],
+  "outputs": [
+    "dapr-actors-api-openapi.yml",
+    "dapr-bindings-api-openapi.yml",
+    "dapr-configuration-api-openapi.yml",
+    "dapr-cryptography-api-openapi.yml",
+    "dapr-distributedlock-api-openapi.yml",
+    "dapr-health-api-openapi.yml",
+    "dapr-jobs-api-openapi.yml",
+    "dapr-metadata-api-openapi.yml",
+    "dapr-pubsub-api-openapi.yml",
+    "dapr-secrets-api-openapi.yml",
+    "dapr-serviceinvocation-api-openapi.yml",
+    "dapr-state-api-openapi.yml",
+    "dapr-workflow-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
