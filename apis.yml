@@ -1166,10 +1166,6 @@ common:
     name: Rules
     type: Rules
     description: Spectral rules for validating Dapr OpenAPI definitions.
-  - url: capabilities/dapr-capabilities.yml
-    name: Capabilities
-    type: Capabilities
-    description: Capability summary across Dapr building block APIs.
   - type: LlmsText
     url: https://dapr.io/llms.txt
 created: '2025-01-08'
