@@ -1,0 +1,1352 @@
+{
+  "item": [
+    {
+      "id": "6ea706e6-c4f1-430b-80e6-c9395e807477",
+      "name": "State",
+      "description": {
+        "content": "State management operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "883779b2-dc00-4299-9a9a-62052972bc92",
+          "name": "Dapr Save State",
+          "request": {
+            "name": "Dapr Save State",
+            "description": {
+              "content": "Saves an array of state objects to the specified state store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":storename"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "storename",
+                  "description": "(Required) The name of the state store."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"key\": \"<string>\",\n    \"value\": {},\n    \"etag\": \"<string>\",\n    \"metadata\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"options\": {\n      \"concurrency\": \"<string>\",\n      \"consistency\": \"<string>\"\n    }\n  },\n  {\n    \"key\": \"<string>\",\n    \"value\": {},\n    \"etag\": \"<string>\",\n    \"metadata\": {\n      \"key_0\": \"<string>\"\n    },\n    \"options\": {\n      \"concurrency\": \"<string>\",\n      \"consistency\": \"<string>\"\n    }\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9f6e55de-4a1c-401f-9a14-84bdc0b9ad07",
+              "name": "State saved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key\": \"string\",\n    \"value\": {},\n    \"etag\": \"string\",\n    \"metadata\": {\n      \"key_0\": \"string\"\n    },\n    \"options\": {\n      \"concurrency\": \"first-write\",\n      \"consistency\": \"eventual\"\n    }\n  },\n  {\n    \"key\": \"string\",\n    \"value\": {},\n    \"etag\": \"string\",\n    \"metadata\": {\n      \"key_0\": \"string\"\n    },\n    \"options\": {\n      \"concurrency\": \"first-write\",\n      \"consistency\": \"strong\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3843cf21-3aa2-40ab-9fef-e8afaf9cc8bb",
+              "name": "State store is missing or misconfigured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key\": \"string\",\n    \"value\": {},\n    \"etag\": \"string\",\n    \"metadata\": {\n      \"key_0\": \"string\"\n    },\n    \"options\": {\n      \"concurrency\": \"first-write\",\n      \"consistency\": \"eventual\"\n    }\n  },\n  {\n    \"key\": \"string\",\n    \"value\": {},\n    \"etag\": \"string\",\n    \"metadata\": {\n      \"key_0\": \"string\"\n    },\n    \"options\": {\n      \"concurrency\": \"first-write\",\n      \"consistency\": \"strong\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "145bbe73-16f4-4ceb-88e0-1535bb3b6add",
+              "name": "Failed to save state.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key\": \"string\",\n    \"value\": {},\n    \"etag\": \"string\",\n    \"metadata\": {\n      \"key_0\": \"string\"\n    },\n    \"options\": {\n      \"concurrency\": \"first-write\",\n      \"consistency\": \"eventual\"\n    }\n  },\n  {\n    \"key\": \"string\",\n    \"value\": {},\n    \"etag\": \"string\",\n    \"metadata\": {\n      \"key_0\": \"string\"\n    },\n    \"options\": {\n      \"concurrency\": \"first-write\",\n      \"consistency\": \"strong\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b172135-08bb-4667-bdd8-14eaf359cf17",
+          "name": "Dapr Get State",
+          "request": {
+            "name": "Dapr Get State",
+            "description": {
+              "content": "Retrieves the state for a specific key from the state store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":storename",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "consistency",
+                  "value": "<string>",
+                  "description": "Read consistency level (eventual or strong)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "storename",
+                  "description": "(Required) The name of the state store."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) The key of the desired state."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2502e41f-b668-4ed3-b40e-f6e02b89a8f8",
+              "name": "State retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consistency",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of the desired state."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "ETag of the state value.",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff24c811-25b3-4f2f-bdc4-32e257848032",
+              "name": "Key is not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consistency",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of the desired state."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10b79593-c287-443e-8ce7-b340c078c1ce",
+              "name": "State store is missing or misconfigured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consistency",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of the desired state."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ce38ccb4-0aa5-4e69-880a-9ddbe89ce620",
+              "name": "Failed to get state.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consistency",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of the desired state."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b497891f-4ae6-4b89-b4d5-927d42b4945a",
+          "name": "Dapr Delete State",
+          "request": {
+            "name": "Dapr Delete State",
+            "description": {
+              "content": "Deletes the state for a specific key from the state store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":storename",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "concurrency",
+                  "value": "<string>",
+                  "description": "Concurrency mode (first-write or last-write)."
+                },
+                {
+                  "disabled": false,
+                  "key": "consistency",
+                  "value": "<string>",
+                  "description": "Consistency level (eventual or strong)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "storename",
+                  "description": "(Required) The name of the state store."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) The key of the state to delete."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f8d952c-b557-4dfa-b705-18ac712512ee",
+              "name": "State deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "concurrency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consistency",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of the state to delete."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f90896bf-be8d-4f00-b537-e494aa6ed5cd",
+              "name": "State store is missing or misconfigured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "concurrency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consistency",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of the state to delete."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "261301fb-6ef0-4852-aa1f-f8228db55b78",
+              "name": "Failed to delete state.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "concurrency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consistency",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of the state to delete."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca06d6ae-a9c3-4c2c-b0cf-428c1cd5f09c",
+          "name": "Dapr Get Bulk State",
+          "request": {
+            "name": "Dapr Get Bulk State",
+            "description": {
+              "content": "Retrieves multiple state values from the state store in a single request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":storename",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "storename",
+                  "description": "(Required) The name of the state store."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parallelism\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d733ef83-db65-41d4-aa16-da0dcdd97453",
+              "name": "Bulk state retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parallelism\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key\": \"string\",\n    \"data\": \"\",\n    \"etag\": \"string\",\n    \"error\": \"string\"\n  },\n  {\n    \"key\": \"string\",\n    \"data\": \"\",\n    \"etag\": \"string\",\n    \"error\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7382675b-34f0-41b6-8395-945359b8fcee",
+              "name": "State store is missing or misconfigured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parallelism\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "deaacfe3-02ba-4d7d-99ee-48c33159a018",
+              "name": "Failed to get bulk state.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parallelism\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88758625-a33e-4fc7-aabd-515da48ac943",
+          "name": "Dapr Execute State Transaction",
+          "request": {
+            "name": "Dapr Execute State Transaction",
+            "description": {
+              "content": "Executes a multi-item transactional operation on the state store. Supports upsert and delete operations within a single transaction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":storename",
+                "transaction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "storename",
+                  "description": "(Required) The name of the state store."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operations\": [\n    {\n      \"operation\": \"<string>\",\n      \"request\": {\n        \"key\": \"<string>\",\n        \"value\": {},\n        \"etag\": \"<string>\",\n        \"metadata\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"options\": {\n          \"concurrency\": \"<string>\",\n          \"consistency\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"operation\": \"<string>\",\n      \"request\": {\n        \"key\": \"<string>\",\n        \"value\": {},\n        \"etag\": \"<string>\",\n        \"metadata\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"options\": {\n          \"concurrency\": \"<string>\",\n          \"consistency\": \"<string>\"\n        }\n      }\n    }\n  ],\n  \"metadata\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "200fd3ab-830f-49d2-8399-9fadc3e7971e",
+              "name": "Transaction executed successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    "transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operations\": [\n    {\n      \"operation\": \"delete\",\n      \"request\": {\n        \"key\": \"string\",\n        \"value\": {},\n        \"etag\": \"string\",\n        \"metadata\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"options\": {\n          \"concurrency\": \"first-write\",\n          \"consistency\": \"strong\"\n        }\n      }\n    },\n    {\n      \"operation\": \"upsert\",\n      \"request\": {\n        \"key\": \"string\",\n        \"value\": {},\n        \"etag\": \"string\",\n        \"metadata\": {\n          \"key_0\": \"string\"\n        },\n        \"options\": {\n          \"concurrency\": \"last-write\",\n          \"consistency\": \"eventual\"\n        }\n      }\n    }\n  ],\n  \"metadata\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b782271b-7e41-402d-986e-a06554beddd6",
+              "name": "State store is missing or misconfigured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    "transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operations\": [\n    {\n      \"operation\": \"delete\",\n      \"request\": {\n        \"key\": \"string\",\n        \"value\": {},\n        \"etag\": \"string\",\n        \"metadata\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"options\": {\n          \"concurrency\": \"first-write\",\n          \"consistency\": \"strong\"\n        }\n      }\n    },\n    {\n      \"operation\": \"upsert\",\n      \"request\": {\n        \"key\": \"string\",\n        \"value\": {},\n        \"etag\": \"string\",\n        \"metadata\": {\n          \"key_0\": \"string\"\n        },\n        \"options\": {\n          \"concurrency\": \"last-write\",\n          \"consistency\": \"eventual\"\n        }\n      }\n    }\n  ],\n  \"metadata\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "afd04cdd-8275-411b-8b25-52cfbab6adc5",
+              "name": "Failed to execute transaction.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    "transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operations\": [\n    {\n      \"operation\": \"delete\",\n      \"request\": {\n        \"key\": \"string\",\n        \"value\": {},\n        \"etag\": \"string\",\n        \"metadata\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"options\": {\n          \"concurrency\": \"first-write\",\n          \"consistency\": \"strong\"\n        }\n      }\n    },\n    {\n      \"operation\": \"upsert\",\n      \"request\": {\n        \"key\": \"string\",\n        \"value\": {},\n        \"etag\": \"string\",\n        \"metadata\": {\n          \"key_0\": \"string\"\n        },\n        \"options\": {\n          \"concurrency\": \"last-write\",\n          \"consistency\": \"eventual\"\n        }\n      }\n    }\n  ],\n  \"metadata\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2a2d3c7-a40d-4bc6-ad6a-1cb47b710673",
+          "name": "Dapr Query State",
+          "request": {
+            "name": "Dapr Query State",
+            "description": {
+              "content": "Queries the state store using a query expression.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":storename",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "storename",
+                  "description": "(Required) The name of the state store."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": \"<object>\",\n  \"sort\": [\n    {\n      \"key\": \"<string>\",\n      \"order\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"order\": \"<string>\"\n    }\n  ],\n  \"page\": {\n    \"limit\": \"<integer>\",\n    \"token\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18b32eeb-2dde-4020-b041-8fa0f00f2ed7",
+              "name": "Query executed successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": \"<object>\",\n  \"sort\": [\n    {\n      \"key\": \"<string>\",\n      \"order\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"order\": \"<string>\"\n    }\n  ],\n  \"page\": {\n    \"limit\": \"<integer>\",\n    \"token\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"key\": \"string\",\n      \"data\": \"\",\n      \"etag\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"data\": \"\",\n      \"etag\": \"string\"\n    }\n  ],\n  \"token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c221dc86-6ce8-4210-8e52-a687bdd87f99",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": \"<object>\",\n  \"sort\": [\n    {\n      \"key\": \"<string>\",\n      \"order\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"order\": \"<string>\"\n    }\n  ],\n  \"page\": {\n    \"limit\": \"<integer>\",\n    \"token\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "006671ad-3cf4-4dc2-a5ce-006d3d5b0383",
+              "name": "Failed to query state.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":storename",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "storename",
+                      "description": "(Required) The name of the state store."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": \"<object>\",\n  \"sort\": [\n    {\n      \"key\": \"<string>\",\n      \"order\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"order\": \"<string>\"\n    }\n  ],\n  \"page\": {\n    \"limit\": \"<integer>\",\n    \"token\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3500",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "15bd314c-8f8a-493a-be2a-64559f3caba4",
+    "name": "Dapr Actors State API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.\n\nContact Support:\n Name: Dapr",
+      "type": "text/plain"
+    }
+  }
+}

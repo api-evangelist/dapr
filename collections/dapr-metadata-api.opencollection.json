@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dapr Actors Metadata API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dapr Get Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/metadata"
+          },
+          "docs": "Returns information about the Dapr sidecar, including app connection details, registered components, subscriptions, and HTTP endpoints."
+        },
+        {
+          "info": {
+            "name": "Dapr Set Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:3500/v1.0/metadata/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "The metadata attribute key to set."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets a custom metadata attribute on the Dapr sidecar."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

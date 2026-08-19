@@ -1,0 +1,178 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dapr Actors State API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "State",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dapr Save State",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/state/:storename",
+            "params": [
+              {
+                "name": "storename",
+                "value": "",
+                "type": "path",
+                "description": "The name of the state store."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Saves an array of state objects to the specified state store."
+        },
+        {
+          "info": {
+            "name": "Dapr Get State",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/state/:storename/:key",
+            "params": [
+              {
+                "name": "storename",
+                "value": "",
+                "type": "path",
+                "description": "The name of the state store."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "The key of the desired state."
+              },
+              {
+                "name": "consistency",
+                "value": "",
+                "type": "query",
+                "description": "Read consistency level (eventual or strong)."
+              }
+            ]
+          },
+          "docs": "Retrieves the state for a specific key from the state store."
+        },
+        {
+          "info": {
+            "name": "Dapr Delete State",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:3500/v1.0/state/:storename/:key",
+            "params": [
+              {
+                "name": "storename",
+                "value": "",
+                "type": "path",
+                "description": "The name of the state store."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "The key of the state to delete."
+              },
+              {
+                "name": "concurrency",
+                "value": "",
+                "type": "query",
+                "description": "Concurrency mode (first-write or last-write)."
+              },
+              {
+                "name": "consistency",
+                "value": "",
+                "type": "query",
+                "description": "Consistency level (eventual or strong)."
+              }
+            ]
+          },
+          "docs": "Deletes the state for a specific key from the state store."
+        },
+        {
+          "info": {
+            "name": "Dapr Get Bulk State",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/state/:storename/bulk",
+            "params": [
+              {
+                "name": "storename",
+                "value": "",
+                "type": "path",
+                "description": "The name of the state store."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves multiple state values from the state store in a single request."
+        },
+        {
+          "info": {
+            "name": "Dapr Execute State Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/state/:storename/transaction",
+            "params": [
+              {
+                "name": "storename",
+                "value": "",
+                "type": "path",
+                "description": "The name of the state store."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Executes a multi-item transactional operation on the state store. Supports upsert and delete operations within a single transaction."
+        },
+        {
+          "info": {
+            "name": "Dapr Query State",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/state/:storename/query",
+            "params": [
+              {
+                "name": "storename",
+                "value": "",
+                "type": "path",
+                "description": "The name of the state store."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Queries the state store using a query expression."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

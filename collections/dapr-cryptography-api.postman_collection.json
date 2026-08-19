@@ -1,0 +1,490 @@
+{
+  "item": [
+    {
+      "id": "194b844b-98d1-454a-949a-3087cb42a17c",
+      "name": "Cryptography",
+      "description": {
+        "content": "Cryptographic operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7d92711a-9eec-47c4-adca-57d41076fa88",
+          "name": "Dapr Encrypt",
+          "request": {
+            "name": "Dapr Encrypt",
+            "description": {
+              "content": "Encrypts data using the specified cryptography component and key. The HTTP API is intended for development and testing; for production, use the gRPC API via SDKs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0-alpha1",
+                "crypto",
+                ":crypto-store-name",
+                "encrypt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "crypto-store-name",
+                  "description": "(Required) The name of the cryptography component."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The name of the key to use for encryption.",
+                "key": "dapr-key-name",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) The key wrap algorithm to use (e.g., A256KW, A128CBC, RSA-OAEP-256).",
+                "key": "dapr-key-wrap-algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/octet-stream"
+              },
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<binary>"
+            }
+          },
+          "response": [
+            {
+              "id": "94a300e7-20f3-4e4d-ac07-3474b804a3de",
+              "name": "Data encrypted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "crypto",
+                    ":crypto-store-name",
+                    "encrypt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crypto-store-name",
+                      "description": "(Required) The name of the cryptography component."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The name of the key to use for encryption.",
+                    "key": "dapr-key-name",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The key wrap algorithm to use (e.g., A256KW, A128CBC, RSA-OAEP-256).",
+                    "key": "dapr-key-wrap-algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b7f59cea-e6bb-4826-8a81-9ef8a98b79d7",
+              "name": "Bad request or missing parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "crypto",
+                    ":crypto-store-name",
+                    "encrypt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crypto-store-name",
+                      "description": "(Required) The name of the cryptography component."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The name of the key to use for encryption.",
+                    "key": "dapr-key-name",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The key wrap algorithm to use (e.g., A256KW, A128CBC, RSA-OAEP-256).",
+                    "key": "dapr-key-wrap-algorithm",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ccd03331-0c71-47e7-ba55-1d2d5f8b24b2",
+              "name": "Failed to encrypt data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "crypto",
+                    ":crypto-store-name",
+                    "encrypt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crypto-store-name",
+                      "description": "(Required) The name of the cryptography component."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The name of the key to use for encryption.",
+                    "key": "dapr-key-name",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The key wrap algorithm to use (e.g., A256KW, A128CBC, RSA-OAEP-256).",
+                    "key": "dapr-key-wrap-algorithm",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca46fd58-9ce9-4ed9-96ae-e954016f2def",
+          "name": "Dapr Decrypt",
+          "request": {
+            "name": "Dapr Decrypt",
+            "description": {
+              "content": "Decrypts data using the specified cryptography component and key. The HTTP API is intended for development and testing; for production, use the gRPC API via SDKs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0-alpha1",
+                "crypto",
+                ":crypto-store-name",
+                "decrypt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "crypto-store-name",
+                  "description": "(Required) The name of the cryptography component."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The name of the key to use for decryption.",
+                "key": "dapr-key-name",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/octet-stream"
+              },
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<binary>"
+            }
+          },
+          "response": [
+            {
+              "id": "d2761130-74e2-4e75-839b-692aed97aaf9",
+              "name": "Data decrypted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "crypto",
+                    ":crypto-store-name",
+                    "decrypt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crypto-store-name",
+                      "description": "(Required) The name of the cryptography component."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The name of the key to use for decryption.",
+                    "key": "dapr-key-name",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0f16133b-f264-4b3c-a9fd-063a69523d5e",
+              "name": "Bad request or missing parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "crypto",
+                    ":crypto-store-name",
+                    "decrypt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crypto-store-name",
+                      "description": "(Required) The name of the cryptography component."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The name of the key to use for decryption.",
+                    "key": "dapr-key-name",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4dd81d30-53a4-4d47-9779-daed54fc0f66",
+              "name": "Failed to decrypt data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0-alpha1",
+                    "crypto",
+                    ":crypto-store-name",
+                    "decrypt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crypto-store-name",
+                      "description": "(Required) The name of the cryptography component."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The name of the key to use for decryption.",
+                    "key": "dapr-key-name",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3500",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bec124b4-6c57-43e9-af36-cdc18cdac9ff",
+    "name": "Dapr Actors Cryptography API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.\n\nContact Support:\n Name: Dapr",
+      "type": "text/plain"
+    }
+  }
+}

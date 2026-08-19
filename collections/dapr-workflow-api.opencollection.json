@@ -1,0 +1,213 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dapr Actors Workflow API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workflow",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dapr Start Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/workflows/:workflowComponentName/:workflowName/start",
+            "params": [
+              {
+                "name": "workflowComponentName",
+                "value": "",
+                "type": "path",
+                "description": "The workflow component name (e.g., dapr)."
+              },
+              {
+                "name": "workflowName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the workflow to start."
+              },
+              {
+                "name": "instanceID",
+                "value": "",
+                "type": "query",
+                "description": "Optional instance ID for the workflow. If not provided, a random ID is generated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts a new workflow instance with the specified workflow name."
+        },
+        {
+          "info": {
+            "name": "Dapr Get Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/workflows/:workflowComponentName/:instanceId",
+            "params": [
+              {
+                "name": "workflowComponentName",
+                "value": "",
+                "type": "path",
+                "description": "The workflow component name."
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The workflow instance ID."
+              }
+            ]
+          },
+          "docs": "Retrieves the status and details of a workflow instance."
+        },
+        {
+          "info": {
+            "name": "Dapr Terminate Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/workflows/:workflowComponentName/:instanceId/terminate",
+            "params": [
+              {
+                "name": "workflowComponentName",
+                "value": "",
+                "type": "path",
+                "description": "The workflow component name."
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The workflow instance ID."
+              }
+            ]
+          },
+          "docs": "Terminates a running workflow instance."
+        },
+        {
+          "info": {
+            "name": "Dapr Raise Workflow Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/workflows/:workflowComponentName/:instanceId/raiseEvent/:eventName",
+            "params": [
+              {
+                "name": "workflowComponentName",
+                "value": "",
+                "type": "path",
+                "description": "The workflow component name."
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The workflow instance ID."
+              },
+              {
+                "name": "eventName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the event to raise."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Raises an event to a running workflow instance."
+        },
+        {
+          "info": {
+            "name": "Dapr Pause Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/workflows/:workflowComponentName/:instanceId/pause",
+            "params": [
+              {
+                "name": "workflowComponentName",
+                "value": "",
+                "type": "path",
+                "description": "The workflow component name."
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The workflow instance ID."
+              }
+            ]
+          },
+          "docs": "Pauses a running workflow instance."
+        },
+        {
+          "info": {
+            "name": "Dapr Resume Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/workflows/:workflowComponentName/:instanceId/resume",
+            "params": [
+              {
+                "name": "workflowComponentName",
+                "value": "",
+                "type": "path",
+                "description": "The workflow component name."
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The workflow instance ID."
+              }
+            ]
+          },
+          "docs": "Resumes a paused workflow instance."
+        },
+        {
+          "info": {
+            "name": "Dapr Purge Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/workflows/:workflowComponentName/:instanceId/purge",
+            "params": [
+              {
+                "name": "workflowComponentName",
+                "value": "",
+                "type": "path",
+                "description": "The workflow component name."
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The workflow instance ID."
+              }
+            ]
+          },
+          "docs": "Permanently deletes workflow metadata from the state store, including stored inputs, outputs, and history. Only COMPLETED, FAILED, or TERMINATED workflows can be purged."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

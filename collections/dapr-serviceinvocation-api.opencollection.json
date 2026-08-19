@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dapr Actors ServiceInvocation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ServiceInvocation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dapr Invoke Method (GET)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3500/v1.0/invoke/:appId/method/:method-name",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "The App ID of the remote application."
+              },
+              {
+                "name": "method-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the method to invoke."
+              }
+            ]
+          },
+          "docs": "Invokes a method on a remote Dapr app using GET."
+        },
+        {
+          "info": {
+            "name": "Dapr Invoke Method (POST)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3500/v1.0/invoke/:appId/method/:method-name",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "The App ID of the remote application."
+              },
+              {
+                "name": "method-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the method to invoke."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invokes a method on a remote Dapr app using POST."
+        },
+        {
+          "info": {
+            "name": "Dapr Invoke Method (PUT)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:3500/v1.0/invoke/:appId/method/:method-name",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "The App ID of the remote application."
+              },
+              {
+                "name": "method-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the method to invoke."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invokes a method on a remote Dapr app using PUT."
+        },
+        {
+          "info": {
+            "name": "Dapr Invoke Method (PATCH)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://localhost:3500/v1.0/invoke/:appId/method/:method-name",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "The App ID of the remote application."
+              },
+              {
+                "name": "method-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the method to invoke."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invokes a method on a remote Dapr app using PATCH."
+        },
+        {
+          "info": {
+            "name": "Dapr Invoke Method (DELETE)",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:3500/v1.0/invoke/:appId/method/:method-name",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "The App ID of the remote application."
+              },
+              {
+                "name": "method-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the method to invoke."
+              }
+            ]
+          },
+          "docs": "Invokes a method on a remote Dapr app using DELETE."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
