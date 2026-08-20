@@ -504,6 +504,8 @@ apis:
   description: Job scheduling operations.
   humanURL: https://docs.dapr.io/reference/api/state_api/
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -670,6 +672,8 @@ apis:
   description: Publish and subscribe messaging operations.
   humanURL: https://docs.dapr.io/reference/api/state_api/
   tags:
+  - Pub-Sub
+  tags_raw:
   - PubSub
   properties:
   - type: OpenAPI
@@ -836,6 +840,8 @@ apis:
   description: Service-to-service invocation operations.
   humanURL: https://docs.dapr.io/reference/api/state_api/
   tags:
+  - Service Invocation
+  tags_raw:
   - ServiceInvocation
   properties:
   - type: OpenAPI
@@ -919,6 +925,8 @@ apis:
   description: State management operations.
   humanURL: https://docs.dapr.io/reference/api/state_api/
   tags:
+  - States
+  tags_raw:
   - State
   properties:
   - type: OpenAPI
@@ -1002,6 +1010,8 @@ apis:
   description: Workflow orchestration operations.
   humanURL: https://docs.dapr.io/reference/api/state_api/
   tags:
+  - Workflows
+  tags_raw:
   - Workflow
   properties:
   - type: OpenAPI
@@ -1082,6 +1092,13 @@ apis:
     url: https://docs.dapr.io/operations/observability/
 name: Dapr
 tags:
+  - Distributed Systems
+  - Microservices
+  - Platform
+  - Pub-Sub
+  - State Management
+  - Workflows
+tags_raw:
   - Distributed Systems
   - Microservices
   - Platform
