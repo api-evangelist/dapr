@@ -672,7 +672,7 @@ apis:
   description: Publish and subscribe messaging operations.
   humanURL: https://docs.dapr.io/reference/api/state_api/
   tags:
-  - Pub-Sub
+  - PubSub
   tags_raw:
   - PubSub
   properties:
@@ -840,7 +840,7 @@ apis:
   description: Service-to-service invocation operations.
   humanURL: https://docs.dapr.io/reference/api/state_api/
   tags:
-  - Service Invocation
+  - ServiceInvocation
   tags_raw:
   - ServiceInvocation
   properties:
@@ -1095,7 +1095,7 @@ tags:
   - Distributed Systems
   - Microservices
   - Platform
-  - Pub-Sub
+  - Pub/Sub
   - State Management
   - Workflows
 tags_raw:
