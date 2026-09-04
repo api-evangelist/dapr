@@ -1200,7 +1200,7 @@ common:
 created: '2025-01-08'
 modified: '2026-05-19'
 kind: opensource
-position: Consumer
+position: Consuming
 description: >-
   Dapr (Distributed Application Runtime) is a portable, event-driven runtime that makes it easy for developers to build
   resilient, stateless, and stateful applications that run on the cloud and edge. It provides building block APIs for
