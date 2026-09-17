@@ -1096,6 +1096,7 @@ tags:
   - Pub-Sub
   - State Management
   - Workflows
+  - Dapr
 tags_raw:
   - Distributed Systems
   - Microservices
