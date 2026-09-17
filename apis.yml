@@ -835,91 +835,6 @@ apis:
     url: json-schema/metadata.json
   - type: Reference
     url: https://docs.dapr.io/operations/observability/
-- aid: dapr:dapr-serviceinvocation-api
-  name: Dapr ServiceInvocation API
-  description: Service-to-service invocation operations.
-  humanURL: https://docs.dapr.io/reference/api/state_api/
-  tags:
-  - Service Invocation
-  tags_raw:
-  - ServiceInvocation
-  properties:
-  - type: OpenAPI
-    url: openapi/dapr-serviceinvocation-api-openapi.yml
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/state_api/
-  - type: JSONSchema
-    url: json-schema/state-item.json
-  - type: Reference
-    url: https://docs.dapr.io/developing-applications/building-blocks/state-management/
-  - type: Client Libraries
-    url: https://docs.dapr.io/sdks/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/pubsub_api/
-  - type: AsyncAPI
-    url: asyncapi/dapr-pubsub-asyncapi.yml
-  - type: JSONSchema
-    url: json-schema/cloud-event.json
-  - type: Reference
-    url: https://docs.dapr.io/developing-applications/building-blocks/pubsub/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/service_invocation_api/
-  - type: Reference
-    url: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/bindings_api/
-  - type: JSONSchema
-    url: json-schema/binding.json
-  - type: Reference
-    url: https://docs.dapr.io/developing-applications/building-blocks/bindings/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/secrets_api/
-  - type: JSONSchema
-    url: json-schema/secret.json
-  - type: Reference
-    url: https://docs.dapr.io/developing-applications/building-blocks/secrets/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/actors_api/
-  - type: JSONSchema
-    url: json-schema/actor.json
-  - type: Reference
-    url: https://docs.dapr.io/developing-applications/building-blocks/actors/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/workflow_api/
-  - type: JSONSchema
-    url: json-schema/workflow.json
-  - type: Reference
-    url: https://docs.dapr.io/developing-applications/building-blocks/workflow/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/configuration_api/
-  - type: JSONSchema
-    url: json-schema/configuration-item.json
-  - type: Reference
-    url: https://docs.dapr.io/developing-applications/building-blocks/configuration/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/distributed_lock_api/
-  - type: Reference
-    url: https://docs.dapr.io/developing-applications/building-blocks/distributed-lock/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/cryptography_api/
-  - type: Reference
-    url: https://docs.dapr.io/developing-applications/building-blocks/cryptography/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/jobs_api/
-  - type: JSONSchema
-    url: json-schema/job.json
-  - type: Reference
-    url: https://docs.dapr.io/developing-applications/building-blocks/jobs/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/health_api/
-  - type: Reference
-    url: https://docs.dapr.io/operations/observability/healthchecks/
-  - type: Documentation
-    url: https://docs.dapr.io/reference/api/metadata_api/
-  - type: JSONSchema
-    url: json-schema/metadata.json
-  - type: Reference
-    url: https://docs.dapr.io/operations/observability/
 - aid: dapr:dapr-state-api
   name: Dapr State API
   description: State management operations.
@@ -1016,6 +931,89 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/dapr-workflow-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/state_api/
+  - type: JSONSchema
+    url: json-schema/state-item.json
+  - type: Reference
+    url: https://docs.dapr.io/developing-applications/building-blocks/state-management/
+  - type: Client Libraries
+    url: https://docs.dapr.io/sdks/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/pubsub_api/
+  - type: AsyncAPI
+    url: asyncapi/dapr-pubsub-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/cloud-event.json
+  - type: Reference
+    url: https://docs.dapr.io/developing-applications/building-blocks/pubsub/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/service_invocation_api/
+  - type: Reference
+    url: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/bindings_api/
+  - type: JSONSchema
+    url: json-schema/binding.json
+  - type: Reference
+    url: https://docs.dapr.io/developing-applications/building-blocks/bindings/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/secrets_api/
+  - type: JSONSchema
+    url: json-schema/secret.json
+  - type: Reference
+    url: https://docs.dapr.io/developing-applications/building-blocks/secrets/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/actors_api/
+  - type: JSONSchema
+    url: json-schema/actor.json
+  - type: Reference
+    url: https://docs.dapr.io/developing-applications/building-blocks/actors/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/workflow_api/
+  - type: JSONSchema
+    url: json-schema/workflow.json
+  - type: Reference
+    url: https://docs.dapr.io/developing-applications/building-blocks/workflow/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/configuration_api/
+  - type: JSONSchema
+    url: json-schema/configuration-item.json
+  - type: Reference
+    url: https://docs.dapr.io/developing-applications/building-blocks/configuration/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/distributed_lock_api/
+  - type: Reference
+    url: https://docs.dapr.io/developing-applications/building-blocks/distributed-lock/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/cryptography_api/
+  - type: Reference
+    url: https://docs.dapr.io/developing-applications/building-blocks/cryptography/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/jobs_api/
+  - type: JSONSchema
+    url: json-schema/job.json
+  - type: Reference
+    url: https://docs.dapr.io/developing-applications/building-blocks/jobs/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/health_api/
+  - type: Reference
+    url: https://docs.dapr.io/operations/observability/healthchecks/
+  - type: Documentation
+    url: https://docs.dapr.io/reference/api/metadata_api/
+  - type: JSONSchema
+    url: json-schema/metadata.json
+  - type: Reference
+    url: https://docs.dapr.io/operations/observability/
+- aid: dapr:dapr-service-invocation-api
+  name: Dapr Service Invocation API
+  description: Service-to-service invocation operations.
+  humanURL: https://docs.dapr.io/reference/api/state_api/
+  tags:
+  - Service Invocation
+  properties:
+  - type: OpenAPI
+    url: openapi/dapr-service-invocation-api-openapi.yml
   - type: Documentation
     url: https://docs.dapr.io/reference/api/state_api/
   - type: JSONSchema
