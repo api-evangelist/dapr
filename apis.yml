@@ -1090,6 +1090,7 @@ apis:
     url: https://docs.dapr.io/operations/observability/
 name: Dapr
 tags:
+  - Dapr
   - Distributed Systems
   - Microservices
   - Platform
