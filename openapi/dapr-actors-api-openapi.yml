@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Dapr Actors API
   description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
@@ -317,13 +317,6 @@ paths:
           description: Failed to delete reminder.
 components:
   parameters:
-    actorType:
-      name: actorType
-      in: path
-      required: true
-      description: The type of the actor.
-      schema:
-        type: string
     actorId:
       name: actorId
       in: path
@@ -331,21 +324,14 @@ components:
       description: The ID of the actor instance.
       schema:
         type: string
+    actorType:
+      name: actorType
+      in: path
+      required: true
+      description: The type of the actor.
+      schema:
+        type: string
   schemas:
-    ActorTimer:
-      type: object
-      properties:
-        dueTime:
-          type: string
-          description: Time after which the timer fires for the first time (ISO 8601 duration or time).
-        period:
-          type: string
-          description: Time interval between timer fires (ISO 8601 duration).
-        callback:
-          type: string
-          description: The name of the callback method to invoke.
-        data:
-          description: Data to pass to the callback method.
     ActorReminder:
       type: object
       properties:
@@ -360,6 +346,20 @@ components:
         ttl:
           type: string
           description: Time-to-live for the reminder.
+    ActorTimer:
+      type: object
+      properties:
+        dueTime:
+          type: string
+          description: Time after which the timer fires for the first time (ISO 8601 duration or time).
+        period:
+          type: string
+          description: Time interval between timer fires (ISO 8601 duration).
+        callback:
+          type: string
+          description: The name of the callback method to invoke.
+        data:
+          description: Data to pass to the callback method.
 externalDocs:
   description: Dapr Actors API Reference
   url: https://docs.dapr.io/reference/api/actors_api/

@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dapr Actors Workflow API
-  description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
+  title: Dapr Workflow API
+  description: The Dapr Workflow API provides the ability to manage workflow instances, including starting, getting status, pausing, resuming, terminating, purging, and raising events to workflows.
   version: 1.0.0
   contact:
     name: Dapr
@@ -273,5 +273,5 @@ components:
             type: string
           description: Additional workflow properties.
 externalDocs:
-  description: Dapr Actors API Reference
-  url: https://docs.dapr.io/reference/api/actors_api/
+  description: Dapr Workflow API Reference
+  url: https://docs.dapr.io/reference/api/workflow_api/

@@ -1,19 +1,19 @@
 {
   "provider": "dapr",
   "sources": [
-    "dapr-actors-api-openapi.yml",
-    "dapr-bindings-api-openapi.yml",
-    "dapr-configuration-api-openapi.yml",
-    "dapr-cryptography-api-openapi.yml",
-    "dapr-distributedlock-api-openapi.yml",
-    "dapr-health-api-openapi.yml",
-    "dapr-jobs-api-openapi.yml",
-    "dapr-metadata-api-openapi.yml",
-    "dapr-pubsub-api-openapi.yml",
-    "dapr-secrets-api-openapi.yml",
-    "dapr-serviceinvocation-api-openapi.yml",
-    "dapr-state-api-openapi.yml",
-    "dapr-workflow-api-openapi.yml"
+    "_original/dapr-actors-openapi.yml",
+    "_original/dapr-bindings-openapi.yml",
+    "_original/dapr-configuration-openapi.yml",
+    "_original/dapr-cryptography-openapi.yml",
+    "_original/dapr-distributed-lock-openapi.yml",
+    "_original/dapr-health-openapi.yml",
+    "_original/dapr-jobs-openapi.yml",
+    "_original/dapr-metadata-openapi.yml",
+    "_original/dapr-pubsub-openapi.yml",
+    "_original/dapr-secrets-openapi.yml",
+    "_original/dapr-service-invocation-openapi.yml",
+    "_original/dapr-state-management-openapi.yml",
+    "_original/dapr-workflow-openapi.yml"
   ],
   "outputs": [
     "dapr-actors-api-openapi.yml",
@@ -30,9 +30,42 @@
     "dapr-state-api-openapi.yml",
     "dapr-workflow-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (13 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "dapr-actors-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-bindings-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-configuration-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-cryptography-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-distributed-lock-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-health-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-jobs-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-metadata-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-pubsub-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-secrets-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-service-invocation-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-state-management-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dapr-workflow-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: dapr-service-invocation-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 13 total)"
+  ],
+  "skipped": [
+    "dapr-actors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-bindings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-cryptography-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-distributedlock-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-metadata-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-pubsub-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-secrets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-service-invocation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-state-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dapr-workflow-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

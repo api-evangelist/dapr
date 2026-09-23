@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dapr Actors Metadata API
-  description: The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders. Actors provide a single-threaded programming model with guaranteed message ordering.
+  title: Dapr Metadata API
+  description: The Dapr Metadata API provides information about the Dapr sidecar, including the application connection details, registered components, active subscriptions, and HTTP endpoints. It also allows setting custom metadata attributes.
   version: 1.0.0
   contact:
     name: Dapr
@@ -149,5 +149,5 @@ paths:
         '500':
           description: Failed to set metadata.
 externalDocs:
-  description: Dapr Actors API Reference
-  url: https://docs.dapr.io/reference/api/actors_api/
+  description: Dapr Metadata API Reference
+  url: https://docs.dapr.io/reference/api/metadata_api/
