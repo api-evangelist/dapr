@@ -279,16 +279,6 @@ paths:
           description: Failed to query state.
 components:
   schemas:
-    BulkStateItem:
-      type: object
-      properties:
-        key:
-          type: string
-        data: {}
-        etag:
-          type: string
-        error:
-          type: string
     TransactionalStateOperation:
       type: object
       properties:
@@ -299,6 +289,16 @@ components:
           - delete
         request:
           $ref: '#/components/schemas/StateItem'
+    BulkStateItem:
+      type: object
+      properties:
+        key:
+          type: string
+        data: {}
+        etag:
+          type: string
+        error:
+          type: string
     StateItem:
       type: object
       required:

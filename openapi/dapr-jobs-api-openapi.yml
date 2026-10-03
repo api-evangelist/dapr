@@ -89,23 +89,6 @@ paths:
           description: Failed to delete job.
 components:
   schemas:
-    JobResponse:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the job.
-        schedule:
-          type: string
-          description: The job schedule.
-        dueTime:
-          type: string
-          description: The due time for the job.
-        repeats:
-          type: integer
-          description: Number of repeats.
-        data:
-          description: The job data payload.
     JobRequest:
       type: object
       properties:
@@ -123,6 +106,23 @@ components:
           description: Time-to-live for the job.
         data:
           description: The data payload to include with the job trigger.
+    JobResponse:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the job.
+        schedule:
+          type: string
+          description: The job schedule.
+        dueTime:
+          type: string
+          description: The due time for the job.
+        repeats:
+          type: integer
+          description: Number of repeats.
+        data:
+          description: The job data payload.
 externalDocs:
   description: Dapr Jobs API Reference
   url: https://docs.dapr.io/reference/api/jobs_api/
