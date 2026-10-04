@@ -289,16 +289,6 @@ components:
           - delete
         request:
           $ref: '#/components/schemas/StateItem'
-    BulkStateItem:
-      type: object
-      properties:
-        key:
-          type: string
-        data: {}
-        etag:
-          type: string
-        error:
-          type: string
     StateItem:
       type: object
       required:
@@ -331,6 +321,16 @@ components:
               enum:
               - eventual
               - strong
+    BulkStateItem:
+      type: object
+      properties:
+        key:
+          type: string
+        data: {}
+        etag:
+          type: string
+        error:
+          type: string
 externalDocs:
   description: Dapr State Management API Reference
   url: https://docs.dapr.io/reference/api/state_api/

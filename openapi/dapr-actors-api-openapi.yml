@@ -332,20 +332,6 @@ components:
       schema:
         type: string
   schemas:
-    ActorTimer:
-      type: object
-      properties:
-        dueTime:
-          type: string
-          description: Time after which the timer fires for the first time (ISO 8601 duration or time).
-        period:
-          type: string
-          description: Time interval between timer fires (ISO 8601 duration).
-        callback:
-          type: string
-          description: The name of the callback method to invoke.
-        data:
-          description: Data to pass to the callback method.
     ActorReminder:
       type: object
       properties:
@@ -360,6 +346,20 @@ components:
         ttl:
           type: string
           description: Time-to-live for the reminder.
+    ActorTimer:
+      type: object
+      properties:
+        dueTime:
+          type: string
+          description: Time after which the timer fires for the first time (ISO 8601 duration or time).
+        period:
+          type: string
+          description: Time interval between timer fires (ISO 8601 duration).
+        callback:
+          type: string
+          description: The name of the callback method to invoke.
+        data:
+          description: Data to pass to the callback method.
 externalDocs:
   description: Dapr Actors API Reference
   url: https://docs.dapr.io/reference/api/actors_api/
