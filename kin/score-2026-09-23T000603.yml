@@ -1,21 +1,19 @@
-# Kin Score artifact — dapr — 2026-08-30T203505
+# Kin Score artifact — dapr — 2026-09-23T000603
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: dapr
-  schema_version: 0.17.2
-  scored_at: '2026-08-30'
-  run_ts: 2026-08-30T203505
-  composite: 42.3
+  schema_version: 0.22.0
+  scored_at: '2026-09-23'
+  run_ts: 2026-09-23T000603
+  composite: 42.5
   band: developing
   facets:
     discoverability: 66.7
-    contract_quality: 64.7
-    governance: 28.8
+    contract_quality: 63.8
+    contract_governance: 28.8
     operational_transparency: 36.8
     developer_ergonomics: 42.9
-    commercial_clarity: 13.2
-    contract_governance: 28.8
     access_clarity: 13.2
   agent_readiness:
     score: 18.3
