@@ -1,21 +1,21 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/dapr-actors-openapi.yml, openapi/dapr-bindings-openapi.yml, openapi/dapr-configuration-openapi.yml,
-  openapi/dapr-cryptography-openapi.yml, openapi/dapr-distributed-lock-openapi.yml, openapi/dapr-health-openapi.yml,
-  openapi/dapr-jobs-openapi.yml, openapi/dapr-metadata-openapi.yml, openapi/dapr-pubsub-openapi.yml,
-  openapi/dapr-secrets-openapi.yml, openapi/dapr-service-invocation-openapi.yml, openapi/dapr-state-management-openapi.yml,
-  openapi/dapr-workflow-openapi.yml
+source: openapi/dapr-actors-api-openapi.yml, openapi/dapr-bindings-api-openapi.yml, openapi/dapr-configuration-api-openapi.yml,
+  openapi/dapr-cryptography-api-openapi.yml, openapi/dapr-distributedlock-api-openapi.yml, openapi/dapr-health-api-openapi.yml,
+  openapi/dapr-jobs-api-openapi.yml, openapi/dapr-metadata-api-openapi.yml, openapi/dapr-pubsub-api-openapi.yml,
+  openapi/dapr-secrets-api-openapi.yml, openapi/dapr-service-invocation-api-openapi.yml, openapi/dapr-state-api-openapi.yml,
+  openapi/dapr-workflow-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 49
   by_action_class:
-    acting: 33
-    connected: 16
+    acting: 31
+    connected: 18
   by_consequence:
-    write: 32
-    read: 16
+    write: 30
+    read: 18
     safety-critical: 1
   human_in_the_loop_required: 1
 operations:
@@ -557,18 +557,12 @@ operations:
   method: post
   operationId: getBulkState
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v1.0/state/{storename}/transaction
   method: post
   operationId: executeStateTransaction
@@ -589,18 +583,12 @@ operations:
   method: post
   operationId: queryState
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v1.0/workflows/{workflowComponentName}/{workflowName}/start
   method: post
   operationId: startWorkflow

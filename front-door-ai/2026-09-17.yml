@@ -1,0 +1,34 @@
+# Front Door AI Index — dapr — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: dapr
+  lexicon_version: '1.0'
+  probed_at: '2026-09-25'
+  host: dapr.io
+  final_host: dapr.io
+  ownership: own
+  owner: dapr
+  shares_host_with: null
+  inherited_from: null
+  alias_of: null
+  verdict: scored
+  score: 23
+  band: 6
+  band_label: dominant
+  host_score: 23
+  density: 13.96
+  words: 1647
+  tiers:
+    agentic: 9
+    core: 14
+    model: 0
+  ambiguous: 10
+  top_terms:
+    agent: 10
+    AI: 9
+    AI agent: 7
+    LLMs: 4
+    agentic: 1
+    large language model: 1
+    prompts: 1
