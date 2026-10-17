@@ -279,16 +279,16 @@ paths:
           description: Failed to query state.
 components:
   schemas:
-    TransactionalStateOperation:
+    BulkStateItem:
       type: object
       properties:
-        operation:
+        key:
           type: string
-          enum:
-          - upsert
-          - delete
-        request:
-          $ref: '#/components/schemas/StateItem'
+        data: {}
+        etag:
+          type: string
+        error:
+          type: string
     StateItem:
       type: object
       required:
@@ -321,16 +321,16 @@ components:
               enum:
               - eventual
               - strong
-    BulkStateItem:
+    TransactionalStateOperation:
       type: object
       properties:
-        key:
+        operation:
           type: string
-        data: {}
-        etag:
-          type: string
-        error:
-          type: string
+          enum:
+          - upsert
+          - delete
+        request:
+          $ref: '#/components/schemas/StateItem'
 externalDocs:
   description: Dapr State Management API Reference
   url: https://docs.dapr.io/reference/api/state_api/

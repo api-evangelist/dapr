@@ -316,21 +316,6 @@ paths:
         '500':
           description: Failed to delete reminder.
 components:
-  parameters:
-    actorId:
-      name: actorId
-      in: path
-      required: true
-      description: The ID of the actor instance.
-      schema:
-        type: string
-    actorType:
-      name: actorType
-      in: path
-      required: true
-      description: The type of the actor.
-      schema:
-        type: string
   schemas:
     ActorReminder:
       type: object
@@ -360,6 +345,21 @@ components:
           description: The name of the callback method to invoke.
         data:
           description: Data to pass to the callback method.
+  parameters:
+    actorType:
+      name: actorType
+      in: path
+      required: true
+      description: The type of the actor.
+      schema:
+        type: string
+    actorId:
+      name: actorId
+      in: path
+      required: true
+      description: The ID of the actor instance.
+      schema:
+        type: string
 externalDocs:
   description: Dapr Actors API Reference
   url: https://docs.dapr.io/reference/api/actors_api/

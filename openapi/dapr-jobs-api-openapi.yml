@@ -89,23 +89,6 @@ paths:
           description: Failed to delete job.
 components:
   schemas:
-    JobRequest:
-      type: object
-      properties:
-        schedule:
-          type: string
-          description: The schedule for the job using a cron expression or duration (e.g., @every 5s).
-        dueTime:
-          type: string
-          description: The time at which the job should be triggered (RFC3339 or duration).
-        repeats:
-          type: integer
-          description: The number of times the job should be triggered.
-        ttl:
-          type: string
-          description: Time-to-live for the job.
-        data:
-          description: The data payload to include with the job trigger.
     JobResponse:
       type: object
       properties:
@@ -123,6 +106,23 @@ components:
           description: Number of repeats.
         data:
           description: The job data payload.
+    JobRequest:
+      type: object
+      properties:
+        schedule:
+          type: string
+          description: The schedule for the job using a cron expression or duration (e.g., @every 5s).
+        dueTime:
+          type: string
+          description: The time at which the job should be triggered (RFC3339 or duration).
+        repeats:
+          type: integer
+          description: The number of times the job should be triggered.
+        ttl:
+          type: string
+          description: Time-to-live for the job.
+        data:
+          description: The data payload to include with the job trigger.
 externalDocs:
   description: Dapr Jobs API Reference
   url: https://docs.dapr.io/reference/api/jobs_api/
