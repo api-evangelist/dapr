@@ -74,3 +74,33 @@
     detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
+- slug: dapr-scoop
+  label: Scoop
+  partner_name: Scoop
+  category: official CLI (Scoop)
+  type: register
+  channel: package-registry
+  evidence: https://github.com/ScoopInstaller/Main/blob/master/bucket/dapr-cli.json
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Scoop (public package index)
+    spec_file: null
+    packages:
+    - name: dapr-cli
+      kind: main
+      version: 1.18.2
+      released: null
+      lapsed: false
+      page: https://github.com/ScoopInstaller/Main/blob/master/bucket/dapr-cli.json
+      cli: 'scoop description: Command-line tools for Dapr'
+      repo_leg: github-org:dapr
+      publisher_leg: artifact-github-org:dapr
+      matched_by: github-org
+    current: true
+    signal_note: 'the provider''s own command-line tool on a package manager: distribution, not an integration;
+      lapsed = no release in 24 months or deprecated / disabled by the manager'
+    detected_by: sweep-official-clis.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
