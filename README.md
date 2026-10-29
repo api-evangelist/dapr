@@ -1,4 +1,4 @@
-# Dapr (dapr)
+# Dapr
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,333 +66,202 @@
 
 Dapr (Distributed Application Runtime) is a portable, event-driven runtime that makes it easy for developers to build resilient, stateless, and stateful applications that run on the cloud and edge. It provides building block APIs for state management, pub/sub messaging, service invocation, bindings, actors, workflows, secrets, configuration, distributed locks, cryptography, jobs scheduling, health checks, and metadata.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/dapr/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/dapr/refs/heads/main/apis.yml)
+**Areas:** Dapr · Distributed Systems · Microservices · Platform · Pub/Sub · State Management · Workflows
 
-## Scope
+## Dapr on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Dapr is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dapr/](https://apis.io/providers/dapr/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (13)
 
-- Distributed Systems
-- Microservices
-- Platform
-- Pub/Sub
-- State Management
-- Workflows
+- [Dapr Actors API](https://apis.io/apis/dapr/dapr-actors-api/) — Virtual actor operations including state, timers, and reminders.
+- [Dapr Bindings API](https://apis.io/apis/dapr/dapr-bindings-api/) — Input and output binding operations.
+- [Dapr Configuration API](https://apis.io/apis/dapr/dapr-configuration-api/) — Configuration management operations.
+- [Dapr Cryptography API](https://apis.io/apis/dapr/dapr-cryptography-api/) — Cryptographic operations.
+- [Dapr DistributedLock API](https://apis.io/apis/dapr/dapr-distributedlock-api/) — Distributed locking operations.
+- [Dapr Health API](https://apis.io/apis/dapr/dapr-health-api/) — Health check operations.
+- [Dapr Jobs API](https://apis.io/apis/dapr/dapr-jobs-api/) — Job scheduling operations.
+- [Dapr Metadata API](https://apis.io/apis/dapr/dapr-metadata-api/) — Sidecar metadata operations.
+- [Dapr PubSub API](https://apis.io/apis/dapr/dapr-pubsub-api/) — Publish and subscribe messaging operations.
+- [Dapr Secrets API](https://apis.io/apis/dapr/dapr-secrets-api/) — Secret management operations.
+- [Dapr State API](https://apis.io/apis/dapr/dapr-state-api/) — State management operations.
+- [Dapr Workflow API](https://apis.io/apis/dapr/dapr-workflow-api/) — Workflow orchestration operations.
+- [Dapr Service Invocation API](https://apis.io/apis/dapr/dapr-service-invocation-api/) — Service-to-service invocation operations.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-01-08
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### Dapr State Management API
+Event-driven and webhook contracts.
 
-The Dapr State Management API provides key/value-based state management capabilities for distributed applications. It supports saving, retrieving, deleting, and performing bulk and transactional operations on application state using pluggable state stores.
+- [Dapr Pub/Sub Messaging API](https://apis.io/asyncapis/dapr/dapr-pubsub-asyncapi/)
 
-- **Human URL:** [https://docs.dapr.io/reference/api/state_api/](https://docs.dapr.io/reference/api/state_api/)
+#### Event channels (3)
 
-#### Tags
+Individual events and webhooks the provider emits.
 
-- Distributed Systems
-- Key Value
-- State Management
+- [bulk-publish](https://apis.io/channels/dapr/bulk-publish/)
+- [publish](https://apis.io/channels/dapr/publish/)
+- [subscribe](https://apis.io/channels/dapr/subscribe/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://docs.dapr.io/reference/api/state_api/)
-- [OpenAPI](openapi/dapr-state-management-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-state-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-state-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/state-item.json) — [JSON Schema](https://json-schema.org/specification)
-- [Reference](https://docs.dapr.io/developing-applications/building-blocks/state-management/)
-- [Client  Libraries](https://docs.dapr.io/sdks/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Dapr Pub/Sub API
+- [Dapr Agentic Access](https://apis.io/agentic-access/dapr/dapr-agentic-access/)
 
-The Dapr Pub/Sub API enables publish and subscribe messaging between applications. It supports publishing events to topics, bulk publishing, and discovering topic subscriptions using the CloudEvents 1.0 specification.
+#### JSON Schema (9)
 
-- **Human URL:** [https://docs.dapr.io/reference/api/pubsub_api/](https://docs.dapr.io/reference/api/pubsub_api/)
+The data models the API reads and writes.
 
-#### Tags
+- [Dapr Actor](https://apis.io/schemas/dapr/actor/)
+- [Dapr Binding](https://apis.io/schemas/dapr/binding/)
+- [Dapr CloudEvent](https://apis.io/schemas/dapr/cloud-event/)
+- [Dapr ConfigurationItem](https://apis.io/schemas/dapr/configuration-item/)
+- [Dapr Job](https://apis.io/schemas/dapr/job/)
+- [Dapr Metadata](https://apis.io/schemas/dapr/metadata/)
+- [Dapr Secret](https://apis.io/schemas/dapr/secret/)
+- [Dapr StateItem](https://apis.io/schemas/dapr/state-item/)
+- [Dapr Workflow](https://apis.io/schemas/dapr/workflow/)
 
-- CloudEvents
-- Events
-- Messaging
-- Pub/Sub
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://docs.dapr.io/reference/api/pubsub_api/)
-- [OpenAPI](openapi/dapr-pubsub-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-pubsub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-pubsub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [AsyncAPI](asyncapi/dapr-pubsub-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [JSON Schema](json-schema/cloud-event.json) — [JSON Schema](https://json-schema.org/specification)
-- [Reference](https://docs.dapr.io/developing-applications/building-blocks/pubsub/)
-- [Client  Libraries](https://docs.dapr.io/sdks/)
+- [Dapr Context](https://apis.io/jsonld/dapr/dapr-context/)
 
-### Dapr Service Invocation API
+#### Vocabulary (1)
 
-The Dapr Service Invocation API enables applications to communicate with each other through well-known endpoints using HTTP methods. Dapr acts as a reverse proxy with built-in service discovery, distributed tracing, and error handling.
+The provider's domain terms, defined.
 
-- **Human URL:** [https://docs.dapr.io/reference/api/service_invocation_api/](https://docs.dapr.io/reference/api/service_invocation_api/)
+- [Dapr Vocabulary](https://apis.io/vocabularies/dapr/dapr-vocabulary/)
 
-#### Tags
+#### Collections (26)
 
-- Microservices
-- Service Discovery
-- Service Invocation
+Postman and Open Collection request collections.
 
-#### Properties
+- [Dapr Actors API](https://apis.io/collections/dapr/open-dapr-actors/)
+- [Dapr Actors API](https://apis.io/collections/dapr/open-dapr-actors-api/)
+- [Dapr Bindings API](https://apis.io/collections/dapr/open-dapr-bindings/)
+- [Dapr Actors Bindings API](https://apis.io/collections/dapr/open-dapr-bindings-api/)
+- [Dapr Configuration API](https://apis.io/collections/dapr/open-dapr-configuration/)
+- [Dapr Actors Configuration API](https://apis.io/collections/dapr/open-dapr-configuration-api/)
+- [Dapr Cryptography API](https://apis.io/collections/dapr/open-dapr-cryptography/)
+- [Dapr Actors Cryptography API](https://apis.io/collections/dapr/open-dapr-cryptography-api/)
+- [Dapr Distributed Lock API](https://apis.io/collections/dapr/open-dapr-distributed-lock/)
+- [Dapr Actors DistributedLock API](https://apis.io/collections/dapr/open-dapr-distributedlock-api/)
+- [Dapr Health API](https://apis.io/collections/dapr/open-dapr-health/)
+- [Dapr Actors Health API](https://apis.io/collections/dapr/open-dapr-health-api/)
+- [Dapr Jobs API](https://apis.io/collections/dapr/open-dapr-jobs/)
+- [Dapr Actors Jobs API](https://apis.io/collections/dapr/open-dapr-jobs-api/)
+- [Dapr Metadata API](https://apis.io/collections/dapr/open-dapr-metadata/)
+- [Dapr Actors Metadata API](https://apis.io/collections/dapr/open-dapr-metadata-api/)
+- [Dapr Pub/Sub API](https://apis.io/collections/dapr/open-dapr-pubsub/)
+- [Dapr Actors PubSub API](https://apis.io/collections/dapr/open-dapr-pubsub-api/)
+- [Dapr Secrets API](https://apis.io/collections/dapr/open-dapr-secrets/)
+- [Dapr Actors Secrets API](https://apis.io/collections/dapr/open-dapr-secrets-api/)
+- [Dapr Service Invocation API](https://apis.io/collections/dapr/open-dapr-service-invocation/)
+- [Dapr Actors ServiceInvocation API](https://apis.io/collections/dapr/open-dapr-serviceinvocation-api/)
+- [Dapr Actors State API](https://apis.io/collections/dapr/open-dapr-state-api/)
+- [Dapr State Management API](https://apis.io/collections/dapr/open-dapr-state-management/)
+- [Dapr Workflow API](https://apis.io/collections/dapr/open-dapr-workflow/)
+- …and 1 more published on APIs.io
 
-- [Documentation](https://docs.dapr.io/reference/api/service_invocation_api/)
-- [OpenAPI](openapi/dapr-service-invocation-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-service-invocation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-service-invocation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Reference](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/)
-- [Client  Libraries](https://docs.dapr.io/sdks/)
+#### Governance rules (3)
 
-### Dapr Bindings API
+Spectral rulesets for the provider's contracts.
 
-The Dapr Bindings API enables applications to trigger and invoke external resources through output bindings, and receive events from external resources through input bindings. Supported bindings include Kafka, RabbitMQ, Azure Event Hubs, AWS SQS, GCP Storage, and more.
+- [Dapr — asyncapi rules](https://apis.io/rules/dapr/dapr-asyncapi-spectral-rules/)
+- [Dapr — jsonschema rules](https://apis.io/rules/dapr/dapr-jsonschema-spectral-rules/)
+- [Dapr API Rules](https://apis.io/rules/dapr/dapr-rules/)
 
-- **Human URL:** [https://docs.dapr.io/reference/api/bindings_api/](https://docs.dapr.io/reference/api/bindings_api/)
+#### Security (1)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Bindings
-- Event-Driven
-- Integrations
+- [Dapr Domain Security](https://apis.io/security/dapr/dapr-domain-security/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://docs.dapr.io/reference/api/bindings_api/)
-- [OpenAPI](openapi/dapr-bindings-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-bindings.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-bindings.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/binding.json) — [JSON Schema](https://json-schema.org/specification)
-- [Reference](https://docs.dapr.io/developing-applications/building-blocks/bindings/)
-- [Client  Libraries](https://docs.dapr.io/sdks/)
+Published plans, tiers and prices.
 
-### Dapr Secrets API
+- [Dapr Plans Pricing](https://apis.io/plans/dapr/dapr-plans-pricing/)
 
-The Dapr Secrets API provides a consistent way to retrieve application secrets from various secret stores, including Hashicorp Vault, AWS Secrets Manager, Azure Key Vault, GCP Secret Manager, and Kubernetes Secrets.
+#### Rate limits (1)
 
-- **Human URL:** [https://docs.dapr.io/reference/api/secrets_api/](https://docs.dapr.io/reference/api/secrets_api/)
+Published request limits.
 
-#### Tags
+- [Dapr Rate Limits](https://apis.io/rate-limits/dapr/dapr-rate-limits/)
 
-- Key Management
-- Secrets
-- Security
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://docs.dapr.io/reference/api/secrets_api/)
-- [OpenAPI](openapi/dapr-secrets-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-secrets.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-secrets.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/secret.json) — [JSON Schema](https://json-schema.org/specification)
-- [Reference](https://docs.dapr.io/developing-applications/building-blocks/secrets/)
-- [Client  Libraries](https://docs.dapr.io/sdks/)
+- [Dapr Finops](https://apis.io/finops/dapr/dapr-finops/)
 
-### Dapr Actors API
+## Where to find this API
 
-The Dapr Actors API provides virtual actor capabilities for distributed applications, including actor method invocation, state management, timers, and reminders with guaranteed single-threaded execution and message ordering.
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- **Human URL:** [https://docs.dapr.io/reference/api/actors_api/](https://docs.dapr.io/reference/api/actors_api/)
-
-#### Tags
-
-- Actors
-- Distributed Systems
-- Virtual Actors
-
-#### Properties
-
-- [Documentation](https://docs.dapr.io/reference/api/actors_api/)
-- [OpenAPI](openapi/dapr-actors-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-actors.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-actors.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/actor.json) — [JSON Schema](https://json-schema.org/specification)
-- [Reference](https://docs.dapr.io/developing-applications/building-blocks/actors/)
-- [Client  Libraries](https://docs.dapr.io/sdks/)
-
-### Dapr Workflow API
-
-The Dapr Workflow API provides the ability to manage workflow instances, including starting, getting status, pausing, resuming, terminating, purging, and raising events to workflows.
-
-- **Human URL:** [https://docs.dapr.io/reference/api/workflow_api/](https://docs.dapr.io/reference/api/workflow_api/)
-
-#### Tags
-
-- Distributed Systems
-- Orchestration
-- Workflows
-
-#### Properties
-
-- [Documentation](https://docs.dapr.io/reference/api/workflow_api/)
-- [OpenAPI](openapi/dapr-workflow-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-workflow.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-workflow.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/workflow.json) — [JSON Schema](https://json-schema.org/specification)
-- [Reference](https://docs.dapr.io/developing-applications/building-blocks/workflow/)
-- [Client  Libraries](https://docs.dapr.io/sdks/)
-
-### Dapr Configuration API
-
-The Dapr Configuration API enables applications to retrieve and subscribe to configuration items from supported configuration stores, allowing applications to react to configuration changes in real time.
-
-- **Human URL:** [https://docs.dapr.io/reference/api/configuration_api/](https://docs.dapr.io/reference/api/configuration_api/)
-
-#### Tags
-
-- Configuration
-- Distributed Systems
-- Subscriptions
-
-#### Properties
-
-- [Documentation](https://docs.dapr.io/reference/api/configuration_api/)
-- [OpenAPI](openapi/dapr-configuration-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-configuration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-configuration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/configuration-item.json) — [JSON Schema](https://json-schema.org/specification)
-- [Reference](https://docs.dapr.io/developing-applications/building-blocks/configuration/)
-- [Client  Libraries](https://docs.dapr.io/sdks/)
-
-### Dapr Distributed Lock API
-
-The Dapr Distributed Lock API enables applications to acquire and release locks on shared resources, ensuring mutual exclusion across multiple application instances using a lease-based locking mechanism.
-
-- **Human URL:** [https://docs.dapr.io/reference/api/distributed_lock_api/](https://docs.dapr.io/reference/api/distributed_lock_api/)
-
-#### Tags
-
-- Concurrency
-- Coordination
-- Distributed Lock
-
-#### Properties
-
-- [Documentation](https://docs.dapr.io/reference/api/distributed_lock_api/)
-- [OpenAPI](openapi/dapr-distributed-lock-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-distributed-lock.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-distributed-lock.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Reference](https://docs.dapr.io/developing-applications/building-blocks/distributed-lock/)
-- [Client  Libraries](https://docs.dapr.io/sdks/)
-
-### Dapr Cryptography API
-
-The Dapr Cryptography API enables applications to perform cryptographic operations such as encrypting and decrypting data using configured cryptography components, without exposing cryptographic keys to the application.
-
-- **Human URL:** [https://docs.dapr.io/reference/api/cryptography_api/](https://docs.dapr.io/reference/api/cryptography_api/)
-
-#### Tags
-
-- Cryptography
-- Encryption
-- Security
-
-#### Properties
-
-- [Documentation](https://docs.dapr.io/reference/api/cryptography_api/)
-- [OpenAPI](openapi/dapr-cryptography-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-cryptography.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-cryptography.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Reference](https://docs.dapr.io/developing-applications/building-blocks/cryptography/)
-- [Client  Libraries](https://docs.dapr.io/sdks/)
-
-### Dapr Jobs API
-
-The Dapr Jobs API enables applications to schedule, retrieve, and delete jobs for future execution at specific times or intervals using cron expressions or duration specifications.
-
-- **Human URL:** [https://docs.dapr.io/reference/api/jobs_api/](https://docs.dapr.io/reference/api/jobs_api/)
-
-#### Tags
-
-- Cron
-- Jobs
-- Scheduling
-
-#### Properties
-
-- [Documentation](https://docs.dapr.io/reference/api/jobs_api/)
-- [OpenAPI](openapi/dapr-jobs-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-jobs.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-jobs.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/job.json) — [JSON Schema](https://json-schema.org/specification)
-- [Reference](https://docs.dapr.io/developing-applications/building-blocks/jobs/)
-- [Client  Libraries](https://docs.dapr.io/sdks/)
-
-### Dapr Health API
-
-The Dapr Health API provides health check endpoints for the Dapr sidecar, usable with container orchestrators like Kubernetes for readiness and liveness probes.
-
-- **Human URL:** [https://docs.dapr.io/reference/api/health_api/](https://docs.dapr.io/reference/api/health_api/)
-
-#### Tags
-
-- Health
-- Kubernetes
-- Monitoring
-
-#### Properties
-
-- [Documentation](https://docs.dapr.io/reference/api/health_api/)
-- [OpenAPI](openapi/dapr-health-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-health.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-health.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Reference](https://docs.dapr.io/operations/observability/healthchecks/)
-
-### Dapr Metadata API
-
-The Dapr Metadata API provides information about the Dapr sidecar, including application connection details, registered components, active subscriptions, and HTTP endpoints. It also allows setting custom metadata attributes.
-
-- **Human URL:** [https://docs.dapr.io/reference/api/metadata_api/](https://docs.dapr.io/reference/api/metadata_api/)
-
-#### Tags
-
-- Metadata
-- Observability
-- Runtime
-
-#### Properties
-
-- [Documentation](https://docs.dapr.io/reference/api/metadata_api/)
-- [OpenAPI](openapi/dapr-metadata-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dapr-metadata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dapr-metadata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/metadata.json) — [JSON Schema](https://json-schema.org/specification)
-- [Reference](https://docs.dapr.io/operations/observability/)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/daprdev)
 - [Website](https://dapr.io/)
 - [Documentation](https://docs.dapr.io/)
-- [Getting Started](https://docs.dapr.io/getting-started/)
-- [Blog](https://blog.dapr.io/)
-- [GitHub Organization](https://github.com/dapr)
-- [GitHub Repository](https://github.com/dapr/dapr)
-- [S D Ks](https://docs.dapr.io/sdks/)
-- [Community](https://discord.gg/ptHhX6jc34)
+- [Getting started](https://docs.dapr.io/getting-started/)
 - [Changelog](https://github.com/dapr/dapr/blob/master/CHANGELOG.md)
+- [Blog](https://blog.dapr.io/)
 - [Security](https://github.com/dapr/dapr/security/policy)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/dapr)
-- [JSON-LD](json-ld/dapr-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Vocabulary](vocabulary/dapr-vocabulary.yml)
-- [Rules](rules/dapr-rules.yml)
-- [Capabilities](capabilities/dapr-capabilities.yml)
-- [L L Ms Txt](https://dapr.io/llms.txt)
+- [GitHub](https://github.com/dapr)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 39.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 58.6 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 42.9 |
+| Access clarity | 5.3 |
+
+**Agent readiness 16.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dapr/](https://apis.io/providers/dapr/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Dapr: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dapr/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
